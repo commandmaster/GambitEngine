@@ -28180,7 +28180,17 @@ namespace Lookup
     {
         return Tables::PinBetween[from * 64 + to];
     }
-
+    
+    constexpr static std::array<Bitboard, 8> files = {
+        0x101010101010101,
+        0x202020202020202,
+        0x404040404040404,
+        0x808080808080808,
+        0x1010101010101010,
+        0x2020202020202020,
+        0x4040404040404040,
+        0x8080808080808080
+    };
 
 }
 

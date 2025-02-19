@@ -30,6 +30,12 @@ typedef uint64_t Square;
 // 56 57 58 59 60 61 62 63
 
 
+_Compiletime Bitboard mirrorVertical(Bitboard x) {
+    x = ((x >> 8)  & 0x00FF00FF00FF00FFULL) | ((x & 0x00FF00FF00FF00FFULL) << 8);
+    x = ((x >> 16) & 0x0000FFFF0000FFFFULL) | ((x & 0x0000FFFF0000FFFFULL) << 16);
+    x = (x >> 32) | (x << 32);
+    return x;
+}
 
 namespace Piece
 {
@@ -66,6 +72,17 @@ namespace Piece
 
 struct Move
 {
+	bool operator==(const Move& other) const {
+		return startSquare == other.startSquare &&
+			   endSquare == other.endSquare &&
+			   piece == other.piece &&
+			   promotedPiece == other.promotedPiece &&
+			   captureFlag == other.captureFlag &&
+			   doublePushFlag == other.doublePushFlag &&
+			   enpassantFlag == other.enpassantFlag &&
+			   castlingFlag == other.castlingFlag;
+	}
+
 	uint8_t startSquare : 6;
 	uint8_t endSquare : 6;
 	uint8_t piece : 4;
@@ -75,6 +92,20 @@ struct Move
 	bool enpassantFlag : 1;
 	bool castlingFlag : 1;
 };
+
+template <bool turn, bool kw, bool qw, bool kb, bool qb, bool hasEnPassant>
+struct BoardStatus {
+    static constexpr bool whiteToMove = turn;
+    static constexpr bool kingsideWhite = kw;
+    static constexpr bool queensideWhite = qw;
+    static constexpr bool kingsideBlack = kb;
+    static constexpr bool queensideBlack = qb;
+    static constexpr bool enPassantPossible = hasEnPassant;
+
+    template <bool newTurn, bool newKW, bool newQW, bool newKB, bool newQB, bool newEP>
+    using Update = BoardStatus<newTurn, newKW, newQW, newKB, newQB, newEP>;
+};
+
 
 struct BoardState
 {
@@ -106,7 +137,7 @@ struct BoardState
 	Bitboard blackKing;
 
 	bool whiteTurn;
-    uint8_t castlingRights;
+    uint8_t castlingRights; // 0b black queenside | black kingside | white queenside | white kingside
     Bitboard enPassant;
     uint16_t halfmoveClock;
     uint16_t fullmoveNumber;

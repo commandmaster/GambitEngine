@@ -17,7 +17,7 @@ void BoardState::makeMove(const Move& move) {
     if (move.captureFlag) {
         if (move.enpassantFlag) {
             // En passant: captured pawn is adjacent
-            history.capturedSquare = whiteTurn ? move.endSquare - 8 : move.endSquare + 8;
+            history.capturedSquare = whiteTurn ? move.endSquare + 8 : move.endSquare - 8;
             history.capturedPiece = whiteTurn ? Piece::BP : Piece::WP;
         } else {
             history.capturedSquare = move.endSquare;
@@ -69,16 +69,16 @@ void BoardState::makeMove(const Move& move) {
     if (move.castlingFlag) {
         // Determine rook's movement based on destination square.
         if (whiteTurn) {
-            if (move.endSquare == 6) { // White kingside castling.
-                history.rookFrom = 7; history.rookTo = 5;
+            if (move.endSquare == 62) { // White kingside castling.
+                history.rookFrom = 63; history.rookTo = 61;
             } else { // White queenside castling.
-                history.rookFrom = 0; history.rookTo = 3;
+                history.rookFrom = 56; history.rookTo = 59;
             }
         } else {
-            if (move.endSquare == 62) { // Black kingside castling.
-                history.rookFrom = 63; history.rookTo = 61;
+            if (move.endSquare == 6) { // Black kingside castling.
+                history.rookFrom = 7; history.rookTo = 5;
             } else { // Black queenside castling.
-                history.rookFrom = 56; history.rookTo = 59;
+                history.rookFrom = 0; history.rookTo = 3;
             }
         }
         // Move the rook.
