@@ -8,6 +8,8 @@
 #include <array>
 #include <cctype>
 #include <vector>
+#include <string>
+#include <iostream>
 
 typedef uint64_t Bitboard;
 typedef uint64_t Square;
@@ -28,6 +30,8 @@ typedef uint64_t Square;
 // 40 41 42 43 44 45 46 47
 // 48 49 50 51 52 53 54 55
 // 56 57 58 59 60 61 62 63
+
+
 
 
 _Compiletime Bitboard mirrorVertical(Bitboard x) {
@@ -92,6 +96,32 @@ struct Move
 	bool enpassantFlag : 1;
 	bool castlingFlag : 1;
 };
+
+static std::string moveToUCI(const Move& move) {
+    std::string uci;
+
+    // Convert start square
+    auto toFile = [](int square) { return 'a' + (square % 8); };
+    auto toRank = [](int square) { return '0' + (8 - (square / 8)); };
+
+    uci += toFile(move.startSquare);
+    uci += toRank(move.startSquare);
+    uci += toFile(move.endSquare);
+    uci += toRank(move.endSquare);
+
+    // Handle promotion
+    if (move.promotedPiece != Piece::NONE) {
+        switch (Piece::getType(move.promotedPiece)) {
+            case 1: uci += 'n'; break;
+            case 2: uci += 'b'; break;
+            case 3: uci += 'r'; break;
+            case 4: uci += 'q'; break;
+            default: break; // Invalid promotion (ignored)
+        }
+    }
+
+    return uci;
+}
 
 template <bool turn, bool kw, bool qw, bool kb, bool qb, bool hasEnPassant>
 struct BoardStatus {

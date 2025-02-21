@@ -143,7 +143,9 @@ private:
 		Bitboard epLeftPawn = pawns & ((epTarget & ~0x0101010101010101ULL) >> 1);
 		Bitboard epRightPawn = pawns & ((epTarget & ~0x8080808080808080ULL) << 1);
 
-		outputForVisualization = epTarget;
+		epLeftPawn &= ~cashedPinHV;
+		epRightPawn &= ~cashedPinHV;
+
 
 		if ((king & epRank) && (enemyHV & epRank) && (pawns & epRank))
 		{
@@ -191,10 +193,12 @@ private:
 			Square enemySq = SquareOf(enemyHV);
 
 			Bitboard overlap = Lookup::lookupRookMove(occupied, enemySq) & kingRookMoves;
-			bool flag = (overlap != 0);
+			Bitboard pinBetween = Lookup::pinBetweenHV(enemySq, SquareOf(king));
+
+			bool flag = (overlap != 0 && pinBetween);
 			Bitboard conditionMask = (Bitboard)(0 - flag);
 
-			hvPinMask |= (Lookup::pinBetween(enemySq, SquareOf(king)) | 1ULL << enemySq) & conditionMask;
+			hvPinMask |= ((pinBetween | (1ULL << enemySq)) & conditionMask);
 		}
 
 		return hvPinMask;
@@ -211,10 +215,13 @@ private:
 			Square enemySq = SquareOf(enemyD12);
 
 			Bitboard overlap = Lookup::lookupBishopMove(occupied, enemySq) & kingBishopMoves;
-			bool flag = (overlap != 0);
+			Bitboard pinBetween = Lookup::pinBetweenD12(enemySq, SquareOf(king));
+
+			bool flag = (overlap != 0 && pinBetween);
 			Bitboard conditionMask = (Bitboard)(0 - flag);
 
-			d12PinMask |= (Lookup::pinBetween(enemySq, SquareOf(king)) | 1ULL << enemySq) & conditionMask;
+
+			d12PinMask |= ((pinBetween | (1ULL << enemySq)) & conditionMask);
 		}
 
 		return d12PinMask;
@@ -567,7 +574,6 @@ private:
 		Bitboard kingMoves = Lookup::lookupKingMove(kingSq) & ~friendly;
 		Bitboard attackedSquares = calculateAttackedSquares(board, !board.whiteTurn); // Squares attacked by enemy
 
-		outputForVisualization = attackedSquares;
 
 		kingMoves &= ~attackedSquares;
 		uint8_t kingPiece = board.whiteTurn ? Piece::WK : Piece::BK;

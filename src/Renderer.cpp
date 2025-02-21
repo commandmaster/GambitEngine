@@ -6,7 +6,7 @@ Renderer::Renderer(int screenWidth, int screenHeight)
     SetWindowSize(screenWidth, screenHeight);
 
 	boardSize = std::min<int>(screenWidth, screenHeight);
-	piecesTexture = LoadTexture("../assets/chessPieces.png");
+	piecesTexture = LoadTexture("./assets/chessPieces.png");
 	
 	SetTargetFPS(60);
 }

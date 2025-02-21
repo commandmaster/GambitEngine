@@ -7,17 +7,20 @@
 #include <string>
 #include <random>
 #include <future>
+#include <iterator>
 #include <memory>
+#include <numeric>
 
 #include "Board.h"
 #include "MoveGenerator.h"
+#include "Opening.h"
 
 
 namespace Search
 {
-	std::random_device dev;
-	std::mt19937 rng(dev());
-    std::uniform_int_distribution<std::mt19937::result_type> dist(0, 3);
+	static std::random_device dev;
+	static std::mt19937 rng(dev());
+    static std::uniform_int_distribution<std::mt19937::result_type> dist(0, 3);
 
 	static constexpr std::array<uint16_t, 64> pawnBonus = {
 		 0,  0,  0,  0,  0,  0,  0,  0,
@@ -90,7 +93,7 @@ namespace Search
 		-50,-30,-30,-30,-30,-30,-30,-50		
 	};
 
-	inline int sumBonuses(Bitboard bb, const std::array<uint16_t, 64>& table) 
+	static inline int sumBonuses(Bitboard bb, const std::array<uint16_t, 64>& table) 
 	{
 		const uint16_t* ptr = table.data();
 		__m128i sum = _mm_setzero_si128();
@@ -116,7 +119,7 @@ namespace Search
 		return _mm_extract_epi32(sum, 0) + _mm_extract_epi32(sum, 1);
 	}
 
-	constexpr int getPieceValue(uint8_t piece) 
+	static constexpr int getPieceValue(uint8_t piece) 
 	{
         switch (Piece::getType(piece)) {
             case 0: return 100; // Pawn
@@ -129,7 +132,7 @@ namespace Search
         }
     }
 
-	inline uint8_t getCapturedPieceType(const BoardState& board, const Move& move) {
+	static inline uint8_t getCapturedPieceType(const BoardState& board, const Move& move) {
         if (!move.captureFlag) return Piece::NONE;
         if (move.enpassantFlag) {
             return board.whiteTurn ? Piece::BP : Piece::WP; // En passant captures a pawn
@@ -155,13 +158,13 @@ namespace Search
     static std::chrono::steady_clock::time_point SearchStart; 
     static int TimeLimit = 5000; 
 
-	inline void startTimer() 
+	static inline void startTimer() 
 	{
         Timeout = false;
         SearchStart = std::chrono::steady_clock::now();
     }
 
-    inline bool timeElapsed() 
+    static inline bool timeElapsed() 
 	{
         auto elapsed = std::chrono::duration_cast<std::chrono::milliseconds>(
             std::chrono::steady_clock::now() - SearchStart
@@ -169,9 +172,76 @@ namespace Search
         return elapsed >= TimeLimit;
     }
 
-    int quiescence(BoardState& board, int alpha, int beta, MoveGenerator& moveGenerator);
+    static std::vector<BookEntry> bookEntries;
 
-    int evaluate(const BoardState& board) 
+    static void loadOpeningBook(const std::string& filename) 
+	{
+        try 
+		{
+            bookEntries = loadPolyglotBook(filename);
+        }
+		catch (const std::exception& e) 
+		{
+            std::cerr << "Failed to load opening book: " << e.what() << std::endl;
+        }
+    }
+
+    static Move getBookMove(const BoardState& board) 
+	{
+        if (bookEntries.empty()) return Move{};
+
+        uint64_t key = computeZobristKey(board);
+        auto [lower, upper] = lookupEntries(bookEntries, key);
+        if (lower == upper) return Move{};
+
+        std::vector<BookEntry> possibleEntries(lower, upper);
+        std::vector<Move> validMoves;
+        std::vector<uint16_t> weights;
+
+        MoveGenerator mg;
+        MoveArr legalMoves;
+        int moveCount = mg.generateLegalMoves(legalMoves, const_cast<BoardState&>(board));
+
+        for (const auto& entry : possibleEntries) 
+		{
+            Move bookMove = convertPolyglotMove(entry.move, board.whiteTurn);
+            for (int i = 0; i < moveCount; ++i) 
+			{
+                const Move& legalMove = legalMoves[i];
+                if (legalMove.startSquare == bookMove.startSquare &&
+                    legalMove.endSquare == bookMove.endSquare &&
+                    legalMove.promotedPiece == bookMove.promotedPiece) 
+				{
+                    validMoves.push_back(legalMove);
+                    weights.push_back(entry.weight);
+                    break;
+                }
+            }
+        }
+
+        if (validMoves.empty()) return Move{};
+
+        uint32_t totalWeight = std::accumulate(weights.begin(), weights.end(), 0u);
+        if (totalWeight == 0) return Move{};
+
+        std::uniform_int_distribution<uint32_t> dist(0, totalWeight - 1);
+        uint32_t r = dist(rng);
+        uint32_t cumulative = 0;
+
+        for (size_t i = 0; i < validMoves.size(); ++i)
+		{
+            cumulative += weights[i];
+            if (r < cumulative) return validMoves[i];
+        }
+
+        return Move{};
+    }
+
+
+
+    static int quiescence(BoardState& board, int alpha, int beta, MoveGenerator& moveGenerator);
+
+    static int evaluate(const BoardState& board) 
 	{
 		// Material calculation
 		int whiteMaterial = __popcnt64(board.whitePawns) * getPieceValue(Piece::WP) +
@@ -234,60 +304,19 @@ namespace Search
 
 		return totalScore * (board.whiteTurn ? 1 : -1);
 	}
-	
-	template <bool turn, int Depth>
-	static int negamax(BoardState& board, int alpha, int beta, MoveGenerator& moveGenerator);
-	static int negamaxEntry(BoardState& board, int depth, int alpha, int beta, MoveGenerator& moveGenerator)
-	{
-		if (board.whiteTurn)
-		{
-			switch (depth) 
-			{
-				case 1: return negamax<true, 1>(board, alpha, beta, moveGenerator);
-				case 2: return negamax<true, 2>(board, alpha, beta, moveGenerator);
-				case 3: return negamax<true, 3>(board, alpha, beta, moveGenerator);
-				case 4: return negamax<true, 4>(board, alpha, beta, moveGenerator);
-				case 5: return negamax<true, 5>(board, alpha, beta, moveGenerator);
-				case 6: return negamax<true, 6>(board, alpha, beta, moveGenerator);
-				case 7: return negamax<true, 7>(board, alpha, beta, moveGenerator);
-				case 8: return negamax<true, 8>(board, alpha, beta, moveGenerator);
-				case 9: return negamax<true, 9>(board, alpha, beta, moveGenerator);
-				default: return negamax<true, 10>(board, alpha, beta, moveGenerator);
-			}
-		}
-		else
-		{
-			switch (depth) 
-			{
-				case 1: return negamax<false, 1>(board, alpha, beta, moveGenerator);
-				case 2: return negamax<false, 2>(board, alpha, beta, moveGenerator);
-				case 3: return negamax<false, 3>(board, alpha, beta, moveGenerator);
-				case 4: return negamax<false, 4>(board, alpha, beta, moveGenerator);
-				case 5: return negamax<false, 5>(board, alpha, beta, moveGenerator);
-				case 6: return negamax<false, 6>(board, alpha, beta, moveGenerator);
-				case 7: return negamax<false, 7>(board, alpha, beta, moveGenerator);
-				case 8: return negamax<false, 8>(board, alpha, beta, moveGenerator);
-				case 9: return negamax<false, 9>(board, alpha, beta, moveGenerator);
-				default: return negamax<false, 10>(board, alpha, beta, moveGenerator);
-			}
-		}
 
-		throw std::runtime_error("Negamax Entry Error! Depth is probably too large!");
-	}
-	
-	template <bool turn, int Depth>
-	static int negamax(BoardState& board, int alpha, int beta, MoveGenerator& moveGenerator)
+	static int negamax(BoardState& board, int depth, int alpha, int beta, MoveGenerator& moveGenerator)
 	{
 		if (Search::timeElapsed() || Search::Timeout) {
 			Search::Timeout = true;
 			return 0;
 		}
 
-		if constexpr (Depth == 0)
+		if (depth == 0)
 			return quiescence(board, alpha, beta, moveGenerator);
 
 		MoveArr moves;
-		int moveCount = moveGenerator.generateLegalMoves<turn>(moves, board);
+		int moveCount = moveGenerator.generateLegalMoves(moves, board);
 
 		if (moveCount == 0)
 		{
@@ -354,7 +383,7 @@ namespace Search
 		int bestScore = -1000000;
 		for (const auto& [score, move] : scoredMoves) {
 			board.makeMove(move);
-			int currentScore = -negamax<!turn, Depth - 1>(board, -beta, -alpha, moveGenerator);
+			int currentScore = -negamax(board, depth - 1, -beta, -alpha, moveGenerator);
 			board.unmakeMove();
 
 			bestScore = std::max(bestScore, currentScore);
@@ -367,7 +396,7 @@ namespace Search
 
 
 
-	int quiescence(BoardState& board, int alpha, int beta, MoveGenerator& moveGenerator)
+	static int quiescence(BoardState& board, int alpha, int beta, MoveGenerator& moveGenerator)
     {
 		if (Search::timeElapsed() || Search::Timeout) 
 		{
@@ -382,11 +411,7 @@ namespace Search
             alpha = stand_pat;
 
         MoveArr moves;
-		int moveCount;
-		if (board.whiteTurn)
-			moveCount = moveGenerator.generateLegalMoves<true>(moves, board);
-		else
-			moveCount = moveGenerator.generateLegalMoves<false>(moves, board);
+        int moveCount = moveGenerator.generateLegalMoves(moves, board);
 
         std::vector<std::pair<int, Move>> scoredMoves;
         for (int i = 0; i < moveCount; ++i) {
@@ -426,4 +451,3 @@ namespace Search
     }
     
 }
-

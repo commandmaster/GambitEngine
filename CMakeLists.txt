@@ -3,7 +3,7 @@
 project("ChessEngine_V4" LANGUAGES CXX)
 
 
-add_executable(ChessEngine_V4 "src/main.cpp" "src/Renderer.cpp" "src/Renderer.h" "src/Board.cpp" "src/Board.h" "src/MoveGenerator.cpp" "src/MoveGenerator.h" "src/Timer.cpp" "src/Timer.h" "src/Precomputation.cpp" "src/Precomputation.h" "src/Perft.h" "src/Perft.cpp")
+add_executable(ChessEngine_V4 "src/main.cpp" "src/Renderer.cpp" "src/Renderer.h" "src/Board.cpp" "src/Board.h" "src/MoveGenerator.cpp" "src/MoveGenerator.h" "src/Timer.cpp" "src/Timer.h" "src/Precomputation.cpp" "src/Precomputation.h" "src/Perft.h" "src/Perft.cpp" "src/Game.cpp" "src/Game.h" "src/UCI.h" "src/UCI.cpp" "src/Search.h" "src/Search.cpp" "src/Opening.cpp" "src/Opening.h")
 
 
 include(FetchContent)
@@ -21,6 +21,7 @@ set_target_properties(ChessEngine_V4 PROPERTIES
     WORKING_DIRECTORY "${CMAKE_SOURCE_DIR}" 
 )
 
+file(COPY assets DESTINATION ${CMAKE_BINARY_DIR})
 add_custom_command(
     OUTPUT "${CMAKE_BINARY_DIR}/assets" # Destination directory (relative to build dir)
     COMMAND ${CMAKE_COMMAND} -E copy_directory "${CMAKE_CURRENT_SOURCE_DIR}/assets" "${CMAKE_BINARY_DIR}/assets"
