@@ -13,7 +13,7 @@
 
 #include "Board.h"
 #include "MoveGenerator.h"
-#include "Opening.h"
+#include "Transposition.h"
 
 
 namespace Search
@@ -172,13 +172,14 @@ namespace Search
         return elapsed >= TimeLimit;
     }
 
-    static std::vector<BookEntry> bookEntries;
+    static std::vector<TableEntry> bookEntries;
 
     static void loadOpeningBook(const std::string& filename) 
 	{
         try 
 		{
             bookEntries = loadPolyglotBook(filename);
+			std::cout << "Book Loaded Successfully" << "\n";
         }
 		catch (const std::exception& e) 
 		{
@@ -186,15 +187,19 @@ namespace Search
         }
     }
 
-    static Move getBookMove(const BoardState& board) 
+    static Move getTableMove(const BoardState& board) 
 	{
         if (bookEntries.empty()) return Move{};
 
+
         uint64_t key = computeZobristKey(board);
+
         auto [lower, upper] = lookupEntries(bookEntries, key);
         if (lower == upper) return Move{};
 
-        std::vector<BookEntry> possibleEntries(lower, upper);
+		//std::cout << "found entries" << std::endl;
+
+        std::vector<TableEntry> possibleEntries(lower, upper);
         std::vector<Move> validMoves;
         std::vector<uint16_t> weights;
 
@@ -205,6 +210,9 @@ namespace Search
         for (const auto& entry : possibleEntries) 
 		{
             Move bookMove = convertPolyglotMove(entry.move, board.whiteTurn);
+			/*std::cout << "Move start sq: " << std::dec << (int)bookMove.startSquare << '\n';
+			std::cout << "Move end sq: " << std::dec << (int)bookMove.endSquare << '\n';*/
+
             for (int i = 0; i < moveCount; ++i) 
 			{
                 const Move& legalMove = legalMoves[i];
@@ -212,6 +220,7 @@ namespace Search
                     legalMove.endSquare == bookMove.endSquare &&
                     legalMove.promotedPiece == bookMove.promotedPiece) 
 				{
+					//std::cout << "found valid move" << std::endl;
                     validMoves.push_back(legalMove);
                     weights.push_back(entry.weight);
                     break;

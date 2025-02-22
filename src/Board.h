@@ -34,11 +34,20 @@ typedef uint64_t Square;
 
 
 
-_Compiletime Bitboard mirrorVertical(Bitboard x) {
+_Compiletime Bitboard mirrorVertical(Bitboard x) 
+{
     x = ((x >> 8)  & 0x00FF00FF00FF00FFULL) | ((x & 0x00FF00FF00FF00FFULL) << 8);
     x = ((x >> 16) & 0x0000FFFF0000FFFFULL) | ((x & 0x0000FFFF0000FFFFULL) << 16);
     x = (x >> 32) | (x << 32);
     return x;
+}
+
+_Compiletime uint64_t flipVertical(Bitboard bb) 
+{
+    bb = ((bb >> 8) & 0x00FFFFFFFFFFFFFFULL) | ((bb & 0x00FFFFFFFFFFFFFFULL) << 8);
+    bb = ((bb >> 16) & 0x0000FFFFFFFFFFFFULL) | ((bb & 0x0000FFFFFFFFFFFFULL) << 16);
+    bb = ((bb >> 32) & 0x00000000FFFFFFFFULL) | ((bb & 0x00000000FFFFFFFFULL) << 32);
+    return bb;
 }
 
 namespace Piece

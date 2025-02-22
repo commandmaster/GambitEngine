@@ -9,6 +9,7 @@ bool UCI::uciMode = false;
 bool UCI::debugMode = false;
 
 void UCI::loop() {
+    Search::loadOpeningBook("./assets/baron30.bin");
     std::string line;
     while (std::getline(std::cin, line)) {
         processCommand(line);
@@ -114,23 +115,37 @@ void UCI::setupPosition(const std::string& fen, const std::vector<std::string>& 
 
 
 void UCI::startSearch(const std::string& parameters) {
-    //Move bookMove = Search::getBookMove(UCI::board);
-    /*if (bookMove.startSquare != bookMove.endSquare)
+    Search::TimeLimit = 150; 
+    int depth = 15;
+
+	std::istringstream iss(parameters);
+    std::string token;
+
+    while (iss >> token)
+    {
+        if (token == "movetime")
+        {
+            iss >> token;
+            Search::TimeLimit = std::stoi(token);
+        }
+        else if (token == "depth")
+        {
+            iss >> token;
+            //depth = std::stoi(token);
+        }
+    }
+
+    Move bookMove = Search::getTableMove(UCI::board);
+    if (bookMove.startSquare != bookMove.endSquare)
     {
 		std::cout << "bestmove " << moveToUCI(bookMove) << "\n";
         return;
-    }*/
-
-
-    int depth = 6;
-    std::istringstream iss(parameters);
-    std::string token;
-    while (iss >> token) {
-        if (token == "depth") iss >> depth;
     }
 
+
+    
+
     Search::startTimer();
-    Search::TimeLimit = 5000; 
     Search::Timeout = false;
 
     Move bestMove;

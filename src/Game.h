@@ -30,6 +30,8 @@ public:
 		boardHistory.reserve(40);
 		
 		board.parseFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+		uint64_t key = computeZobristKey(board);
+		std::cout << std::hex << key << std::endl;
 		
 		Timer timer;
 		timer.start();
@@ -38,8 +40,9 @@ public:
 
 		std::cout << "Perft Time: " << timer.elapsedTime<std::chrono::milliseconds>() << "\n";
 
-		loadSounds();
 
+		Search::loadOpeningBook("assets/baron30.bin");
+		loadSounds();
 	}
 
 	void loadSounds()
@@ -112,6 +115,22 @@ private:
 
 	void aiTurn()
 	{
+		Move bookMove = Search::getTableMove(board);
+		if (bookMove.startSquare != bookMove.endSquare)
+		{
+			MoveArr moves;
+			int moveCount = moveGenerator.generateLegalMoves(moves, board);
+			if (moveCount == 0) return;
+
+			/*for (int i = 0; i < moveCount; ++i) {
+				if (moves[i].startSquare == bookMove.startSquare && moves[i].endSquare == bookMove.endSquare)
+			}*/
+
+			board.makeMove(bookMove);
+			std::cout << "Book Move!" << "\n";
+			return;
+		}
+
 		Search::startTimer();
 		Search::TimeLimit = 600; 
 		Search::Timeout = false;

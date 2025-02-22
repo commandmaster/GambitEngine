@@ -14,19 +14,16 @@
 
 // Used http://hgm.nubati.net/book_format.html
 
-struct BookEntry
-{
+#pragma pack(push, 1)
+struct TableEntry {
     uint64_t key;
     uint16_t move;
     uint16_t weight;
     uint32_t learn;
 };
+#pragma pack(pop)
 
-#ifdef _MSC_VER
-#  define U64(u) (u##ui64)
-#else
-#  define U64(u) (u##ULL)
-#endif
+#define U64(u) (u##ULL)
 
 constexpr uint64_t Random64[781] = {
    U64(0x9D39247E33776D41), U64(0x2AF7398005AAA5C7), U64(0x44DB015024623547), U64(0x9C15F73E62A76AE2),
@@ -238,21 +235,23 @@ __forceinline static uint64_t swap64(uint64_t val) {
            ((val & 0xFF00000000000000ULL) >> 56);
 }
 
-__forceinline static uint16_t swap16(uint16_t val) {
+__forceinline static uint16_t swap16(uint16_t val) 
+{
     return (val << 8) | (val >> 8);
 }
 
-__forceinline static uint32_t swap32(uint32_t val) {
+__forceinline static uint32_t swap32(uint32_t val) 
+{
     return ((val & 0x000000FFU) << 24) |
            ((val & 0x0000FF00U) << 8)  |
            ((val & 0x00FF0000U) >> 8)  |
            ((val & 0xFF000000U) >> 24);
 }
 
-std::vector<BookEntry> loadPolyglotBook(const std::string &filename);
+std::vector<TableEntry> loadPolyglotBook(const std::string &filename);
 
-std::pair<std::vector<BookEntry>::const_iterator, std::vector<BookEntry>::const_iterator>
-lookupEntries(const std::vector<BookEntry> &entries, uint64_t key);
+std::pair<std::vector<TableEntry>::const_iterator, std::vector<TableEntry>::const_iterator>
+lookupEntries(const std::vector<TableEntry> &entries, uint64_t key);
 
 uint64_t computeZobristKey(const BoardState& board);
 
