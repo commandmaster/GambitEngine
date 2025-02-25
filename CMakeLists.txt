@@ -3,7 +3,7 @@
 project("ChessEngine_V4" LANGUAGES CXX)
 
 
-add_executable(ChessEngine_V4 "src/main.cpp" "src/Renderer.cpp" "src/Renderer.h" "src/Board.cpp" "src/Board.h" "src/MoveGenerator.cpp" "src/MoveGenerator.h" "src/Timer.cpp" "src/Timer.h" "src/Precomputation.cpp" "src/Precomputation.h" "src/Perft.h" "src/Perft.cpp" "src/Game.cpp" "src/Game.h" "src/UCI.h" "src/UCI.cpp" "src/Search.h" "src/Search.cpp" "src/Transposition.cpp" "src/Transposition.h")
+add_executable(ChessEngine_V4 "src/main.cpp" "src/Renderer.cpp" "src/Renderer.h" "src/Board.cpp" "src/Board.h" "src/MoveGenerator.cpp" "src/MoveGenerator.h" "src/Timer.cpp" "src/Timer.h" "src/Precomputation.cpp" "src/Precomputation.h" "src/Perft.h" "src/Perft.cpp" "src/Game.cpp" "src/Game.h" "src/UCI.h" "src/UCI.cpp" "src/Search.h"  "src/Transposition.cpp" "src/Transposition.h" "src/Zobrist.h" "src/Helpers.h")
 
 
 include(FetchContent)

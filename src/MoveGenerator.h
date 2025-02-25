@@ -7,14 +7,17 @@
 
 #include "Board.h"
 #include "Precomputation.h"
+#include "Helpers.h"
 
 
-template <typename T>
-T shift(T num, int shift) {
-    return (shift < 0) ? (num << -shift) : (num >> shift);
+template <typename T, int shiftValue>
+_Compiletime T shift(T num) {
+	if constexpr (shiftValue < 0) return num << -shiftValue;
+	else return num >> shiftValue;
 }
 
 typedef std::array<Move, 218> MoveArr;
+
 
 
 class MoveGenerator
@@ -25,91 +28,119 @@ public:
 	Bitboard cashedPinD12;
 	Bitboard outputForVisualization;
 
+	Bitboard whiteAttacked;
+	Bitboard blackAttacked;
+
+	bool inCheck = false;
+
 	MoveGenerator()
 		: cashedCheckMask{}, cashedPinHV{}, cashedPinD12{}, outputForVisualization{}
 	{}
 
+	template<bool Turn>
+	__forceinline void initStack(BoardState& board)
+	{
+		if constexpr (Turn) blackAttacked = calculateAttackedSquares<false>(board);
+		else whiteAttacked = calculateAttackedSquares<true>(board);
+	}
+
+	template<bool Turn>
 	__forceinline int generateLegalMoves(MoveArr& moves, BoardState& board)
 	{
+		initStack<Turn>(board);
+		inCheck = false;
+
 		Bitboard occupied = board.all();
 		Bitboard white = board.white();
 		Bitboard black = board.black();
-		bool whiteTurn = board.whiteTurn;
 
+		constexpr bool whiteTurn = Turn;
 		uint8_t checkCount = 0;
 
-		Bitboard enemyPawns = whiteTurn ? board.blackPawns : board.whitePawns;
-		Bitboard enemyKnights = whiteTurn ? board.blackKnights : board.whiteKnights;
-		Bitboard enemyHV = whiteTurn ? (board.blackRooks | board.blackQueens) : (board.whiteRooks | board.whiteQueens);
-		Bitboard enemyD12 = whiteTurn ? (board.blackBishops | board.blackQueens) : (board.whiteBishops | board.whiteQueens);
-		Bitboard king = whiteTurn ? board.whiteKing : board.blackKing;
-		Bitboard friendly = whiteTurn ? white : black;
-		Bitboard enemy = whiteTurn ? black : white;
+		Bitboard& enemyPawns = Helpers::getEnemyPawns<Turn>(board);
+		Bitboard& enemyKnights = Helpers::getEnemyKnights<Turn>(board);
+		Bitboard enemyHV = Helpers::getEnemyHV<Turn>(board);
+		Bitboard enemyD12 = Helpers::getEnemyD12<Turn>(board);
+		Bitboard& king = Helpers::getKing<Turn>(board);
+		Bitboard friendly = Helpers::getFriendly<Turn>(board);
+		Bitboard enemy = Helpers::getEnemy<Turn>(board);
 		Square kingSq = SquareOf(king);
 
 
-		cashedCheckMask = generateCheckMask(whiteTurn, occupied, enemyPawns, enemyKnights, enemyHV, enemyD12, king, checkCount);
+		cashedCheckMask = generateCheckMask<Turn>(whiteTurn, occupied, enemyPawns, enemyKnights, enemyHV, enemyD12, king, checkCount);
 		cashedPinHV = generateHVPinMask(occupied, enemyHV, king);
 		cashedPinD12 = generateD12PinMask(occupied, enemyD12, king);
 
 		int moveCount = 0;
 
 		if (checkCount >= 2) {
-			moveCount = generateKingMoves(moves, moveCount, board, occupied, friendly, enemy);
+			moveCount = generateKingMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy);
+			inCheck = true;
 			return moveCount;
 		}
 
-		moveCount = generatePawnMoves(moves, moveCount, board, occupied, friendly, enemy);
-		moveCount = generateKnightMoves(moves, moveCount, board, occupied, friendly, enemy);
-		moveCount = generateBishopMoves(moves, moveCount, board, occupied, friendly, enemy);
-		moveCount = generateRookMoves(moves, moveCount, board, occupied, friendly, enemy);
-		moveCount = generateQueenMoves(moves, moveCount, board, occupied, friendly, enemy);
-		moveCount = generateKingMoves(moves, moveCount, board, occupied, friendly, enemy);
+		moveCount = generatePawnMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy);
+		moveCount = generateKnightMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy);
+		moveCount = generateBishopMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy);
+		moveCount = generateRookMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy);
+		moveCount = generateQueenMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy);
+		moveCount = generateKingMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy);
 
-		if (checkCount != 0) return moveCount;
-		generateCastlingMoves(moves, moveCount, board, occupied, friendly, enemy); // Castling is separate due to conditions
+		if (checkCount != 0)
+		{
+			inCheck = true;
+			return moveCount;
+		}
+
+		generateCastlingMoves<Turn>(moves, moveCount, board, occupied, friendly, enemy); // Castling is separate due to conditions
 
 		return moveCount;
 	}
-
-	__forceinline Bitboard calculateAttackedSquares(BoardState& board, bool whiteAttacking) {
+	
+	template<bool Turn>
+	__forceinline Bitboard calculateAttackedSquares(BoardState& board)
+	{
 		Bitboard attackedSquares = 0;
-		Bitboard occupied = board.all() & ~(whiteAttacking ? board.blackKing : board.whiteKing);
+		Bitboard occupied = board.all() & ~Helpers::getEnemyKing<Turn>(board);
 		
 		Bitboard pieceBoards[6];
-		pieceBoards[0] = whiteAttacking ? board.whiteKnights : board.blackKnights;
-		pieceBoards[1] = whiteAttacking ? board.whiteBishops : board.blackBishops;
-		pieceBoards[2] = whiteAttacking ? board.whiteRooks : board.blackRooks;
-		pieceBoards[3] = whiteAttacking ? board.whiteQueens : board.blackQueens;
-		pieceBoards[4] = whiteAttacking ? board.whitePawns : board.blackPawns;
-		pieceBoards[5] = whiteAttacking ? board.whiteKing : board.blackKing;
+		pieceBoards[0] = Helpers::getKnights<Turn>(board);
+		pieceBoards[1] = Helpers::getBishops<Turn>(board);
+		pieceBoards[2] = Helpers::getRooks<Turn>(board);
+		pieceBoards[3] = Helpers::getQueens<Turn>(board);
+		pieceBoards[4] = Helpers::getPawns<Turn>(board);
+		pieceBoards[5] = Helpers::getKing<Turn>(board);
 
 		// Knight attacks
-		Bitloop(pieceBoards[0]) {
+		Bitloop(pieceBoards[0]) 
+		{
 			attackedSquares |= Lookup::lookupKnightMove(SquareOf(pieceBoards[0]));
 		}
 		// Bishop attacks
-		Bitloop(pieceBoards[1]) {
+		Bitloop(pieceBoards[1]) 
+		{
 			attackedSquares |= Lookup::lookupBishopMove(occupied, SquareOf(pieceBoards[1]));
 		}
 		// Rook attacks
-		Bitloop(pieceBoards[2]) {
+		Bitloop(pieceBoards[2]) 
+		{
 			attackedSquares |= Lookup::lookupRookMove(occupied, SquareOf(pieceBoards[2]));
 		}
 		// Queen attacks
-		Bitloop(pieceBoards[3]) {
+		Bitloop(pieceBoards[3]) 
+		{
 			attackedSquares |= Lookup::lookupQueenMove(occupied, SquareOf(pieceBoards[3]));
 		}
 		// Pawn attacks
 		{
-			int8_t pawnCaptureDirLeft = whiteAttacking ? 9 : -7;
-			int8_t pawnCaptureDirRight = whiteAttacking ? 7 : -9;
+			constexpr int8_t pawnCaptureDirLeft = Helpers::getPawnCaptureDirLeft<Turn>();
+			constexpr int8_t pawnCaptureDirRight = Helpers::getPawnCaptureDirRight<Turn>();
 
 			Bitboard notEdgeRight = ~0x8080808080808080ULL;
 			Bitboard notEdgeLeft = ~0x0101010101010101ULL;
 
-			attackedSquares |= shift<Bitboard>(pieceBoards[4] & notEdgeLeft, pawnCaptureDirLeft);
-			attackedSquares |= shift<Bitboard>(pieceBoards[4] & notEdgeRight, pawnCaptureDirRight);
+			attackedSquares |= shift<Bitboard, pawnCaptureDirLeft>(pieceBoards[4] & notEdgeLeft);
+			attackedSquares |= shift<Bitboard, pawnCaptureDirRight>(pieceBoards[4] & notEdgeRight);
 		}
 		// King attacks (King cannot attack king, so no need to check enemy king)
 		Bitloop(pieceBoards[5]) {
@@ -120,15 +151,15 @@ public:
 
 
 private:
-	// todo add moves to move arr, increment movecount  l
+	template<bool Turn>
 	__forceinline void handleEP(MoveArr& moves, int& moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& enemyHV)
 	{
 		Bitboard epRank = board.whiteTurn ? 0xff000000 : 0xff00000000;
-		Bitboard notEdgeLeft = board.whiteTurn ? ~0x0101010101010101ULL : ~0x8080808080808080ULL;
-		Bitboard notEdgeRight = board.whiteTurn ? ~0x8080808080808080ULL : ~0x0101010101010101ULL;
+		Bitboard notEdgeLeft = Helpers::getNotEdgeLeft<Turn>();
+		Bitboard notEdgeRight = Helpers::getNotEdgeRight<Turn>();
 
-		const Bitboard& king = board.whiteTurn ? board.whiteKing : board.blackKing;
-		const Bitboard& pawns = board.whiteTurn ? board.whitePawns : board.blackPawns;
+		const Bitboard& king = Helpers::getKing<Turn>(board);
+		const Bitboard& pawns = Helpers::getPawns<Turn>(board);
 
 		Bitboard epTarget = board.enPassant;
 		if (board.whiteTurn)
@@ -227,6 +258,7 @@ private:
 		return d12PinMask;
 	}
 
+	template<bool Turn>
 	__forceinline Bitboard generateCheckMask(bool turn, const Bitboard& occupied, Bitboard enemyPawns, Bitboard enemyKnights, Bitboard enemyHV, Bitboard enemyD12, const Bitboard& king, uint8_t& checkCount)
 	{
 		Bitboard checkMask = 0;
@@ -257,48 +289,49 @@ private:
 		checkMask |= enemyKnights & kingMoves;
 
 		{
-			int8_t pawnCaptureDirLeft = turn ? 9 : -7;
-			int8_t pawnCaptureDirRight = turn ? 7 : -9;
+			constexpr int8_t pawnCaptureDirLeft = Helpers::getPawnCaptureDirLeft<Turn>();
+			constexpr int8_t pawnCaptureDirRight = Helpers::getPawnCaptureDirRight<Turn>();
 
 			Bitboard notEdgeRight = ~0x8080808080808080ULL;
 			Bitboard notEdgeLeft = ~0x0101010101010101ULL;
 
-			kingMoves = shift<Bitboard>(king & notEdgeLeft, pawnCaptureDirLeft) & enemyPawns;
-			kingMoves |= (shift<Bitboard>(king & notEdgeRight, pawnCaptureDirRight) & enemyPawns);
+			kingMoves = shift<Bitboard, pawnCaptureDirLeft>(king & notEdgeLeft) & enemyPawns;
+			kingMoves |= (shift<Bitboard, pawnCaptureDirRight>(king & notEdgeRight) & enemyPawns);
 
 			checkCount += (kingMoves != 0);
 			checkMask |= kingMoves;
 		}
 
-
 		if (checkMask == 0) checkMask = ULLONG_MAX;
 
 		return checkMask;
 	}
-
+	
+	template<bool Turn>
 	__forceinline int generatePawnMoves(MoveArr& moves, int moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& friendly, const Bitboard& enemy)
 	{
-		Bitboard pawns = board.whiteTurn ? board.whitePawns : board.blackPawns;
+		Bitboard pawns = Helpers::getPawns<Turn>(board);
 		Bitboard enPassantTarget = board.enPassant;
-		uint8_t pawnPiece = board.whiteTurn ? Piece::WP : Piece::BP;
-		// These masks mark the destination ranks for promotion and the starting ranks for double pushes.
+		uint8_t pawnPiece;
 
+		if constexpr (Turn) pawnPiece = Piece::WP;
+		else pawnPiece = Piece::BP;
 		
-		Bitboard promotionMask = board.whiteTurn ? 0xffULL : 0xff00000000000000ULL;
-		Bitboard doublePushMask = board.whiteTurn ? 0xff000000000000ULL : 0xff00ULL;
+		constexpr Bitboard promotionMask = Helpers::getPromotionMask<Turn>();
+		constexpr Bitboard doublePushMask = Helpers::getDoublePushMask<Turn>();
 
-		int8_t pawnPushDir = board.whiteTurn ? 8 : -8;
-		int8_t pawnCaptureDirLeft = board.whiteTurn ? 9 : -7;
-		int8_t pawnCaptureDirRight = board.whiteTurn ? 7 : -9;
+		constexpr int8_t pawnPushDir = Helpers::getPawnPushDir<Turn>();
+		constexpr int8_t pawnCaptureDirLeft = Helpers::getPawnCaptureDirLeft<Turn>();
+		constexpr int8_t pawnCaptureDirRight = Helpers::getPawnCaptureDirRight<Turn>();
 
-		Bitboard notEdgeRight = ~0x8080808080808080ULL;
-		Bitboard notEdgeLeft = ~0x0101010101010101ULL;
+		constexpr Bitboard notEdgeRight = ~0x8080808080808080ULL;
+		constexpr Bitboard notEdgeLeft = ~0x0101010101010101ULL;
 
 		{
 			Bitboard pinnedHv = pawns & cashedPinHV;
 			
 			{
-				Bitboard singlePush = (shift<Bitboard>(pinnedHv, pawnPushDir)) & cashedPinHV & cashedCheckMask & ~occupied;
+				Bitboard singlePush = (shift<Bitboard, pawnPushDir>(pinnedHv)) & cashedPinHV & cashedCheckMask & ~occupied;
 				Bitboard promotions = singlePush & promotionMask;
 				singlePush &= ~promotionMask;
 
@@ -310,11 +343,11 @@ private:
 				Bitloop(promotions)
 				{
 					int8_t sq = SquareOf(promotions);
-					addPromotions(moves, moveCount, sq + pawnPushDir, sq, false, board.whiteTurn);
+					addPromotions<Turn>(moves, moveCount, sq + pawnPushDir, sq, false);
 				}
 			}
 			
-			Bitboard doublePush = shift<Bitboard>((pinnedHv & doublePushMask), (2 * pawnPushDir)) & cashedPinHV & cashedCheckMask & ~(occupied | shift<Bitboard>(occupied, pawnPushDir));
+			Bitboard doublePush = shift<Bitboard, 2 * pawnPushDir>((pinnedHv & doublePushMask)) & cashedPinHV & cashedCheckMask & ~(occupied | shift<Bitboard, pawnPushDir>(occupied));
 			Bitloop(doublePush)
 			{
 				uint8_t sq = SquareOf(doublePush);
@@ -325,8 +358,8 @@ private:
 		{
 			Bitboard pinnedD12 = pawns & cashedPinD12;
 			
-			Bitboard attackLeft = shift<Bitboard>((pinnedD12 & notEdgeLeft), pawnCaptureDirLeft) & cashedPinD12 & cashedCheckMask & enemy;
-			Bitboard attackRight = shift<Bitboard>((pinnedD12 & notEdgeRight), pawnCaptureDirRight) & cashedPinD12 & cashedCheckMask & enemy;
+			Bitboard attackLeft = shift<Bitboard, pawnCaptureDirLeft>((pinnedD12 & notEdgeLeft)) & cashedPinD12 & cashedCheckMask & enemy;
+			Bitboard attackRight = shift<Bitboard, pawnCaptureDirRight>((pinnedD12 & notEdgeRight)) & cashedPinD12 & cashedCheckMask & enemy;
 
 			Bitboard promotionLeft = attackLeft & promotionMask;
 			Bitboard promotionRight = attackRight & promotionMask;
@@ -346,12 +379,12 @@ private:
 			Bitloop(promotionLeft)
 			{
 				int8_t sq = SquareOf(promotionLeft);
-				addPromotions(moves, moveCount, sq + pawnCaptureDirLeft, static_cast<uint8_t>(sq), true, board.whiteTurn);
+				addPromotions<Turn>(moves, moveCount, sq + pawnCaptureDirLeft, static_cast<uint8_t>(sq), true);
 			}
 			Bitloop(promotionRight)
 			{
 				int8_t sq = SquareOf(promotionRight);
-				addPromotions(moves, moveCount, sq + pawnCaptureDirRight, static_cast<uint8_t>(sq), true, board.whiteTurn);
+				addPromotions<Turn>(moves, moveCount, sq + pawnCaptureDirRight, static_cast<uint8_t>(sq), true);
 			}
 		}
 
@@ -359,16 +392,16 @@ private:
 			Bitboard notPinned = pawns & ~(cashedPinD12 | cashedPinHV);
 			Bitboard promotions;
 				
-			Bitboard singlePush = shift<Bitboard>(notPinned, pawnPushDir) & cashedCheckMask & ~occupied;
-			Bitboard doublePush = shift<Bitboard>((notPinned & doublePushMask), (2 * pawnPushDir)) & cashedCheckMask & ~(occupied | shift<Bitboard>(occupied, pawnPushDir));
-			Bitboard attackLeft = shift<Bitboard>((notPinned & notEdgeLeft), pawnCaptureDirLeft) & cashedCheckMask & enemy;
-			Bitboard attackRight = shift<Bitboard>((notPinned & notEdgeRight), pawnCaptureDirRight) & cashedCheckMask & enemy;
+			Bitboard singlePush = shift<Bitboard, pawnPushDir>(notPinned) & cashedCheckMask & ~occupied;
+			Bitboard doublePush = shift<Bitboard, (2 * pawnPushDir)>((notPinned & doublePushMask)) & cashedCheckMask & ~(occupied | shift<Bitboard, pawnPushDir>(occupied));
+			Bitboard attackLeft = shift<Bitboard, pawnCaptureDirLeft>((notPinned & notEdgeLeft)) & cashedCheckMask & enemy;
+			Bitboard attackRight = shift<Bitboard, pawnCaptureDirRight>((notPinned & notEdgeRight)) & cashedCheckMask & enemy;
 
 			promotions = singlePush & promotionMask;
 			Bitloop(promotions)
 			{
 				int8_t sq = SquareOf(promotions);
-				addPromotions(moves, moveCount, sq + pawnPushDir, sq, false, board.whiteTurn);
+				addPromotions<Turn>(moves, moveCount, sq + pawnPushDir, sq, false);
 			}
 			singlePush &= ~promotionMask;
 			Bitloop(singlePush)
@@ -387,13 +420,13 @@ private:
 			Bitloop(promotions)
 			{
 				int8_t sq = SquareOf(promotions);
-				addPromotions(moves, moveCount, sq + pawnCaptureDirLeft, static_cast<uint8_t>(sq), true, board.whiteTurn);
+				addPromotions<Turn>(moves, moveCount, sq + pawnCaptureDirLeft, static_cast<uint8_t>(sq), true);
 			}
 			promotions = attackRight & promotionMask;
 			Bitloop(promotions)
 			{
 				int8_t sq = SquareOf(promotions);
-				addPromotions(moves, moveCount, sq + pawnCaptureDirRight, static_cast<uint8_t>(sq), true, board.whiteTurn);
+				addPromotions<Turn>(moves, moveCount, sq + pawnCaptureDirRight, static_cast<uint8_t>(sq), true);
 			}
 
 			attackLeft &= ~promotionMask;
@@ -411,20 +444,21 @@ private:
 			}
 		}
 
-		if (board.enPassant && !(cashedPinD12 & shift<Bitboard>(board.enPassant, pawnPushDir)))
+		if (board.enPassant && !(cashedPinD12 & shift<Bitboard, pawnPushDir>(board.enPassant)))
 		{
 			Bitboard enemyHV = board.whiteTurn ? board.blackRooks | board.blackQueens : board.whiteRooks | board.whiteQueens;
-			handleEP(moves, moveCount, board, occupied, enemyHV);
+			handleEP<Turn>(moves, moveCount, board, occupied, enemyHV);
 		}
 		
 		
 		return moveCount;
 	}
 	
+	template<bool Turn>
 	__forceinline int generateKnightMoves(MoveArr& moves, int moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& friendly, const Bitboard& enemy)
 	{
-		Bitboard knights = board.whiteTurn ? board.whiteKnights : board.blackKnights;
-		uint8_t knightPiece = board.whiteTurn ? Piece::WN : Piece::BN;
+		Bitboard knights = Helpers::getKnights<Turn>(board);
+		constexpr uint8_t knightPiece = Turn ? Piece::WN : Piece::BN;
 
 		knights &= ~(cashedPinHV | cashedPinD12);
 		Bitloop(knights)
@@ -446,10 +480,12 @@ private:
 		return moveCount;
 	}
 
+
+	template<bool Turn>
 	__forceinline int generateBishopMoves(MoveArr& moves, int moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& friendly, const Bitboard& enemy)
 	{
-		Bitboard bishops = board.whiteTurn ? board.whiteBishops : board.blackBishops;
-		uint8_t bishopPiece = board.whiteTurn ? Piece::WB : Piece::BB;
+		Bitboard bishops = Helpers::getBishops<Turn>(board);
+		constexpr uint8_t bishopPiece = Turn ? Piece::WB : Piece::BB;
 
 		bishops &= ~cashedPinHV;
 		Bitboard pinnedBishops = bishops & cashedPinD12;
@@ -492,10 +528,12 @@ private:
 		return moveCount;
 	}
 
+
+	template<bool Turn>
 	__forceinline int generateRookMoves(MoveArr& moves, int moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& friendly, const Bitboard& enemy)
 	{
-		Bitboard rooks = board.whiteTurn ? board.whiteRooks : board.blackRooks;
-		uint8_t rookPiece = board.whiteTurn ? Piece::WR : Piece::BR;
+		Bitboard rooks = Helpers::getRooks<Turn>(board);
+		constexpr uint8_t rookPiece = Turn ? Piece::WR : Piece::BR;
 
 		rooks &= ~cashedPinD12;
 
@@ -541,10 +579,12 @@ private:
 		return moveCount;
 	}
 
+
+	template<bool Turn>
 	__forceinline int generateQueenMoves(MoveArr& moves, int moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& friendly, const Bitboard& enemy)
 	{
-		Bitboard queens = board.whiteTurn ? board.whiteQueens : board.blackQueens;
-		uint8_t queenPiece = board.whiteTurn ? Piece::WQ : Piece::BQ;
+		Bitboard queens = Helpers::getQueens<Turn>(board);
+		constexpr uint8_t queenPiece = Turn ? Piece::WQ : Piece::BQ;
 
 		Bitloop(queens) 
 		{
@@ -568,15 +608,18 @@ private:
 		return moveCount;
 	}
 
+	template<bool Turn>
 	__forceinline int generateKingMoves(MoveArr& moves, int moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& friendly, const Bitboard& enemy)
 	{
-		Square kingSq = SquareOf(board.whiteTurn ? board.whiteKing : board.blackKing);
+		Square kingSq = SquareOf(Helpers::getKing<Turn>(board));
 		Bitboard kingMoves = Lookup::lookupKingMove(kingSq) & ~friendly;
-		Bitboard attackedSquares = calculateAttackedSquares(board, !board.whiteTurn); // Squares attacked by enemy
+		Bitboard attackedSquares; 
 
+		if constexpr (Turn) attackedSquares = blackAttacked;
+		else attackedSquares = whiteAttacked;
 
 		kingMoves &= ~attackedSquares;
-		uint8_t kingPiece = board.whiteTurn ? Piece::WK : Piece::BK;
+		constexpr uint8_t kingPiece = Turn ? Piece::WK : Piece::BK;
 
 		Bitboard captures = kingMoves & enemy;
 		kingMoves &= ~enemy;
@@ -590,12 +633,16 @@ private:
 		return moveCount;
 	}
 
+	template<bool Turn>
 	__forceinline void generateCastlingMoves(MoveArr& moves, int& moveCount, BoardState& board, const Bitboard& occupied, const Bitboard& friendly, const Bitboard& enemy)
 	{
-		Square kingSq = SquareOf(board.whiteTurn ? board.whiteKing : board.blackKing);
-		Bitboard attackedSquares = calculateAttackedSquares(board, !board.whiteTurn);
+		Square kingSq = SquareOf(Helpers::getKing<Turn>(board));
+		Bitboard attackedSquares;
+		if constexpr (Turn) attackedSquares = blackAttacked;
+		else attackedSquares = whiteAttacked;
 
-		if (board.whiteTurn)
+
+		if constexpr (Turn)
 		{
 			if (board.castlingRights & 1) // White Kingside
 			{
@@ -631,15 +678,12 @@ private:
 		}
 	}
 
-
-	
-
-	// Helper function to add promotion moves
-	void addPromotions(MoveArr& moves, int& moveCount, Square from, Square to, bool capture, bool turn) {
-		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), turn ? Piece::WP : Piece::BP, turn ? Piece::WQ : Piece::BQ, capture, 0, 0, 0 };
-		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), turn ? Piece::WP : Piece::BP, turn ? Piece::WR : Piece::BR, capture, 0, 0, 0 };
-		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), turn ? Piece::WP : Piece::BP, turn ? Piece::WB : Piece::BB, capture, 0, 0, 0 };
-		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), turn ? Piece::WP : Piece::BP, turn ? Piece::WN : Piece::BN, capture, 0, 0, 0 };
+	template<bool Turn>
+	void addPromotions(MoveArr& moves, int& moveCount, Square from, Square to, bool capture) {
+		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), Turn ? Piece::WP : Piece::BP, Turn ? Piece::WQ : Piece::BQ, capture, 0, 0, 0 };
+		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), Turn ? Piece::WP : Piece::BP, Turn ? Piece::WR : Piece::BR, capture, 0, 0, 0 };
+		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), Turn ? Piece::WP : Piece::BP, Turn ? Piece::WB : Piece::BB, capture, 0, 0, 0 };
+		moves[moveCount++] = { static_cast<uint8_t>(from), static_cast<uint8_t>(to), Turn ? Piece::WP : Piece::BP, Turn ? Piece::WN : Piece::BN, capture, 0, 0, 0 };
 	}
 
 };

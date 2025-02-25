@@ -1,6 +1,6 @@
 #include "Perft.h"
 
-uint64_t perft(int depth, MoveGenerator& moveGen, BoardState& board)
+uint64_t oldPerft(int depth, MoveGenerator& moveGen, BoardState& board)
 {
 	MoveArr moveArr;
 	int moveCount, i;
@@ -9,11 +9,13 @@ uint64_t perft(int depth, MoveGenerator& moveGen, BoardState& board)
 	if (depth == 0)
 		return 1ULL;
 
-	moveCount = moveGen.generateLegalMoves(moveArr, board);
+	if (board.whiteTurn) moveCount = moveGen.generateLegalMoves<true>(moveArr, board);
+	else moveCount = moveGen.generateLegalMoves<false>(moveArr, board);
+
 	for (i = 0; i < moveCount; ++i)
 	{
 		board.makeMove(moveArr[i]);
-		nodes += perft(depth - 1, moveGen, board);
+		nodes += oldPerft(depth - 1, moveGen, board);
 		board.unmakeMove();
 	}
 

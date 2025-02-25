@@ -160,6 +160,7 @@ void BoardState::makeMove(const Move& move) {
 }
 
 
+
 void BoardState::unmakeMove() {
     if (historyStack.empty()) return;
     History history = historyStack.back();
@@ -370,6 +371,9 @@ void BoardState::parseFEN(const std::string& fen)
         temp += fen[idx];
     }
     if (!temp.empty()) fullmoveNumber = std::stoi(temp);
+
+
+    zobristKey = computeZobristKey(*this);
 }
 
 std::string BoardState::exportToFEN() const 
@@ -444,3 +448,4 @@ std::string BoardState::exportToFEN() const
     fen += ' ' + std::to_string(halfmoveClock) + ' ' + std::to_string(fullmoveNumber);
     return fen;
 }
+

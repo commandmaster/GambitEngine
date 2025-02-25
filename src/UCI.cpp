@@ -100,7 +100,10 @@ void UCI::setupPosition(const std::string& fen, const std::vector<std::string>& 
 
     for (const auto& moveStr : moves) {
         MoveArr moveArr;
-        int count = moveGen.generateLegalMoves(moveArr, board);
+        int count;
+        if (board.whiteTurn) count = moveGen.generateLegalMoves<true>(moveArr, board);
+        else count = moveGen.generateLegalMoves<false>(moveArr, board);
+
         for (int i = 0; i < count; ++i) {
             if (moveToUCI(moveArr[i]) == moveStr) {
                 board.makeMove(moveArr[i]);
@@ -115,7 +118,7 @@ void UCI::setupPosition(const std::string& fen, const std::vector<std::string>& 
 
 
 void UCI::startSearch(const std::string& parameters) {
-    Search::TimeLimit = 150; 
+    int timeLimit = 150; 
     int depth = 15;
 
 	std::istringstream iss(parameters);
@@ -135,42 +138,9 @@ void UCI::startSearch(const std::string& parameters) {
         }
     }
 
-    Move bookMove = Search::getTableMove(UCI::board);
-    if (bookMove.startSquare != bookMove.endSquare)
-    {
-		std::cout << "bestmove " << moveToUCI(bookMove) << "\n";
-        return;
-    }
-
-
+    std::string bestMove = moveToUCI(Search::findBestMove(board, depth, timeLimit));
     
-
-    Search::startTimer();
-    Search::Timeout = false;
-
-    Move bestMove;
-    int bestScore = -1000000;
-    int currentDepth = 1;
-
-    while (currentDepth <= depth && !Search::Timeout) {
-        MoveArr moves;
-        int moveCount = moveGen.generateLegalMoves(moves, board);
-        if (moveCount == 0) break;
-
-        for (int i = 0; i < moveCount; ++i) {
-            board.makeMove(moves[i]);
-            int score = -Search::negamax(board, currentDepth-1, -1000000, 1000000, moveGen);
-            board.unmakeMove();
-
-            if (score > bestScore) {
-                bestScore = score;
-                bestMove = moves[i];
-            }
-        }
-        currentDepth++;
-    }
-
-    std::cout << "bestmove " << moveToUCI(bestMove) << "\n";
+    std::cout << "bestmove " << bestMove << "\n";
 }
 
 void UCI::printBoard(const BoardState& board) {

@@ -11,6 +11,8 @@
 #include <string>
 #include <iostream>
 
+#include "Zobrist.h"
+
 typedef uint64_t Bitboard;
 typedef uint64_t Square;
 
@@ -146,6 +148,7 @@ struct BoardStatus {
 };
 
 
+
 struct BoardState
 {
 	struct History 
@@ -159,6 +162,7 @@ struct BoardState
 		uint16_t prevFullmoveNumber;// Fullmove number before the move
 		Square rookFrom;            // Rook's original square (castling)
 		Square rookTo;              // Rook's new square (castling)
+		uint64_t prevZobristKey; // The old zobrist hash for the position
 	};	
 
 
@@ -175,6 +179,8 @@ struct BoardState
 	Bitboard whiteKing;
 	Bitboard blackKing;
 
+	uint64_t zobristKey = 0;
+
 	bool whiteTurn;
     uint8_t castlingRights; // 0b black queenside | black kingside | white queenside | white kingside
     Bitboard enPassant;
@@ -189,19 +195,95 @@ struct BoardState
 	void parseFEN(const std::string& str);
 	std::string exportToFEN() const;
 
+	__forceinline void updateZobrist(const Move& move)
+	{
+
+	}
 	
-	inline Bitboard all() const
+	__forceinline Bitboard all() const
 	{
 		return whitePawns | blackPawns | whiteKnights | blackKnights | whiteBishops | blackBishops | whiteRooks | blackRooks | (whiteQueens | blackQueens) | whiteKing | blackKing;
 	}
 
-	inline Bitboard white() const
+	__forceinline Bitboard white() const
 	{
 		return whitePawns | whiteKnights | whiteBishops | whiteRooks | whiteQueens | whiteKing;
 	}
 
-	inline Bitboard black() const
+	__forceinline Bitboard black() const
 	{
 		return blackPawns | blackKnights | blackBishops | blackRooks | blackQueens | blackKing;
 	}
 };
+
+__forceinline static uint64_t computeZobristKey(const BoardState& board)
+{
+    uint64_t key = 0;
+
+    auto process = [&key](Bitboard bb, int pieceIndex)
+    {
+        Bitloop(bb)
+        {
+            Square sq = SquareOf(bb);
+            int row = 7 - (sq / 8); // Correct row calculation for Zobrist
+            int file = sq % 8;
+            key ^= Random64[pieceIndex * 64 + (row * 8 + file)];
+        }
+
+    };
+
+    process(board.blackPawns, 0);
+    process(board.whitePawns, 1);
+    process(board.blackKnights, 2);
+    process(board.whiteKnights, 3);
+    process(board.blackBishops, 4);
+    process(board.whiteBishops, 5);
+    process(board.blackRooks, 6);
+    process(board.whiteRooks, 7);
+    process(board.blackQueens, 8);
+    process(board.whiteQueens, 9);
+    process(board.blackKing, 10);
+    process(board.whiteKing, 11);
+
+    // Castling rights
+    if (board.castlingRights & 1) key ^= Random64[768]; // White kingside
+    if (board.castlingRights & 2) key ^= Random64[769]; // White queenside
+    if (board.castlingRights & 4) key ^= Random64[770]; // Black kingside
+    if (board.castlingRights & 8) key ^= Random64[771]; // Black queenside
+
+    // En passant
+    if (board.enPassant)
+    {
+		Bitboard epRank = board.whiteTurn ? 0xff000000 : 0xff00000000;
+		Bitboard notEdgeLeft = board.whiteTurn ? ~0x0101010101010101ULL : ~0x8080808080808080ULL;
+        Bitboard notEdgeRight = board.whiteTurn ? ~0x8080808080808080ULL : ~0x0101010101010101ULL;
+
+		const Bitboard& pawns = board.whiteTurn ? board.whitePawns : board.blackPawns;
+
+        Bitboard epTarget = board.enPassant;
+		if (board.whiteTurn)
+		{
+			epTarget <<= 8;
+		}
+		else
+		{
+            epTarget >>= 8;
+		}
+
+        Bitboard epLeftPawn = pawns & ((epTarget & ~0x0101010101010101ULL) >> 1);
+		Bitboard epRightPawn = pawns & ((epTarget & ~0x8080808080808080ULL) << 1);
+
+        if (epLeftPawn | epRightPawn)
+        {
+			Square epSq = SquareOf(board.enPassant);
+			int file = epSq % 8;
+			key ^= Random64[772 + file];
+
+        }
+    }
+
+    if (board.whiteTurn) key ^= Random64[780];
+
+    return key;
+}
+

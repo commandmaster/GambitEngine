@@ -12,9 +12,6 @@
 
 
 
-
-
-
 class Game
 {
 public:
@@ -35,11 +32,15 @@ public:
 		
 		Timer timer;
 		timer.start();
-		std::cout << "Perft at depth: " << perft(5, moveGenerator, board) << '\n';
+		int perftResults = oldPerft(6, moveGenerator, board);
+		std::cout << "Perft at depth: " << std::dec << perftResults << '\n';
 		timer.stop();
+		std::cout << "Perft Time: "  << std::dec << timer.elapsedTime<std::chrono::milliseconds>() << "\n";
+		std::cout << "NPS: " << std::dec << std::fixed << (perftResults / timer.elapsedTime<std::chrono::milliseconds>()) * 1000 << "\n";
 
-		std::cout << "Perft Time: " << timer.elapsedTime<std::chrono::milliseconds>() << "\n";
-
+		std::cout << "\n\n";
+		perft(6, moveGenerator, board);
+		std::cout << "\n\n";
 
 		Search::loadOpeningBook("assets/baron30.bin");
 		loadSounds();
@@ -115,92 +116,30 @@ private:
 
 	void aiTurn()
 	{
-		Move bookMove = Search::getTableMove(board);
-		if (bookMove.startSquare != bookMove.endSquare)
-		{
-			MoveArr moves;
-			int moveCount = moveGenerator.generateLegalMoves(moves, board);
-			if (moveCount == 0) return;
+		Move bestMove = Search::findBestMove(board, 12, 1500);
 
-			/*for (int i = 0; i < moveCount; ++i) {
-				if (moves[i].startSquare == bookMove.startSquare && moves[i].endSquare == bookMove.endSquare)
-			}*/
-
-			board.makeMove(bookMove);
-			std::cout << "Book Move!" << "\n";
-			return;
-		}
-
-		Search::startTimer();
-		Search::TimeLimit = 600; 
-		Search::Timeout = false;
-
-		Move bestMove;
-		int bestScore = -1000000;
-		int depth = 1;
-
-		while (!Search::Timeout) {
-			MoveArr moves;
-			int moveCount = moveGenerator.generateLegalMoves(moves, board);
-			if (moveCount == 0) return;
-
-			if (depth > 1) {
-				for (int i = 0; i < moveCount; ++i) {
-					if (moves[i] == bestMove) {
-						std::swap(moves[0], moves[i]);
-						break;
-					}
-				}
-			}
-
-			int currentDepthBestScore = -1000000;
-			Move currentDepthBestMove = moves[0];
-
-			for (int i = 0; i < moveCount; ++i) {
-				if (Search::timeElapsed()) {
-					Search::Timeout = true;
-					break;
-				}
-
-				board.makeMove(moves[i]);
-				int score = -Search::negamax(board, depth - 1, -1000000, 1000000, moveGenerator);
-				board.unmakeMove();
-
-				if (Search::Timeout) break; 
-
-				if (score > currentDepthBestScore) {
-					currentDepthBestScore = score;
-					currentDepthBestMove = moves[i];
-				}
-			}
-
-			if (Search::Timeout) break; 
-
-			if (currentDepthBestScore > bestScore) {
-				bestScore = currentDepthBestScore;
-				bestMove = currentDepthBestMove;
-			}
-
-			depth++;
-		}
-
-		std::cout << "AI depth: " << depth << "\n";
-		if (bestScore != -1000000) {
-			board.makeMove(bestMove);
-			addMoveToHistory(board);
-			PlaySound(sounds[1]);
-			renderer.startAnimation(bestMove.startSquare, bestMove.endSquare, 150);
-		}
+		board.makeMove(bestMove);
+		addMoveToHistory(board);
+		PlaySound(sounds[1]);
+		renderer.startAnimation(bestMove.startSquare, bestMove.endSquare, 150);
 	}
 
 	void takeTurn()
 	{
 		MoveArr moves{};
-		int moveCount = moveGenerator.generateLegalMoves(moves, board);
+
+		int moveCount;
+		if (board.whiteTurn) moveCount = moveGenerator.generateLegalMoves<true>(moves, board);
+		else moveCount = moveGenerator.generateLegalMoves<false>(moves, board);
+
 		if (moveCount == 0)
 		{
 			MoveGenerator mg;
-			Bitboard attackedSquares = mg.calculateAttackedSquares(board, !board.whiteTurn);
+
+			Bitboard attackedSquares;
+			if(board.whiteTurn) attackedSquares = mg.calculateAttackedSquares<false>(board);
+			else attackedSquares = mg.calculateAttackedSquares<true>(board);
+
 			Bitboard kingBB = board.whiteTurn ? board.whiteKing : board.blackKing;
 			bool inCheck = (attackedSquares & kingBB) != 0;
 
