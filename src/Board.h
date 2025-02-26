@@ -200,10 +200,10 @@ struct BoardState
 	void parseFEN(const std::string& str);
 	std::string exportToFEN() const;
 
-	__forceinline void updateZobrist(const Move& move)
+	/*__forceinline void updateZobrist(const Move& move)
 	{
 
-	}
+	}*/
 	
 	__forceinline Bitboard all() const
 	{
@@ -221,7 +221,47 @@ struct BoardState
 	}
 };
 
-__forceinline static uint64_t computeZobristKey(const BoardState& board)
+
+// Plain zobrist hashing using our own board format will be faster in the TT as we won't need to do any transformations on the position
+__forceinline static uint64_t computeZobristHash(const BoardState& board)
+{
+	uint64_t key = 0;
+	auto process = [&key](Bitboard bb, int pieceIndex)
+		{
+			Bitloop(bb)
+			{
+				Square sq = SquareOf(bb); // We don't apply any transformations to the the sq like we do in polyglot as there is no need
+				key ^= Random64[pieceIndex * 64 + sq]; // Use the same randoms as polyglot for convenience
+			}
+		};
+
+	process(board.blackPawns, 0);
+    process(board.whitePawns, 1);
+    process(board.blackKnights, 2);
+    process(board.whiteKnights, 3);
+    process(board.blackBishops, 4);
+    process(board.whiteBishops, 5);
+    process(board.blackRooks, 6);
+    process(board.whiteRooks, 7);
+    process(board.blackQueens, 8);
+    process(board.whiteQueens, 9);
+    process(board.blackKing, 10);
+    process(board.whiteKing, 11);
+
+	// Castling rights
+    if (board.castlingRights & 1) key ^= Random64[768]; // White kingside
+    if (board.castlingRights & 2) key ^= Random64[769]; // White queenside
+    if (board.castlingRights & 4) key ^= Random64[770]; // Black kingside
+    if (board.castlingRights & 8) key ^= Random64[771]; // Black queenside
+
+	Square epSq = SquareOf(board.enPassant);
+	uint8_t file = epSq % 8;
+	key ^= Random64[772 + file];
+
+	if(!board.whiteTurn) key ^= Random64[780]; // Different side then polyglot
+}
+
+__forceinline static uint64_t computePolyglotHash(const BoardState& board)
 {
     uint64_t key = 0;
 
@@ -230,8 +270,8 @@ __forceinline static uint64_t computeZobristKey(const BoardState& board)
         Bitloop(bb)
         {
             Square sq = SquareOf(bb);
-            int row = 7 - (sq / 8); // Correct row calculation for Zobrist
-            int file = sq % 8;
+            int row = 7 - (sq / 8); 
+			int file = sq % 8;
             key ^= Random64[pieceIndex * 64 + (row * 8 + file)];
         }
 

@@ -1,4 +1,4 @@
-#include "Transposition.h"
+#include "Opening.h"
 
 std::vector<TableEntry> loadPolyglotBook(const std::string& filename) {
     std::ifstream file(filename, std::ios::binary);

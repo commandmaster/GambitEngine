@@ -28,7 +28,7 @@ public:
 		boardHistory.reserve(40);
 		
 		board.parseFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
-		uint64_t key = computeZobristKey(board);
+		uint64_t key = computePolyglotHash(board);
 		std::cout << std::hex << key << std::endl;
 		
 		/*Timer timer;

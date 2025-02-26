@@ -12,25 +12,33 @@ void BoardState::makeMove(const Move& move) {
     history.capturedSquare = 0;
     history.rookFrom = 0;
     history.rookTo = 0;
+    history.prevZobristKey = zobristKey;
+
+    zobristKey ^= Random64[772 + (SquareOf(enPassant) % 8)];
 
     // Handle captures
-    if (move.captureFlag) {
-        if (move.enpassantFlag) {
-            // En passant: captured pawn is adjacent
+    if (move.captureFlag) 
+    {
+        if (move.enpassantFlag) 
+        {
             history.capturedSquare = whiteTurn ? move.endSquare + 8 : move.endSquare - 8;
             history.capturedPiece = whiteTurn ? Piece::BP : Piece::WP;
-        } else {
+        } 
+        else 
+        {
             history.capturedSquare = move.endSquare;
-            // Determine captured piece type
             Bitboard target = 1ULL << move.endSquare;
-            if (whiteTurn) {
+            if (whiteTurn) 
+            {
                 if (blackPawns   & target) history.capturedPiece = Piece::BP;
                 else if (blackKnights & target) history.capturedPiece = Piece::BN;
                 else if (blackBishops & target) history.capturedPiece = Piece::BB;
                 else if (blackRooks   & target) history.capturedPiece = Piece::BR;
                 else if (blackQueens  & target) history.capturedPiece = Piece::BQ;
                 else if (blackKing    & target) history.capturedPiece = Piece::BK;
-            } else {
+            } 
+            else 
+            {
                 if (whitePawns   & target) history.capturedPiece = Piece::WP;
                 else if (whiteKnights & target) history.capturedPiece = Piece::WN;
                 else if (whiteBishops & target) history.capturedPiece = Piece::WB;
@@ -40,28 +48,44 @@ void BoardState::makeMove(const Move& move) {
             }
         }
         // Remove captured piece
-        switch (history.capturedPiece) {
+        switch (history.capturedPiece) 
+        {
             // Black pieces captured by white
-            case Piece::BP: blackPawns   ^= (1ULL << history.capturedSquare); break;
-            case Piece::BN: blackKnights ^= (1ULL << history.capturedSquare); break;
-            case Piece::BB: blackBishops ^= (1ULL << history.capturedSquare); break;
-            case Piece::BR: blackRooks   ^= (1ULL << history.capturedSquare); break;
-            case Piece::BQ: blackQueens  ^= (1ULL << history.capturedSquare); break;
-            // White pieces captured by black
-            case Piece::WP: whitePawns   ^= (1ULL << history.capturedSquare); break;
-            case Piece::WN: whiteKnights ^= (1ULL << history.capturedSquare); break;
-            case Piece::WB: whiteBishops ^= (1ULL << history.capturedSquare); break;
-            case Piece::WR: whiteRooks   ^= (1ULL << history.capturedSquare); break;
-            case Piece::WQ: whiteQueens  ^= (1ULL << history.capturedSquare); break;
-            default: break;
+        case Piece::BP: blackPawns   ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 0 + history.capturedSquare]; break;
+		case Piece::BN: blackKnights ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 2 + history.capturedSquare]; break;
+		case Piece::BB: blackBishops ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 4 + history.capturedSquare]; break;
+		case Piece::BR: blackRooks   ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 6 + history.capturedSquare]; break;
+		case Piece::BQ: blackQueens  ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 8 + history.capturedSquare]; break;
+		// White pieces captured by black
+		case Piece::WP: whitePawns   ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 1 + history.capturedSquare]; break;
+		case Piece::WN: whiteKnights ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 3 + history.capturedSquare]; break;
+		case Piece::WB: whiteBishops ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 5 + history.capturedSquare]; break;
+		case Piece::WR: whiteRooks   ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 7 + history.capturedSquare]; break;
+		case Piece::WQ: whiteQueens  ^= (1ULL << history.capturedSquare); zobristKey ^= Random64[64 * 9 + history.capturedSquare]; break;
+		default: break;
         }
         // Also update castling rights if a rook was captured from its original square.
-        if (history.capturedPiece == Piece::WR) {
-            if (history.capturedSquare == 63) castlingRights &= ~1; // White kingside rook captured.
-            else if (history.capturedSquare == 56) castlingRights &= ~2; // White queenside rook captured.
-        } else if (history.capturedPiece == Piece::BR) {
-            if (history.capturedSquare == 7)  castlingRights &= ~4; // Black kingside rook captured.
-            else if (history.capturedSquare == 0)  castlingRights &= ~8; // Black queenside rook captured.
+        if (history.capturedPiece == Piece::WR) 
+        {
+            if (history.capturedSquare == 63)
+            {
+                castlingRights &= ~1; // White kingside rook captured.
+            }
+            else if (history.capturedSquare == 56)
+            {
+                castlingRights &= ~2; // White queenside rook captured.
+            }
+        } 
+        else if (history.capturedPiece == Piece::BR) 
+        {
+            if (history.capturedSquare == 7)
+            {
+                castlingRights &= ~4; // Black kingside rook captured.
+            }
+            else if (history.capturedSquare == 0)
+            {
+                castlingRights &= ~8; // Black queenside rook captured.
+            }
         }
     }
 
@@ -243,6 +267,7 @@ void BoardState::unmakeMove() {
     }
 
     // Restore previous state variables.
+    zobristKey = history.prevZobristKey;
     castlingRights = history.prevCastlingRights;
     enPassant       = history.prevEnPassant;
     halfmoveClock   = history.prevHalfmoveClock;
@@ -373,9 +398,10 @@ void BoardState::parseFEN(const std::string& fen)
     if (!temp.empty()) fullmoveNumber = std::stoi(temp);
 
 
-    zobristKey = computeZobristKey(*this);
+    zobristKey = computeZobristHash(*this);
 }
 
+// Todo: test if this even works - It's never been used
 std::string BoardState::exportToFEN() const 
 {
     std::array<char, 64> board{};

@@ -17,16 +17,17 @@
 
 #include "Board.h"
 #include "MoveGenerator.h"
-#include "Transposition.h"
+#include "Opening.h"
 #include "Evaluation.h"
 
 // #define SEARCH_LOGS
 
 
-
 class Searcher
 {
 public:
+	static constexpr int MAX_IMPLEMENTED_DEPTH = 40;
+
 	Searcher()
 		: rng(dev()), dist(0, 3), openingBookEntries{}, timeout{ false }, bestEval{ INT_MIN }, bestMove{}, bestMoveThisIteration{}, bestEvalThisIteration{ INT_MIN }
     {
@@ -91,6 +92,8 @@ public:
 		std::thread timerThread(&Searcher::beginTimeout, this, timeLimit);
 
 		int currentSearchDepth = 1;
+
+		std::max<int>(MAX_IMPLEMENTED_DEPTH, maxDepth);
         for (; currentSearchDepth <= maxDepth; ++currentSearchDepth)
         {
             bestMoveThisIteration = Move{};
@@ -190,7 +193,7 @@ private:
 	{
         if (openingBookEntries.empty()) return Move{};
 
-        uint64_t key = computeZobristKey(board);
+        uint64_t key = computePolyglotHash(board);
 
         auto [lower, upper] = lookupEntries(openingBookEntries, key);
         if (lower == upper) return Move{};
@@ -255,7 +258,7 @@ private:
         else 
 			moveCount = mg.generateLegalMoves<false>(moves, board);
 
-        orderMoves(moves, bestMove, moveCount, board);
+        orderMoves(moves, bestMove, moveCount, board); // We can do this as order moves does a null check on best move for us, if it is not null we search it first
 
         int alpha = -200000;
 		int beta = 200000;
@@ -307,6 +310,11 @@ private:
 				case 32: score = -negamax<true, 32>(board, -beta, -alpha); break;
 				case 33: score = -negamax<true, 33>(board, -beta, -alpha); break;
 				case 34: score = -negamax<true, 34>(board, -beta, -alpha); break;
+				case 35: score = -negamax<true, 35>(board, -beta, -alpha); break;
+				case 36: score = -negamax<true, 36>(board, -beta, -alpha); break;
+				case 37: score = -negamax<true, 37>(board, -beta, -alpha); break;
+				case 38: score = -negamax<true, 38>(board, -beta, -alpha); break;
+				case 39: score = -negamax<true, 39>(board, -beta, -alpha); break;
 				default:
                     throw std::runtime_error("Requested depth is not yet implemented!");
 					break;
@@ -351,6 +359,11 @@ private:
 				case 32: score = -negamax<false, 32>(board, -beta, -alpha); break;
 				case 33: score = -negamax<false, 33>(board, -beta, -alpha); break;
 				case 34: score = -negamax<false, 34>(board, -beta, -alpha); break;
+				case 35: score = -negamax<false, 35>(board, -beta, -alpha); break;
+				case 36: score = -negamax<false, 36>(board, -beta, -alpha); break;
+				case 37: score = -negamax<false, 37>(board, -beta, -alpha); break;
+				case 38: score = -negamax<false, 38>(board, -beta, -alpha); break;
+				case 39: score = -negamax<false, 39>(board, -beta, -alpha); break;
 				default:
                     throw std::runtime_error("Requested depth is not yet implemented!");
                     break;
@@ -402,7 +415,7 @@ private:
 
         orderMoves(moves, bestMove, moveCount, board);
 
-        int bestScore = INT_MIN;
+        int bestScore = -250000;
         for (int i = 0; i < moveCount; ++i) 
         {
 			Move& move = moves[i];
@@ -419,10 +432,7 @@ private:
 			if (score > bestScore) 
             {
 				bestScore = score;
-				if (score > alpha) 
-                {
-					alpha = score;
-				}
+				if (score > alpha) alpha = score;
 			}
 		}
 
