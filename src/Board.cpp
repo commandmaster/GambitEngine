@@ -14,7 +14,7 @@ void BoardState::makeMove(const Move& move) {
     history.rookTo = 0;
     history.prevZobristKey = zobristKey;
 
-    zobristKey ^= Random64[772 + (SquareOf(enPassant) % 8)];
+    if (enPassant) zobristKey ^= Random64[772 + (SquareOf(enPassant) % 8)];
 
     // Handle captures
     if (move.captureFlag) 
@@ -90,18 +90,28 @@ void BoardState::makeMove(const Move& move) {
     }
 
     // Handle castling
-    if (move.castlingFlag) {
+    if (move.castlingFlag) 
+    {
         // Determine rook's movement based on destination square.
-        if (whiteTurn) {
-            if (move.endSquare == 62) { // White kingside castling.
+        if (whiteTurn) 
+        {
+            if (move.endSquare == 62) 
+            { // White kingside castling.
                 history.rookFrom = 63; history.rookTo = 61;
-            } else { // White queenside castling.
+            }
+            else 
+            { // White queenside castling.
                 history.rookFrom = 56; history.rookTo = 59;
             }
-        } else {
-            if (move.endSquare == 6) { // Black kingside castling.
+        } 
+        else 
+        {
+            if (move.endSquare == 6) 
+            { // Black kingside castling.
                 history.rookFrom = 7; history.rookTo = 5;
-            } else { // Black queenside castling.
+            }
+            else 
+            { // Black queenside castling.
                 history.rookFrom = 0; history.rookTo = 3;
             }
         }
@@ -111,6 +121,12 @@ void BoardState::makeMove(const Move& move) {
             whiteRooks ^= rookBB;
         else
             blackRooks ^= rookBB;
+
+        int rookColor = whiteTurn ? 0 : 1;
+        int rookType = 3; // Rook
+        int rookIndex = (rookType * 2) + (1 - rookColor);
+        zobristKey ^= Random64[rookIndex * 64 + history.rookFrom];
+        zobristKey ^= Random64[rookIndex * 64 + history.rookTo];
     }
 
     // Move the piece
@@ -134,51 +150,108 @@ void BoardState::makeMove(const Move& move) {
         default: break;
     }
 
-    // Handle promotion.
-    if (move.promotedPiece != Piece::NONE) {
-        if (whiteTurn) {
-            // Remove pawn from white pawn bitboard.
-            whitePawns ^= toBB;
-            switch (move.promotedPiece) {
-                case Piece::WQ: whiteQueens  ^= toBB; break;
-                case Piece::WR: whiteRooks   ^= toBB; break;
-                case Piece::WB: whiteBishops ^= toBB; break;
-                case Piece::WN: whiteKnights ^= toBB; break;
-                default: break;
-            }
-        } else {
-            blackPawns ^= toBB;
-            switch (move.promotedPiece) {
-                case Piece::BQ: blackQueens  ^= toBB; break;
-                case Piece::BR: blackRooks   ^= toBB; break;
-                case Piece::BB: blackBishops ^= toBB; break;
-                case Piece::BN: blackKnights ^= toBB; break;
-                default: break;
-            }
-        }
-    }
+    int type = Piece::getType(move.piece);
+    int color = Piece::getColor(move.piece);
+    int pieceIndex = (type * 2) + (1 - color);
+    zobristKey ^= Random64[pieceIndex * 64 + move.startSquare];
+    zobristKey ^= Random64[pieceIndex * 64 + move.endSquare];
 
-    // Update castling rights if a king or rook moved.
-    if (move.piece == Piece::WK || move.piece == Piece::BK) {
-        // Moving the king forfeits all castling rights for that color.
+    // Handle promotion.
+    if (move.promotedPiece != Piece::NONE) 
+	{
+		if (whiteTurn) 
+		{
+			whitePawns ^= toBB;
+			zobristKey ^= Random64[64 * 1 + move.endSquare];  // Remove pawn from end square
+			
+			switch (move.promotedPiece) 
+			{
+				case Piece::WQ: 
+					whiteQueens  ^= toBB;
+					zobristKey ^= Random64[64 * 9 + move.endSquare];  // Add queen
+					break;
+				case Piece::WR: 
+					whiteRooks   ^= toBB;
+					zobristKey ^= Random64[64 * 7 + move.endSquare];  // Add rook
+					break;
+				case Piece::WB: 
+					whiteBishops ^= toBB;
+					zobristKey ^= Random64[64 * 5 + move.endSquare];  // Add bishop
+					break;
+				case Piece::WN: 
+					whiteKnights ^= toBB;
+					zobristKey ^= Random64[64 * 3 + move.endSquare];  // Add knight
+					break;
+				default: break;
+			}
+		}
+		else 
+		{
+			blackPawns ^= toBB;
+			zobristKey ^= Random64[64 * 0 + move.endSquare];  // Remove pawn from end square
+			
+			switch (move.promotedPiece) 
+			{
+				case Piece::BQ: 
+					blackQueens  ^= toBB;
+					zobristKey ^= Random64[64 * 8 + move.endSquare];  // Add queen
+					break;
+				case Piece::BR: 
+					blackRooks   ^= toBB;
+					zobristKey ^= Random64[64 * 6 + move.endSquare];  // Add rook
+					break;
+				case Piece::BB: 
+					blackBishops ^= toBB;
+					zobristKey ^= Random64[64 * 4 + move.endSquare];  // Add bishop
+					break;
+				case Piece::BN: 
+					blackKnights ^= toBB;
+					zobristKey ^= Random64[64 * 2 + move.endSquare];  // Add knight
+					break;
+				default: break;
+			}
+		}
+	}
+
+    if (move.piece == Piece::WK || move.piece == Piece::BK) 
+    {
         castlingRights &= whiteTurn ? ~0x03 : ~0x0C;
-    } else if (move.piece == Piece::WR || move.piece == Piece::BR) {
-        if (move.piece == Piece::WR) {
+    } 
+    else if (move.piece == Piece::WR || move.piece == Piece::BR) 
+    {
+        if (move.piece == Piece::WR) 
+        {
             if (move.startSquare == 63) castlingRights &= ~1; // White kingside rook moved.
             else if (move.startSquare == 56) castlingRights &= ~2; // White queenside rook moved.
-        } else {
+        } 
+        else 
+        {
             if (move.startSquare == 7)  castlingRights &= ~4; // Black kingside rook moved.
             else if (move.startSquare == 0)  castlingRights &= ~8; // Black queenside rook moved.
         }
     }
 
+    uint8_t castlingXor = history.prevCastlingRights ^ castlingRights;
+    if (castlingXor & 1) zobristKey ^= Random64[768];
+    if (castlingXor & 2) zobristKey ^= Random64[769];
+    if (castlingXor & 4) zobristKey ^= Random64[770];
+    if (castlingXor & 8) zobristKey ^= Random64[771];
+
     // Update en passant
     enPassant = move.doublePushFlag ? (1ULL << (whiteTurn ? move.endSquare + 8 : move.endSquare - 8)) : 0;
+    if (enPassant) 
+    {
+        int file = SquareOf(enPassant) % 8;
+        zobristKey ^= Random64[772 + file];
+    }
 
     // Update clocks
     halfmoveClock = (move.captureFlag || move.piece == Piece::WP || move.piece == Piece::BP) ? 0 : halfmoveClock + 1;
     if (!whiteTurn) fullmoveNumber++;
+
+
     whiteTurn = !whiteTurn;
+	zobristKey ^= Random64[780];
 
     historyStack.push_back(history);
 }

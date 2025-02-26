@@ -119,7 +119,7 @@ void UCI::setupPosition(const std::string& fen, const std::vector<std::string>& 
 
 
 void UCI::startSearch(const std::string& parameters) {
-    int timeLimit = 150; 
+    int timeLimit = 1000; 
     int depth = 100;
 
 	std::istringstream iss(parameters);

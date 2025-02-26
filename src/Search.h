@@ -22,7 +22,6 @@
 
 // #define SEARCH_LOGS
 
-
 class Searcher
 {
 public:
@@ -151,7 +150,8 @@ private:
 
     void orderMoves(MoveArr& moves, Move& previousBest, int moveCount, const BoardState& board)
 	{
-		struct MoveScore { 
+		struct MoveScore 
+		{ 
 			Move move;
 			int score;
 			bool operator>(const MoveScore& other) const { return score > other.score; }

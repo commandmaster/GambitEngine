@@ -259,6 +259,8 @@ __forceinline static uint64_t computeZobristHash(const BoardState& board)
 	key ^= Random64[772 + file];
 
 	if(!board.whiteTurn) key ^= Random64[780]; // Different side then polyglot
+
+	return key;
 }
 
 __forceinline static uint64_t computePolyglotHash(const BoardState& board)

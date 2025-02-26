@@ -29,19 +29,21 @@ public:
 		
 		board.parseFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 		uint64_t key = computePolyglotHash(board);
+
+		std::cout << "Zobrist: " << std::hex << computeZobristHash(board) << " " << board.zobristKey << "\n";
 		std::cout << std::hex << key << std::endl;
 		
-		/*Timer timer;
+		Timer timer;
 		timer.start();
-		int perftResults = oldPerft(6, moveGenerator, board);
+		int perftResults = oldPerft(4, moveGenerator, board);
 		std::cout << "Perft at depth: " << std::dec << perftResults << '\n';
 		timer.stop();
 		std::cout << "Perft Time: "  << std::dec << timer.elapsedTime<std::chrono::milliseconds>() << "\n";
 		std::cout << "NPS: " << std::dec << std::fixed << (perftResults / timer.elapsedTime<std::chrono::milliseconds>()) * 1000 << "\n";
 
 		std::cout << "\n\n";
-		perft(6, moveGenerator, board);
-		std::cout << "\n\n";*/
+		perft(4, moveGenerator, board);
+		std::cout << "\n\n";
 
 		searcher.loadOpeningBook("assets/baron30.bin");
 		loadSounds();
@@ -66,9 +68,9 @@ public:
 			aiTurn();
 			timer.stop();
 			std::cout << "AI turn time: " << timer.elapsedTime<std::chrono::milliseconds>() << '\n';
+			std::cout << "Zobrist: " << std::hex << computeZobristHash(board) << " " << board.zobristKey << "\n";
 		}
 		takeTurn();
-
 
 		renderer.update(board, selectedSquare);
 		
