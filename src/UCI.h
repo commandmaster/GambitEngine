@@ -17,5 +17,6 @@ private:
     static MoveGenerator moveGen;
     static bool uciMode;
     static bool debugMode;
+    static Searcher searcher;
 };
 		

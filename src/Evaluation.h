@@ -151,6 +151,7 @@ namespace Evaluation
 		else return Piece::NONE;
 	}
 
+	template<bool Turn>
 	__forceinline static int evaluate(const BoardState& board)
 	{
 		// Material calculation
@@ -202,13 +203,18 @@ namespace Evaluation
 		int blackKingScore = static_cast<int>(blackKingMiddle * phaseFactor + blackKingEnd * (1 - phaseFactor));
 		blackPositional += blackKingScore;
 
-
-
 		int materialDifference = whiteMaterial - blackMaterial;
 		int positionalDifference = whitePositional - blackPositional;
 		int totalScore = materialDifference + positionalDifference;
 
-		return totalScore * (board.whiteTurn ? 1 : -1);
+		if constexpr (Turn)
+		{
+			return totalScore;
+		}
+		else
+		{
+			return -totalScore;
+		}
 	}
 
 }

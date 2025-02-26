@@ -20,9 +20,10 @@ public:
 	int mc;
 	MoveArr moves;
 	bool wait = false;
+	Searcher searcher;
 
 	Game()
-		: boardHistory(), renderer(1800, 1300), moveGenerator{}, board()
+		: boardHistory(), renderer(1800, 1300), moveGenerator{}, board(), searcher()
 	{
 		boardHistory.reserve(40);
 		
@@ -30,7 +31,7 @@ public:
 		uint64_t key = computeZobristKey(board);
 		std::cout << std::hex << key << std::endl;
 		
-		Timer timer;
+		/*Timer timer;
 		timer.start();
 		int perftResults = oldPerft(6, moveGenerator, board);
 		std::cout << "Perft at depth: " << std::dec << perftResults << '\n';
@@ -40,9 +41,9 @@ public:
 
 		std::cout << "\n\n";
 		perft(6, moveGenerator, board);
-		std::cout << "\n\n";
+		std::cout << "\n\n";*/
 
-		Search::loadOpeningBook("assets/baron30.bin");
+		searcher.loadOpeningBook("assets/baron30.bin");
 		loadSounds();
 	}
 
@@ -116,7 +117,7 @@ private:
 
 	void aiTurn()
 	{
-		Move bestMove = Search::findBestMove(board, 12, 1500);
+		Move bestMove = searcher.findBestMove(board, 100, 1000);
 
 		board.makeMove(bestMove);
 		addMoveToHistory(board);

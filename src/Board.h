@@ -87,6 +87,11 @@ namespace Piece
 
 struct Move
 {
+	__forceinline bool isNull() const
+	{
+		return startSquare == endSquare;
+	}
+
 	bool operator==(const Move& other) const {
 		return startSquare == other.startSquare &&
 			   endSquare == other.endSquare &&

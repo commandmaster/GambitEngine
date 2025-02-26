@@ -5,11 +5,12 @@
 
 BoardState UCI::board;
 MoveGenerator UCI::moveGen;
+Searcher UCI::searcher;
 bool UCI::uciMode = false;
 bool UCI::debugMode = false;
 
 void UCI::loop() {
-    Search::loadOpeningBook("./assets/baron30.bin");
+    searcher.loadOpeningBook("./assets/baron30.bin");
     std::string line;
     while (std::getline(std::cin, line)) {
         processCommand(line);
@@ -119,7 +120,7 @@ void UCI::setupPosition(const std::string& fen, const std::vector<std::string>& 
 
 void UCI::startSearch(const std::string& parameters) {
     int timeLimit = 150; 
-    int depth = 15;
+    int depth = 100;
 
 	std::istringstream iss(parameters);
     std::string token;
@@ -129,7 +130,6 @@ void UCI::startSearch(const std::string& parameters) {
         if (token == "movetime")
         {
             iss >> token;
-            Search::TimeLimit = std::stoi(token);
         }
         else if (token == "depth")
         {
@@ -138,7 +138,7 @@ void UCI::startSearch(const std::string& parameters) {
         }
     }
 
-    std::string bestMove = moveToUCI(Search::findBestMove(board, depth, timeLimit));
+    std::string bestMove = moveToUCI(searcher.findBestMove(board, depth, timeLimit));
     
     std::cout << "bestmove " << bestMove << "\n";
 }
