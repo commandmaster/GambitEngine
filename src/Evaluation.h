@@ -124,7 +124,7 @@ namespace Evaluation
 		case 2: return 330; // Bishop
 		case 3: return 500; // Rook
 		case 4: return 905; // Queen
-		case 5: return 20000; // King
+		case 5: return 15000; // King
 		default: return 0; // None or invalid
 		}
 	}

@@ -260,8 +260,8 @@ private:
 
         orderMoves(moves, bestMove, moveCount, board); // We can do this as order moves does a null check on best move for us, if it is not null we search it first
 
-        int alpha = -200000;
-		int beta = 200000;
+        int alpha = -20000;
+		int beta = 20000;
 
         for (int i = 0; i < moveCount; ++i)
         {
@@ -403,7 +403,7 @@ private:
         {
             if (mg.inCheck)
             {
-                constexpr int MATESCORE = -100000 - Depth;
+                constexpr int MATESCORE = -19000 - Depth;
                 return MATESCORE;
             }
             else
@@ -415,7 +415,7 @@ private:
 
         orderMoves(moves, bestMove, moveCount, board);
 
-        int bestScore = -250000;
+        int bestScore = -25000;
         for (int i = 0; i < moveCount; ++i) 
         {
 			Move& move = moves[i];

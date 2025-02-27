@@ -7,6 +7,7 @@
 #include "MoveGenerator.h"
 #include "Renderer.h"
 #include "Search.h"
+#include "TranspositionTable.h"
 
 #include "raylib.h"
 
