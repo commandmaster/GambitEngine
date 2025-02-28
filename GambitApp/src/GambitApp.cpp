@@ -4,6 +4,9 @@
 #include "Walnut/Image.h"
 #include "Walnut/UI/UI.h"
 
+#include <filesystem>
+#include <iostream>
+
 class ExampleLayer : public Walnut::Layer
 {
 public:
@@ -59,8 +62,10 @@ private:
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 {
 	Walnut::ApplicationSpecification spec;
-	spec.Name = "Walnut Example";
+	spec.Name = "Gambit Engine";
 	spec.CustomTitlebar = true;
+	spec.IconPath = "assets/appLogo.png";
+	std::cout << "Current CWD is " << std::filesystem::current_path() << "\n";
 
 	Walnut::Application* app = new Walnut::Application(spec);
 	std::shared_ptr<ExampleLayer> exampleLayer = std::make_shared<ExampleLayer>();
