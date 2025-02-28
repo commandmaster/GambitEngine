@@ -7,6 +7,12 @@ project "GambitApp"
 
    files { "src/**.h", "src/**.cpp" }
 
+   vpaths
+   {
+      ["Header Files"] = { "src/**.h", "src/**.hpp" },
+      ["Source Files"] = { "src/**.cpp" },
+   }
+
    includedirs
    {
       "../vendor/imgui",
