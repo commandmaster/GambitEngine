@@ -8,6 +8,7 @@
 #include "Renderer.h"
 #include "Search.h"
 #include "TranspositionTable.h"
+#include "Test.h"
 
 #include "raylib.h"
 
@@ -31,22 +32,10 @@ public:
 		board.parseFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
 		uint64_t key = computePolyglotHash(board);
 
-		std::cout << "Zobrist: " << std::hex << computeZobristHash(board) << " " << board.zobristKey << "\n";
-		std::cout << std::hex << key << std::endl;
-		
-		Timer timer;
-		timer.start();
-		int perftResults = oldPerft(4, moveGenerator, board);
-		std::cout << "Perft at depth: " << std::dec << perftResults << '\n';
-		timer.stop();
-		std::cout << "Perft Time: "  << std::dec << timer.elapsedTime<std::chrono::milliseconds>() << "\n";
-		std::cout << "NPS: " << std::dec << std::fixed << (perftResults / timer.elapsedTime<std::chrono::milliseconds>()) * 1000 << "\n";
-
-		std::cout << "\n\n";
-		perft(4, moveGenerator, board);
-		std::cout << "\n\n";
-
 		searcher.loadOpeningBook("assets/baron30.bin");
+
+		testDepth(7);
+
 		loadSounds();
 	}
 
@@ -95,7 +84,7 @@ private:
 	int8_t clickedSquare = -1;
 	Sound sounds[3];
 
-	inline int whiteMaterial()
+	inline int whiteMaterial() const
 	{
 		return __popcnt64(board.whitePawns) * 1 +
 			   __popcnt64(board.whiteKnights) * 3 +
@@ -104,7 +93,7 @@ private:
 			   __popcnt64(board.whiteQueens) * 9;
 	}
 
-	inline int blackMaterial()
+	inline int blackMaterial() const
 	{
 		return __popcnt64(board.blackPawns) * 1 +
 			   __popcnt64(board.blackKnights) * 3 +

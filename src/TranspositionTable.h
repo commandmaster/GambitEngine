@@ -3,6 +3,10 @@
 #include <bit>
 #include <cstdint>
 #include <cassert>
+#include <iostream>
+#include <fstream>
+#include <immintrin.h>
+#include <ammintrin.h>
 
 #include "Board.h"
 
@@ -12,12 +16,9 @@ struct TTEntry
     struct SmpData
     {
         int16_t score;
-        Move move;
         uint8_t depth : 6;
         uint8_t flags : 2;
-
-        // Ensure that EntryData is exactly 64 bits.
-        static_assert(sizeof(SmpData) == sizeof(uint64_t), "SmpData must be 64 bits");
+        Move move;
 
         // Convert to a 64-bit integer using std::bit_cast.
         __forceinline uint64_t to_uint64() const 
@@ -71,22 +72,31 @@ struct TTEntry
     static constexpr uint8_t LOWERBOUND = 1;
     static constexpr uint8_t UPPERBOUND = 2;
 
+    __forceinline static TTEntry nullEntry()
+    {
+        return TTEntry{ 0, { 0, 0, 0, Move{} } };
+    }
+
     uint64_t smpKey;
     SmpData smpData;
+
 };
 
 class TranspositionTable
 {
 public:
 	TranspositionTable(size_t tableSizeMB)
+        : nullMove(TTEntry::nullEntry())
     {
 		constexpr size_t MBtoB = 1024ULL * 1024ULL;
 		size_t maxBytes = tableSizeMB * MBtoB;
         size_t maxEntries = maxBytes / sizeof(TTEntry);
 
-        tableEntries = 1ULL << (63 - __builtin_clzll(maxEntries));
+        tableEntries = 1ULL << (63 - _lzcnt_u64(maxEntries));
 
         table = new TTEntry[tableEntries];
+
+        std::memset(table, 0, tableEntries * sizeof(TTEntry));
     }
 
 	~TranspositionTable()
@@ -94,19 +104,38 @@ public:
         delete[] table;
     }
 
-	__forceinline void store(size_t zobristKey, TTEntry entry)
+	__forceinline void store(uint64_t zobristKey, TTEntry::SmpData data)
     {
         size_t index = zobristKey & (tableEntries - 1);
-        table[index] = entry; 
+		TTEntry& entry = table[index];
+
+		if (data.depth < entry.smpData.depth) {
+			return;
+		}
+
+		entry.smpKey = zobristKey ^ data.to_uint64();
+		entry.smpData = data;        
     }
 
-    __forceinline TTEntry& retrieve(size_t zobristKey)
+    __forceinline TTEntry::SmpData& retrieve(uint64_t zobristKey)
     {
         size_t index = zobristKey & (tableEntries - 1);
-        return table[index]; 
+        if ((table[index].smpKey ^ (table[index].smpData.to_uint64())) == zobristKey)
+        {
+			return table[index].smpData; 
+        }
+
+        return nullMove.smpData; // null data
     }
+    
+    void printDebugInfo() const
+    {
+        std::cout << "Possible Entries: " << tableEntries;
+    }
+    
 	
 private:
 	TTEntry* table;
+    TTEntry nullMove;
 	size_t tableEntries;
 };
