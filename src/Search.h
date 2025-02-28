@@ -19,8 +19,9 @@
 #include "MoveGenerator.h"
 #include "Opening.h"
 #include "Evaluation.h"
+#include "TranspositionTable.h"
 
-// #define SEARCH_LOGS
+#define SEARCH_LOGS
 
 class Searcher
 {
@@ -28,7 +29,7 @@ public:
 	static constexpr int MAX_IMPLEMENTED_DEPTH = 40;
 
 	Searcher()
-		: rng(dev()), dist(0, 3), openingBookEntries{}, timeout{ false }, bestEval{ INT_MIN }, bestMove{}, bestMoveThisIteration{}, bestEvalThisIteration{ INT_MIN }
+		: rng(dev()), dist(0, 3), openingBookEntries{}, timeout{ false }, bestEval{ INT_MIN }, bestMove{}, bestMoveThisIteration{}, bestEvalThisIteration{ INT_MIN }, ttTable(128)
     {
 		#ifdef SEARCH_LOGS
 		logFile = std::ofstream("search_logs.txt", std::ios::app);
@@ -89,10 +90,12 @@ public:
 
 		timeout = false;
 		std::thread timerThread(&Searcher::beginTimeout, this, timeLimit);
+		timerThread.detach();
 
 		int currentSearchDepth = 1;
 
-		std::max<int>(MAX_IMPLEMENTED_DEPTH, maxDepth);
+		maxDepth = std::min<int>(MAX_IMPLEMENTED_DEPTH, maxDepth);
+
         for (; currentSearchDepth <= maxDepth; ++currentSearchDepth)
         {
             bestMoveThisIteration = Move{};
@@ -124,7 +127,6 @@ public:
             if (timeout) break;
         }
 
-		timerThread.join();
 
 		#ifdef SEARCH_LOGS
 
@@ -142,20 +144,32 @@ public:
 	}
 
 private:
-	void beginTimeout(int timeoutMS)
+	void beginTimeout(int timeoutMS) 
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(timeoutMS));
-		timeout.store(true, std::memory_order_release);
+		auto start = std::chrono::steady_clock::now();
+		while (!timeout.load(std::memory_order_relaxed)) {
+			auto elapsed = std::chrono::steady_clock::now() - start;
+			if (std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count() >= timeoutMS) {
+				timeout.store(true, std::memory_order_release);
+				break;
+			}
+			std::this_thread::sleep_for(std::chrono::milliseconds(5));
+		}
 	}
 
+	template<int Depth>
     void orderMoves(MoveArr& moves, Move& previousBest, int moveCount, const BoardState& board)
 	{
 		struct MoveScore 
-		{ 
+		{
 			Move move;
 			int score;
 			bool operator>(const MoveScore& other) const { return score > other.score; }
 		};
+		
+		Move hashedMove{};
+		auto& data = ttTable.retrieve(board.zobristKey);
+		hashedMove = data.move;
 		
 		std::array<MoveScore, 218> moveScores;
 
@@ -164,17 +178,22 @@ private:
 			int score = 0;
 
 			// Previous best move gets priority
-			if (!previousBest.isNull() && moves[i] == previousBest) {
-				score = INT_MAX;
-			} else {
+			if (moves[i] == previousBest || moves[i] == hashedMove)
+			{
+				score = INT_MAX - 10;
+			}
+			else 
+			{
 				// Score calculation logic
-				if (moves[i].captureFlag) {
+				if (moves[i].captureFlag) 
+				{
 					uint8_t victim = Evaluation::getCapturedPieceType(board, moves[i]);
 					score += 10000 + (Evaluation::getPieceValue(victim) * 10)
 						   - Evaluation::getPieceValue(moves[i].piece);
 				}
 				
-				if (moves[i].promotedPiece != Piece::NONE) {
+				if (moves[i].promotedPiece != Piece::NONE) 
+				{
 					score += 5000 + Evaluation::getPieceValue(moves[i].promotedPiece);
 				}
 			}
@@ -184,7 +203,8 @@ private:
 
 		std::sort(moveScores.begin(), moveScores.begin() + moveCount, std::greater<>());
 
-		for (int i = 0; i < moveCount; ++i) {
+		for (int i = 0; i < moveCount; ++i) 
+		{
 			moves[i] = moveScores[i].move;
 		}
 	}
@@ -258,7 +278,53 @@ private:
         else 
 			moveCount = mg.generateLegalMoves<false>(moves, board);
 
-        orderMoves(moves, bestMove, moveCount, board); // We can do this as order moves does a null check on best move for us, if it is not null we search it first
+
+		// We can do this as order moves does a null check on best move for us, if it is not null we search it first
+		switch (depth)
+		{
+		case 0: throw std::runtime_error("You cannot start a search with a depth of 0"); break;
+		case 1: orderMoves<1>(moves, bestMove, moveCount, board); break;
+		case 2: orderMoves<2>(moves, bestMove, moveCount, board); break;
+		case 3: orderMoves<3>(moves, bestMove, moveCount, board); break;
+		case 4: orderMoves<4>(moves, bestMove, moveCount, board); break;
+		case 5: orderMoves<5>(moves, bestMove, moveCount, board); break;
+		case 6: orderMoves<6>(moves, bestMove, moveCount, board); break;
+		case 7: orderMoves<7>(moves, bestMove, moveCount, board); break;
+		case 8: orderMoves<8>(moves, bestMove, moveCount, board); break;
+		case 9: orderMoves<9>(moves, bestMove, moveCount, board); break;
+		case 10: orderMoves<10>(moves, bestMove, moveCount, board); break;
+		case 11: orderMoves<11>(moves, bestMove, moveCount, board); break;
+		case 12: orderMoves<12>(moves, bestMove, moveCount, board); break;
+		case 13: orderMoves<13>(moves, bestMove, moveCount, board); break;
+		case 14: orderMoves<14>(moves, bestMove, moveCount, board); break;
+		case 15: orderMoves<15>(moves, bestMove, moveCount, board); break;
+		case 16: orderMoves<16>(moves, bestMove, moveCount, board); break;
+		case 17: orderMoves<17>(moves, bestMove, moveCount, board); break;
+		case 18: orderMoves<18>(moves, bestMove, moveCount, board); break;
+		case 19: orderMoves<19>(moves, bestMove, moveCount, board); break;
+		case 20: orderMoves<20>(moves, bestMove, moveCount, board); break;
+		case 21: orderMoves<21>(moves, bestMove, moveCount, board); break;
+		case 22: orderMoves<22>(moves, bestMove, moveCount, board); break;
+		case 23: orderMoves<23>(moves, bestMove, moveCount, board); break;
+		case 24: orderMoves<24>(moves, bestMove, moveCount, board); break;
+		case 25: orderMoves<25>(moves, bestMove, moveCount, board); break;
+		case 26: orderMoves<26>(moves, bestMove, moveCount, board); break;
+		case 27: orderMoves<27>(moves, bestMove, moveCount, board); break;
+		case 28: orderMoves<28>(moves, bestMove, moveCount, board); break;
+		case 29: orderMoves<29>(moves, bestMove, moveCount, board); break;
+		case 30: orderMoves<30>(moves, bestMove, moveCount, board); break;
+		case 31: orderMoves<31>(moves, bestMove, moveCount, board); break;
+		case 32: orderMoves<32>(moves, bestMove, moveCount, board); break;
+		case 33: orderMoves<33>(moves, bestMove, moveCount, board); break;
+		case 34: orderMoves<34>(moves, bestMove, moveCount, board); break;
+		case 35: orderMoves<35>(moves, bestMove, moveCount, board); break;
+		case 36: orderMoves<36>(moves, bestMove, moveCount, board); break;
+		case 37: orderMoves<37>(moves, bestMove, moveCount, board); break;
+		case 38: orderMoves<38>(moves, bestMove, moveCount, board); break;
+		case 39: orderMoves<39>(moves, bestMove, moveCount, board); break;
+		case 40: orderMoves<40>(moves, bestMove, moveCount, board); break;
+		default: throw std::runtime_error("Depth exceeds supported limit"); break;
+		}
 
         int alpha = -20000;
 		int beta = 20000;
@@ -391,9 +457,42 @@ private:
     {
 		if (timeout) return 0;
 
+		int originalAlpha = alpha;
+
+		if (board.historyStack.size() >= 2)
+		{
+			if (board.historyStack[board.historyStack.size() - 2].prevZobristKey == board.zobristKey) 
+				return -5; // draw by repetition - offset slightly prefer moves that may be more equal but don't lead to a draw
+		}
+
 		#ifdef SEARCH_LOGS
 		++evaluatedNodes; 
 		#endif
+
+		TTEntry::SmpData& data = ttTable.retrieve(board.zobristKey);
+		if (data.depth >= Depth) // data.depth will be 0 if null result is found and thus it will never be used as 'Depth' is always >= 1 during the main search
+		{
+			int ttScore = data.score;
+
+			#ifdef SEARCH_LOGS
+				//logFile << "Found TT Entry" << "\n";
+			#endif // SEARCH_LOGS
+
+			if (data.flags == TTEntry::EXACT)
+			{
+				return ttScore;
+			}
+			else if (data.flags == TTEntry::LOWERBOUND && ttScore >= beta)
+			{
+				alpha = std::max<int>(alpha, ttScore);
+			}
+			else if (data.flags == TTEntry::UPPERBOUND && ttScore <= alpha)
+			{
+				beta = std::min<int>(beta, ttScore);
+			}
+
+			if (alpha >= beta) return ttScore;
+		}
 
         MoveGenerator mg;
 		MoveArr moves{};
@@ -413,9 +512,11 @@ private:
             }
         }
 
-        orderMoves(moves, bestMove, moveCount, board);
+        orderMoves<Depth>(moves, bestMove, moveCount, board);
 
         int bestScore = -25000;
+		Move bestMoveInCurrentSearch{};
+
         for (int i = 0; i < moveCount; ++i) 
         {
 			Move& move = moves[i];
@@ -425,16 +526,32 @@ private:
 
 			if (timeout) return 0;
 
-			if (score >= beta) 
-            {
-				return score; 
-            }
 			if (score > bestScore) 
             {
-				bestScore = score;
 				if (score > alpha) alpha = score;
+
+				bestScore = score;
+				bestMoveInCurrentSearch = move;
+				
+				if (score >= beta) 
+				{
+					ttTable.store(board.zobristKey, TTEntry::SmpData{ static_cast<int16_t>(score), static_cast<uint8_t>(Depth), TTEntry::LOWERBOUND, move });
+					return score; 
+				}
 			}
 		}
+
+		TTEntry::SmpData newEntryData{};
+		newEntryData.score = bestScore;
+
+		if (bestScore <= originalAlpha) newEntryData.flags = TTEntry::UPPERBOUND;
+		else if (bestScore >= beta) newEntryData.flags = TTEntry::LOWERBOUND;
+		else newEntryData.flags = TTEntry::EXACT;
+
+		newEntryData.depth = Depth;
+		newEntryData.move = bestMoveInCurrentSearch;
+
+		ttTable.store(board.zobristKey, newEntryData);
 
         return bestScore;
     }
@@ -467,7 +584,7 @@ private:
 
         // Order moves (without previous best)
         Move nullMove;
-        orderMoves(qMoves, nullMove, qCount, board);
+        orderMoves<0>(qMoves, nullMove, qCount, board);
 
         for (int i = 0; i < qCount; ++i) {
             Move& move = qMoves[i];
@@ -499,6 +616,8 @@ private:
     std::uniform_int_distribution<std::mt19937::result_type> dist;
 
     std::vector<TableEntry> openingBookEntries;
+
+	TranspositionTable ttTable;
 
     std::atomic<bool> timeout;
     

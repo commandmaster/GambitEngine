@@ -200,11 +200,7 @@ struct BoardState
 	void parseFEN(const std::string& str);
 	std::string exportToFEN() const;
 
-	/*__forceinline void updateZobrist(const Move& move)
-	{
 
-	}*/
-	
 	__forceinline Bitboard all() const
 	{
 		return whitePawns | blackPawns | whiteKnights | blackKnights | whiteBishops | blackBishops | whiteRooks | blackRooks | (whiteQueens | blackQueens) | whiteKing | blackKing;
