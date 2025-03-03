@@ -43,6 +43,8 @@ namespace Walnut {
 		// Window will be created in the center
 		// of primary monitor
 		bool CenterWindow = false;
+
+		float UIScale = 1.f;
 	};
 
 	class Application

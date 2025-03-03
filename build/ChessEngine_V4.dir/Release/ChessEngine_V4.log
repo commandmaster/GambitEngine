@@ -1,0 +1,137 @@
+﻿  Building Custom Rule C:/Users/fries/source/repos/commandmaster/ChessEngineV4/CMakeLists.txt
+  main.cpp
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Precomputation.h(28357,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(300,16): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(305,16): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(313,16): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'uint8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(331,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(336,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(341,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(346,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(363,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(369,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(375,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(382,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(388,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(395,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(402,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Game.h(179,21): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Game.h(185,21): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Game.h(192,13): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Game.h(454,40): warning C4244: 'return': conversion from 'unsigned __int64' to 'int', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Game.h(463,40): warning C4244: 'return': conversion from 'unsigned __int64' to 'int', possible loss of data
+  (compiling source file '../src/main.cpp')
+  
+  Renderer.cpp
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(40,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(41,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(42,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(43,22): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(204,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(205,37): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(209,26): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(210,26): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(211,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(212,24): warning C4244: 'initializing': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(214,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(215,32): warning C4244: '=': conversion from 'double' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(219,24): warning C4244: '=': conversion from 'Square' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(220,24): warning C4244: '=': conversion from 'Square' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(222,19): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Renderer.cpp(223,21): warning C4244: '=': conversion from 'int' to 'float', possible loss of data
+  Board.cpp
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Board.cpp(435,16): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int', possible loss of data
+  MoveGenerator.cpp
+  Timer.cpp
+  Precomputation.cpp
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Precomputation.h(28357,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '../src/Precomputation.cpp')
+  
+  Perft.cpp
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\Precomputation.h(28357,26): warning C4267: 'initializing': conversion from 'size_t' to 'int', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(300,16): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(305,16): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(313,16): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'uint8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(331,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(336,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(341,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(346,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(363,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(369,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(375,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(382,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(388,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(395,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+C:\Users\fries\source\repos\commandmaster\ChessEngineV4\src\MoveGenerator.h(402,15): warning C4244: 'initializing': conversion from 'unsigned __int64' to 'int8_t', possible loss of data
+  (compiling source file '../src/Perft.cpp')
+  
+  Generating Code...
+  ChessEngine_V4.vcxproj -> C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\Release\ChessEngine_V4.exe
+  'pwsh.exe' is not recognized as an internal or external command,
+  operable program or batch file.

@@ -1,0 +1,10 @@
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild -BC:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild --check-stamp-file C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

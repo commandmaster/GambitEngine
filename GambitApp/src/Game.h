@@ -1,14 +1,272 @@
-//#pragma once
-//
-//#include <array>
-//#include <string>
-//
-//#include "Board.h"
-//#include "MoveGenerator.h"
-//#include "Renderer.h"
-//#include "Search.h"
-//#include "TranspositionTable.h"
-//#include "Test.h"
+#pragma once
+
+#include <array>
+#include <string>
+#include <vector>
+#include <type_traits>
+
+#include "Board.h"
+#include "MoveGenerator.h"
+#include "Renderer.h"
+#include "Search.h"
+#include "TranspositionTable.h"
+#include "Test.h"
+
+#include "Walnut/Application.h"
+#include "Walnut/EntryPoint.h"
+
+#include "Walnut/Image.h"
+#include "Walnut/UI/UI.h"
+
+#include "imgui.h"
+
+
+
+class GameLayer : public Walnut::Layer
+{
+public:
+	int moveCount;
+	MoveArr moves;
+	Searcher searcher;
+	MoveGenerator moveGen;
+	BoardState board;
+	std::unique_ptr<Walnut::Image> piecesSpriteSheet;
+	std::string winName;
+
+	std::vector<BoardState> gameHistory; // todo use the built in history stack to save memory
+	size_t historyPointer = 0;
+
+	Bitboard legalMovesToVisualize = 0;
+
+	int8_t hoveredSq = -1;
+	int8_t selectedSq = -1;
+
+	GameLayer(const std::string& windowName = std::string("New Game"))
+		: moveCount{ 0 }, moves{}, moveGen{}, board{}, searcher{}
+	{
+		winName = windowName;
+		gameHistory.reserve(50);
+
+		board.parseFEN("rnbqkbnr/pppppppp/8/8/8/8/PPPPPPPP/RNBQKBNR w KQkq - 0 1");
+		gameHistory.push_back(board);
+
+		searcher.loadOpeningBook("assets/baron30.bin");
+
+		piecesSpriteSheet = std::make_unique<Walnut::Image>("assets/chessPieces.png");
+		loadIcons();
+	}
+
+
+
+	virtual void OnUIRender() override
+	{
+		ImGui::Begin(winName.c_str());
+
+		float buttonSize = 40.f;
+
+		// To start of history
+		bool toStart = ImGui::ImageButton(icons[(size_t)IconIndex::play_skip_backward]->GetDescriptorSet(), ImVec2(buttonSize, buttonSize), ImVec2(0,0), ImVec2(1,1), -1, ImVec4(0, 0, 0, 0), ImVec4(0, 0, 0, 1));
+		ImGui::SameLine(); 
+
+		// Backward move
+		bool back = ImGui::ImageButton(icons[(size_t)IconIndex::play_flipped]->GetDescriptorSet(), ImVec2(buttonSize, buttonSize), ImVec2(0,0), ImVec2(1,1), -1, ImVec4(0, 0, 0, 0), ImVec4(0, 0, 0, 1));
+		ImGui::SameLine(); 
+
+		// Forward move
+		bool forward = ImGui::ImageButton(icons[(size_t)IconIndex::play]->GetDescriptorSet(), ImVec2(buttonSize, buttonSize), ImVec2(0,0), ImVec2(1,1), -1, ImVec4(0, 0, 0, 0), ImVec4(0, 0, 0, 1));
+
+		ImGui::SameLine(); 
+
+		// To end of history
+		bool toEnd = ImGui::ImageButton(icons[(size_t)IconIndex::play_skip_forward]->GetDescriptorSet(), ImVec2(buttonSize, buttonSize), ImVec2(0,0), ImVec2(1,1), -1, ImVec4(0, 0, 0, 0), ImVec4(0, 0, 0, 1));
+
+		if (toStart)
+		{
+			historyPointer = 0;
+			board = gameHistory[0];
+		}
+		if (toEnd)
+		{
+			historyPointer = gameHistory.size() - 1;
+			board = gameHistory.back();
+		}
+		if (forward)
+		{
+			advance();
+		}
+		if (back)
+		{
+			goBack();
+		}
+
+		ImVec2 min = ImGui::GetCursorScreenPos();  
+		ImVec2 max = ImGui::GetWindowPos();       
+		max.x += ImGui::GetWindowContentRegionMax().x;
+		max.y += ImGui::GetWindowContentRegionMax().y;
+
+		ImVec2 windowSize;
+		windowSize.x = max.x - min.x;
+		windowSize.y = max.y - min.y;
+
+		int boardSize = std::min<int>(windowSize.x, windowSize.y);
+
+
+		Rendering::DrawBoard(boardSize, ImGui::GetWindowDrawList());
+		Rendering::DrawPieces(board, boardSize, piecesSpriteSheet, selectedSq, hoveredSq);
+
+		hoveredSq = Rendering::MouseToSquare(boardSize);
+		Rendering::DrawMoves(legalMovesToVisualize, boardSize);
+
+		ImGui::End();
+
+
+		ImGui::ShowDemoWindow();
+
+	}
+	
+	virtual void OnUpdate(float ts) override
+	{
+		playerTurn(true);
+		playerTurn(false);
+	}
+
+	virtual void OnRender() override 
+	{
+
+	}
+
+private:
+	void playMove(Move& move)
+	{
+		if (historyPointer + 1 < gameHistory.size())
+		{
+			gameHistory.resize(historyPointer + 1); // Truncate future moves
+		}
+		board.makeMove(move);
+		gameHistory.push_back(board);
+		++historyPointer;
+	}
+
+
+	void advance()
+	{
+		if (historyPointer + 1 < gameHistory.size()) 
+		{
+			board = gameHistory[++historyPointer];
+		}
+	}
+
+	void goBack()
+	{
+		if (historyPointer > 0)
+		{
+			board = gameHistory[--historyPointer];
+		}
+	}
+
+
+	void playerTurn(bool playerColor)
+	{
+		if (playerColor != board.whiteTurn) return;
+
+		if (ImGui::IsMouseClicked(ImGuiMouseButton_Left) && selectedSq == -1)
+		{
+			selectedSq = hoveredSq;
+			legalMovesToVisualize = 0;
+
+			if (board.whiteTurn)
+				moveCount = moveGen.generateLegalMoves<true>(moves, board);
+			else
+				moveCount = moveGen.generateLegalMoves<false>(moves, board);
+
+			for (int i = 0; i < moveCount; ++i)
+			{
+				auto& move = moves[i];
+				if (move.startSquare == selectedSq)
+				{
+					legalMovesToVisualize |= (1ULL << move.endSquare);
+				}
+			}
+
+			if (legalMovesToVisualize == 0) selectedSq = -1;
+		}
+		else if (ImGui::IsMouseClicked(ImGuiMouseButton_Left))
+		{
+
+			if (board.whiteTurn)
+				moveCount = moveGen.generateLegalMoves<true>(moves, board);
+			else
+				moveCount = moveGen.generateLegalMoves<false>(moves, board);
+
+			for (int i = 0; i < moveCount; ++i)
+			{
+				auto& move = moves[i];
+				if (move.startSquare == selectedSq && move.endSquare == hoveredSq)
+				{
+					playMove(move);
+					break;
+				}
+			}
+
+			selectedSq = hoveredSq;
+
+			legalMovesToVisualize = 0ULL;
+			for (int i = 0; i < moveCount; ++i)
+			{
+				auto& move = moves[i];
+				if (move.startSquare == selectedSq)
+				{
+					legalMovesToVisualize |= (1ULL << move.endSquare);
+				}
+			}
+
+			if (legalMovesToVisualize == 0) selectedSq = -1;
+		}
+		else if (ImGui::IsMouseReleased(ImGuiMouseButton_Left) && selectedSq != -1)
+		{
+			if (board.whiteTurn)
+				moveCount = moveGen.generateLegalMoves<true>(moves, board);
+			else
+				moveCount = moveGen.generateLegalMoves<false>(moves, board);
+
+			for (int i = 0; i < moveCount; ++i)
+			{
+				auto& move = moves[i];
+				if (move.startSquare == selectedSq && move.endSquare == hoveredSq)
+				{
+					legalMovesToVisualize = 0ULL;
+					playMove(move);
+					selectedSq = -1;
+					break;
+				}
+			}
+
+		}
+	}
+
+
+	enum class IconIndex
+	{
+		play,
+		play_flipped,
+		play_skip_forward,
+		play_skip_backward,
+		COUNT // used to create proper sized array
+	};
+
+	constexpr static size_t IconCount = static_cast<size_t>(IconIndex::COUNT);
+	std::array<std::unique_ptr<Walnut::Image>, IconCount> icons;
+
+	void loadIcons()
+	{
+		icons[(size_t)IconIndex::play] = std::make_unique<Walnut::Image>("assets/icons/play.png");
+		icons[(size_t)IconIndex::play_flipped] = std::make_unique<Walnut::Image>("assets/icons/play-flipped.png");
+		icons[(size_t)IconIndex::play_skip_backward] = std::make_unique<Walnut::Image>("assets/icons/play-skip-back.png");
+		icons[(size_t)IconIndex::play_skip_forward] = std::make_unique<Walnut::Image>("assets/icons/play-skip-forward.png");
+	}
+};
+
+
 //
 //
 //
@@ -21,6 +279,7 @@
 //	int mc;
 //	MoveArr moves;
 //	bool wait = false;
+
 //	Searcher searcher;
 //
 //	Game()

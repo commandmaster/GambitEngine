@@ -1,0 +1,3 @@
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/CMakeFiles/raylib-populate.dir
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/CMakeFiles/ALL_BUILD.dir
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/CMakeFiles/ZERO_CHECK.dir

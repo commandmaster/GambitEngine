@@ -1,0 +1,19 @@
+# CMake generation dependency list for this directory.
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CPack.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/CPackComponent.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/FindOpenGL.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/FindPackageHandleStandardArgs.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/FindPackageMessage.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Modules/GNUInstallDirs.cmake
+C:/Program Files/Microsoft Visual Studio/2022/Community/Common7/IDE/CommonExtensions/Microsoft/CMake/CMake/share/cmake-3.29/Templates/CPackConfig.cmake.in
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/CompileDefinitions.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/GlfwImport.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/InstallConfigurations.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/JoinPaths.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/LibraryConfigurations.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/LibraryPathToLinkerFlags.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/PackConfigurations.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/PopulateConfigVariablesLocally.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/cmake/raylib-config-version.cmake
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/raylib.pc.in
+C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/src/CMakeLists.txt

@@ -4,60 +4,12 @@
 #include "Walnut/Image.h"
 #include "Walnut/UI/UI.h"
 
+#include "Renderer.h"
+#include "Game.h"
+
 #include <filesystem>
 #include <iostream>
 
-class ExampleLayer : public Walnut::Layer
-{
-public:
-	virtual void OnUIRender() override
-	{
-		ImGui::Begin("Hello");
-		ImGui::Button("Button");
-		ImGui::End();
-
-		ImGui::ShowDemoWindow();
-
-		UI_DrawAboutModal();
-	}
-
-	void UI_DrawAboutModal()
-	{
-		if (!m_AboutModalOpen)
-			return;
-
-		ImGui::OpenPopup("About");
-		m_AboutModalOpen = ImGui::BeginPopupModal("About", nullptr, ImGuiWindowFlags_AlwaysAutoResize);
-		if (m_AboutModalOpen)
-		{
-			auto image = Walnut::Application::Get().GetApplicationIcon();
-			ImGui::Image(image->GetDescriptorSet(), { 48, 48 });
-
-			ImGui::SameLine();
-			Walnut::UI::ShiftCursorX(20.0f);
-
-			ImGui::BeginGroup();
-			ImGui::Text("Walnut application framework");
-			ImGui::Text("by Studio Cherno.");
-			ImGui::EndGroup();
-
-			if (Walnut::UI::ButtonCentered("Close"))
-			{
-				m_AboutModalOpen = false;
-				ImGui::CloseCurrentPopup();
-			}
-
-			ImGui::EndPopup();
-		}
-	}
-
-	void ShowAboutModal()
-	{
-		m_AboutModalOpen = true;
-	}
-private:
-	bool m_AboutModalOpen = false;
-};
 
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 {
@@ -65,27 +17,19 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 	spec.Name = "Gambit Engine";
 	spec.CustomTitlebar = true;
 	spec.IconPath = "assets/appLogo.png";
-	std::cout << "Current CWD is " << std::filesystem::current_path() << "\n";
+	spec.UIScale = 1.5f;
+
 
 	Walnut::Application* app = new Walnut::Application(spec);
-	std::shared_ptr<ExampleLayer> exampleLayer = std::make_shared<ExampleLayer>();
-	app->PushLayer(exampleLayer);
-	app->SetMenubarCallback([app, exampleLayer]()
+	std::shared_ptr<GameLayer> mainLayer = std::make_shared<GameLayer>("Chess Game");
+	app->PushLayer(mainLayer);
+	app->SetMenubarCallback([app]()
 	{
 		if (ImGui::BeginMenu("File"))
 		{
 			if (ImGui::MenuItem("Exit"))
 			{
 				app->Close();
-			}
-			ImGui::EndMenu();
-		}
-
-		if (ImGui::BeginMenu("Help"))
-		{
-			if (ImGui::MenuItem("About"))
-			{
-				exampleLayer->ShowAboutModal();
 			}
 			ImGui::EndMenu();
 		}

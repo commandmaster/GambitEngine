@@ -1,0 +1,150 @@
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-MKDIR.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -Dcfgdir=/Debug -P C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/tmp/raylib-populate-mkdirs.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-mkdir
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-DOWNLOAD.RULE
+setlocal
+cd C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -P C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/tmp/raylib-populate-gitclone.cmake
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-download
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-UPDATE.RULE
+setlocal
+cd C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps\raylib-src
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -Dcan_fetch=YES -P C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/tmp/raylib-populate-gitupdate.cmake
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-PATCH.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-patch
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-CONFIGURE.RULE
+setlocal
+cd C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps\raylib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-configure
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-BUILD.RULE
+setlocal
+cd C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps\raylib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-build
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-INSTALL.RULE
+setlocal
+cd C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps\raylib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-install
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\7E7C84483D8977E5E222D16128455A77\RAYLIB-POPULATE-TEST.RULE
+setlocal
+cd C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps\raylib-build
+if %errorlevel% neq 0 goto :cmEnd
+C:
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E echo_append
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-test
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\09F16A1FC7E6E274BED650D135B633EF\RAYLIB-POPULATE-COMPLETE.RULE
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E make_directory C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/CMakeFiles/Debug
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/CMakeFiles/Debug/raylib-populate-complete
+if %errorlevel% neq 0 goto :cmEnd
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -E touch C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/raylib-populate-prefix/src/raylib-populate-stamp/Debug/raylib-populate-done
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKEFILES\90EFC62F66667CFD5220C826E7F74015\RAYLIB-POPULATE.RULE
+setlocal
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd
+^C:\USERS\FRIES\SOURCE\REPOS\COMMANDMASTER\CHESSENGINEV4\BUILD\_DEPS\RAYLIB-SUBBUILD\CMAKELISTS.TXT
+setlocal
+"C:\Program Files\Microsoft Visual Studio\2022\Community\Common7\IDE\CommonExtensions\Microsoft\CMake\CMake\bin\cmake.exe" -SC:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild -BC:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild --check-stamp-file C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-subbuild/CMakeFiles/generate.stamp
+if %errorlevel% neq 0 goto :cmEnd
+:cmEnd
+endlocal & call :cmErrorLevel %errorlevel% & goto :cmDone
+:cmErrorLevel
+exit /b %1
+:cmDone
+if %errorlevel% neq 0 goto :VCEnd

@@ -407,6 +407,7 @@ namespace Walnut {
 
 #include "Walnut/Embed/Walnut-Icon.embed"
 #include "Walnut/Embed/WindowImages.embed"
+#include "Walnut/Embed/Gambit-Icon.embed"
 
 	Application::Application(const ApplicationSpecification& specification)
 		: m_Specification(specification)
@@ -568,10 +569,10 @@ namespace Walnut {
 		// Load default font
 		ImFontConfig fontConfig;
 		fontConfig.FontDataOwnedByAtlas = false;
-		ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 20.0f, &fontConfig);
+		ImFont* robotoFont = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoRegular, sizeof(g_RobotoRegular), 23.0f * m_Specification.UIScale, &fontConfig);
 		s_Fonts["Default"] = robotoFont;
-		s_Fonts["Bold"] = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoBold, sizeof(g_RobotoBold), 20.0f, &fontConfig);
-		s_Fonts["Italic"] = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoItalic, sizeof(g_RobotoItalic), 20.0f, &fontConfig);
+		s_Fonts["Bold"] = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoBold, sizeof(g_RobotoBold), 23.0f * m_Specification.UIScale, &fontConfig);
+		s_Fonts["Italic"] = io.Fonts->AddFontFromMemoryTTF((void*)g_RobotoItalic, sizeof(g_RobotoItalic), 23.0f * m_Specification.UIScale, &fontConfig);
 		io.FontDefault = robotoFont;
 
 		// Upload Fonts
@@ -607,7 +608,7 @@ namespace Walnut {
 		// Load images
 		{
 			uint32_t w, h;
-			void* data = Image::Decode(g_WalnutIcon, sizeof(g_WalnutIcon), w, h);
+			void* data = Image::Decode(gambitLogo, sizeof(gambitLogo), w, h);
 			m_AppHeaderIcon = std::make_shared<Walnut::Image>(w, h, ImageFormat::RGBA, data);
 			free(data);
 		}
@@ -683,7 +684,7 @@ namespace Walnut {
 
 	void Application::UI_DrawTitlebar(float& outTitlebarHeight)
 	{
-		const float titlebarHeight = 58.0f;
+		const float titlebarHeight = 58.0f * m_Specification.UIScale;
 		const bool isMaximized = IsMaximized();
 		float titlebarVerticalOffset = isMaximized ? -6.0f : 0.0f;
 		const ImVec2 windowPadding = ImGui::GetCurrentWindow()->WindowPadding;
@@ -700,8 +701,8 @@ namespace Walnut {
 
 		// Logo
 		{
-			const int logoWidth = 48;// m_LogoTex->GetWidth();
-			const int logoHeight = 48;// m_LogoTex->GetHeight();
+			const int logoWidth = 48 * m_Specification.UIScale;// m_LogoTex->GetWidth();
+			const int logoHeight = 48 * m_Specification.UIScale;// m_LogoTex->GetHeight();
 			const ImVec2 logoOffset(16.0f + windowPadding.x, 5.0f + windowPadding.y + titlebarVerticalOffset);
 			const ImVec2 logoRectStart = { ImGui::GetItemRectMin().x + logoOffset.x, ImGui::GetItemRectMin().y + logoOffset.y };
 			const ImVec2 logoRectMax = { logoRectStart.x + logoWidth, logoRectStart.y + logoHeight };
@@ -713,7 +714,7 @@ namespace Walnut {
 		static float moveOffsetX;
 		static float moveOffsetY;
 		const float w = ImGui::GetContentRegionAvail().x;
-		const float buttonsAreaWidth = 94;
+		const float buttonsAreaWidth = 94 * 1.5f * m_Specification.UIScale;
 
 		// Title bar drag area
 		// On Windows we hook into the GLFW win32 window internals
@@ -761,16 +762,16 @@ namespace Walnut {
 		const ImU32 buttonColN = UI::Colors::ColorWithMultipliedValue(UI::Colors::Theme::text, 0.9f);
 		const ImU32 buttonColH = UI::Colors::ColorWithMultipliedValue(UI::Colors::Theme::text, 1.2f);
 		const ImU32 buttonColP = UI::Colors::Theme::textDarker;
-		const float buttonWidth = 14.0f;
-		const float buttonHeight = 14.0f;
+		const float buttonWidth = 14.0f * 1.5f * m_Specification.UIScale;
+		const float buttonHeight = 14.0f * 1.5f * m_Specification.UIScale;
 
 		// Minimize Button
 
 		ImGui::Spring();
 		UI::ShiftCursorY(8.0f);
 		{
-			const int iconWidth = m_IconMinimize->GetWidth();
-			const int iconHeight = m_IconMinimize->GetHeight();
+			const int iconWidth = m_IconMinimize->GetWidth() * 1.5f * m_Specification.UIScale;
+			const int iconHeight = m_IconMinimize->GetHeight() * 1.5f * m_Specification.UIScale;
 			const float padY = (buttonHeight - (float)iconHeight) / 2.0f;
 			if (ImGui::InvisibleButton("Minimize", ImVec2(buttonWidth, buttonHeight)))
 			{
@@ -789,8 +790,8 @@ namespace Walnut {
 		ImGui::Spring(-1.0f, 17.0f);
 		UI::ShiftCursorY(8.0f);
 		{
-			const int iconWidth = m_IconMaximize->GetWidth();
-			const int iconHeight = m_IconMaximize->GetHeight();
+			const int iconWidth = m_IconMaximize->GetWidth() * 1.5f * m_Specification.UIScale;
+			const int iconHeight = m_IconMaximize->GetHeight() * 1.5f * m_Specification.UIScale;
 
 			const bool isMaximized = IsMaximized();
 
@@ -812,8 +813,8 @@ namespace Walnut {
 		ImGui::Spring(-1.0f, 15.0f);
 		UI::ShiftCursorY(8.0f);
 		{
-			const int iconWidth = m_IconClose->GetWidth();
-			const int iconHeight = m_IconClose->GetHeight();
+			const int iconWidth = m_IconClose->GetWidth() * 1.5f * m_Specification.UIScale;
+			const int iconHeight = m_IconClose->GetHeight() * 1.5f * m_Specification.UIScale;
 			if (ImGui::InvisibleButton("Close", ImVec2(buttonWidth, buttonHeight)))
 				Application::Get().Close();
 

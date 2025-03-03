@@ -1,0 +1,10 @@
+﻿  Building Custom Rule C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/src/CMakeLists.txt
+  raudio.c
+  rcore.c
+  rmodels.c
+  rshapes.c
+  rtext.c
+  rtextures.c
+  utils.c
+  Generating Code...
+  raylib.vcxproj -> C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps\raylib-build\raylib\Release\raylib.lib

@@ -1,0 +1,26 @@
+﻿  Building Custom Rule C:/Users/fries/source/repos/commandmaster/ChessEngineV4/build/_deps/raylib-src/src/external/glfw/src/CMakeLists.txt
+  context.c
+  init.c
+  input.c
+  monitor.c
+  platform.c
+  vulkan.c
+  window.c
+  egl_context.c
+  osmesa_context.c
+  null_init.c
+  null_monitor.c
+  null_window.c
+  null_joystick.c
+  win32_module.c
+  win32_time.c
+  win32_thread.c
+  win32_init.c
+  win32_joystick.c
+  win32_monitor.c
+  win32_window.c
+  Generating Code...
+  Compiling...
+  wgl_context.c
+  Generating Code...
+  glfw.vcxproj -> C:\Users\fries\source\repos\commandmaster\ChessEngineV4\build\_deps\raylib-build\raylib\external\glfw\src\glfw.dir\Release\glfw.lib
