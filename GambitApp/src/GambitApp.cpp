@@ -10,6 +10,14 @@
 #include <filesystem>
 #include <iostream>
 
+#include <windows.h>
+
+float GetScreenScaleFactor() {
+    HDC screen = GetDC(NULL);
+    int dpi = GetDeviceCaps(screen, LOGPIXELSX);
+    ReleaseDC(NULL, screen);
+    return dpi / 96.0f; 
+}
 
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 {
@@ -18,7 +26,8 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 	spec.CustomTitlebar = true;
 	spec.IconPath = "assets/appLogo.png";
 
-	spec.UIScale = 1.f;
+	spec.UIScale = GetScreenScaleFactor();
+	std::cout << GetScreenScaleFactor() << std::endl;
 
 
 	Walnut::Application* app = new Walnut::Application(spec);

@@ -24,7 +24,6 @@
 
 #include "stb_image.h"
 
-#include <windows.h>
 
 #include <iostream>
 
@@ -84,17 +83,6 @@ void check_vk_result(VkResult err)
 		abort();
 }
 
-void EnableDpiAwareness() {
-    HMODULE shcore = LoadLibraryA("Shcore.dll");
-    if (shcore) {
-        typedef HRESULT(WINAPI * SetProcessDpiAwarenessFn)(int);
-        SetProcessDpiAwarenessFn setDpiAwareness = (SetProcessDpiAwarenessFn)GetProcAddress(shcore, "SetProcessDpiAwareness");
-        if (setDpiAwareness) setDpiAwareness(2); // Per-Monitor DPI Awareness
-        FreeLibrary(shcore);
-    } else {
-        SetProcessDPIAware(); // Windows 8.1 and below fallback
-    }
-}
 
 #ifdef IMGUI_VULKAN_DEBUG_REPORT
 static VKAPI_ATTR VkBool32 VKAPI_CALL debug_report(VkDebugReportFlagsEXT flags, VkDebugReportObjectTypeEXT objectType, uint64_t object, size_t location, int32_t messageCode, const char* pLayerPrefix, const char* pMessage, void* pUserData)
@@ -450,7 +438,6 @@ namespace Walnut {
 
 		// Setup GLFW window
 		glfwSetErrorCallback(glfw_error_callback);
-		EnableDpiAwareness();
 		if (!glfwInit())
 		{
 			std::cerr << "Could not initalize GLFW!\n";
