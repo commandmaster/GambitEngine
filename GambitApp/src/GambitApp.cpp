@@ -11,7 +11,6 @@
 #include <iostream>
 
 #include <windows.h>
-#include <iostream>
 #include <cmath>
 
 double GetScreenDPI() {
@@ -39,64 +38,15 @@ double GetScreenDPI() {
     return diagonalResolution / diagonalSizeInches;
 }
 
-void CalculateScreenDPI() {
-    HDC hdc = GetDC(nullptr);
-    if (hdc) {
-        // Get screen resolution in pixels
-        int screenWidth = GetDeviceCaps(hdc, HORZRES);
-        int screenHeight = GetDeviceCaps(hdc, VERTRES);
-
-        // Get physical screen size in millimeters
-        int screenWidthMM = GetDeviceCaps(hdc, HORZSIZE);
-        int screenHeightMM = GetDeviceCaps(hdc, VERTSIZE);
-
-        ReleaseDC(nullptr, hdc);
-
-        // Check if physical dimensions are valid
-        if (screenWidthMM <= 0 || screenHeightMM <= 0) {
-            std::cerr << "Error: Physical screen dimensions are not available." << std::endl;
-            return;
-        }
-
-        // Convert millimeters to inches
-        double screenWidthInches = static_cast<double>(screenWidthMM) / 25.4;
-        double screenHeightInches = static_cast<double>(screenHeightMM) / 25.4;
-
-        // Calculate diagonal size in inches
-        double diagonalInches = std::sqrt(
-            std::pow(screenWidthInches, 2) + std::pow(screenHeightInches, 2)
-        );
-
-        // Calculate diagonal resolution in pixels
-        double diagonalPixels = std::sqrt(
-            std::pow(screenWidth, 2) + std::pow(screenHeight, 2)
-        );
-
-        // Calculate DPI
-        double dpi = diagonalPixels / diagonalInches;
-
-        // Output results
-        std::cout << "Screen Resolution: " << screenWidth << "x" << screenHeight << " pixels\n";
-        std::cout << "Physical Size: " << screenWidthInches << "\" x " << screenHeightInches << "\"\n";
-        std::cout << "Diagonal Size: " << diagonalInches << "\"\n";
-        std::cout << "Calculated DPI: " << dpi << std::endl;
-    } else {
-        std::cerr << "Error: Failed to retrieve device context." << std::endl;
-    }
-}
-
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 {
+    SetProcessDpiAwarenessContext(DPI_AWARENESS_CONTEXT_PER_MONITOR_AWARE_V2);
 	Walnut::ApplicationSpecification spec;
 	spec.Name = "Gambit Engine";
 	spec.CustomTitlebar = true;
 	spec.IconPath = "assets/appLogo.png";
 
-	spec.UIScale = static_cast<float>(GetScreenDPI() / 96.0);
-    std::cout << GetScreenDPI() << std::endl;
-
-    CalculateScreenDPI();
-
+    spec.UIScale = 0.6f * (GetScreenDPI() / 96.f);
 
 	Walnut::Application* app = new Walnut::Application(spec);
 
