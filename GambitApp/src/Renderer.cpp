@@ -1,234 +1,117 @@
-//#include "Renderer.h"
-//
-//Renderer::Renderer(int screenWidth, int screenHeight)
-//	: screenWidth{screenWidth}, screenHeight{screenHeight}
-//{
-//    SetWindowSize(screenWidth, screenHeight);
-//
-//	boardSize = std::min<int>(screenWidth, screenHeight);
-//	piecesTexture = LoadTexture("./assets/chessPieces.png");
-//	
-//	SetTargetFPS(60);
-//}
-//
-//void Renderer::update(const BoardState& boardState, int8_t selectedSquare)
-//{
-//	BeginDrawing();
-//	ClearBackground(RAYWHITE);
-//	
-//	drawSquares();
-//    drawPieces(boardState, selectedSquare);
-//}
-//
-//void Renderer::endDrawing() const
-//{
-//    EndDrawing();
-//}
-//
-//void Renderer::drawSinglePiece(uint8_t piece, int x, int y)
-//{
-//    if (piece == Piece::NONE) return;
-//
-//    x = std::max<int>(0, std::min<int>(x, GetScreenWidth()));
-//    y = std::max<int>(0, std::min<int>(y, GetScreenHeight()));
-//
-//	Rectangle sourceRec{ 0.f, 0.f, 2160.f / 6.f, 720.f / 2.f };
-// 	Rectangle destRec{};
-//
-//    int squareSize = boardSize / 8;
-//
-//    destRec.x = x - squareSize / 2;
-//    destRec.y = y - squareSize / 2; 
-//    destRec.width = squareSize;
-//    destRec.height = squareSize;
-//
-//
-//    int pieceType = 0;
-//    int pieceColor = 0;
-//
-//    constexpr int C_WHITE = 0;
-// 	constexpr int C_BLACK = 1;
-//
-// 	constexpr int P_KING = 0;
-// 	constexpr int P_QUEEN = 1;
-// 	constexpr int P_BISHOP = 2;
-// 	constexpr int P_KNIGHT = 3;
-// 	constexpr int P_ROOK = 4;
-// 	constexpr int P_PAWN = 5;
-//
-//    if (!(piece & Piece::COLOR_MASK))
-//    {
-//        pieceColor = C_WHITE;
-//		if (piece == Piece::WP) pieceType = P_PAWN;
-//		if (piece == Piece::WN) pieceType = P_KNIGHT;
-//		if (piece == Piece::WB) pieceType = P_BISHOP;
-//		if (piece == Piece::WR) pieceType = P_ROOK;
-//		if (piece == Piece::WK) pieceType = P_KING;
-//		if (piece == Piece::WQ) pieceType = P_QUEEN;
-//    }
-//    else
-//    {
-//        pieceColor = C_BLACK;
-//		if (piece == Piece::BP) pieceType = P_PAWN;
-//		if (piece == Piece::BN) pieceType = P_KNIGHT;
-//		if (piece == Piece::BB) pieceType = P_BISHOP;
-//		if (piece == Piece::BR) pieceType = P_ROOK;
-//		if (piece == Piece::BK) pieceType = P_KING;
-//		if (piece == Piece::BQ) pieceType = P_QUEEN;
-//
-//    }
-//
-//	sourceRec.x = sourceRec.width * pieceType;
-//	sourceRec.y = sourceRec.height * pieceColor;
-//    
-//	DrawTexturePro(piecesTexture, sourceRec, destRec, Vector2{ 0,0 }, 0, WHITE);
-//}
-//
-//bool Renderer::shouldClose() const
-//{
-//	return WindowShouldClose();
-//}
-//
-//void Renderer::visualizeBoard(const Bitboard& board)
-//{
-//    visualizedBoard = board;
-//}
-//
-//void Renderer::startAnimation(int8_t startSq, int8_t endSq, int animLength)
-//{
-//    startSquare = startSq;
-//    endSquare = endSq;
-//
-//    this->animLength = animLength;
-//    lerpTimer.start();
-//}
-//
-//int8_t Renderer::getClickedSquare(int x, int y) const
-//{
-//    int xOffset = screenWidth / 2 - boardSize / 2;
-//	int yOffset = screenHeight / 2 - boardSize / 2;
-//	int squareSize = boardSize / 8;
-//
-//	if (x < xOffset || x >= xOffset + boardSize || y < yOffset || y >= yOffset + boardSize)
-//	{
-//		return -1;
-//	}
-//
-//	int col = (x - xOffset) / squareSize;
-//	int row = (y - yOffset) / squareSize;
-//	return row * 8 + col;
-//}
-//
-//Renderer::~Renderer()
-//{
-//	UnloadTexture(piecesTexture);
-//	CloseWindow();
-//}
-//
-//void Renderer::drawSquares() const
-//{
-//	int xOffset = screenWidth / 2 - boardSize / 2;
-//	int yOffset = screenHeight / 2 - boardSize / 2;
-//	int squareSize = boardSize / 8;
-//	
-//	bool toggle = true;
-//	for (int i = 0; i < 64; ++i)
-//	{
-//		int x, y;
-//		x = (i % 8) * squareSize + xOffset;
-//		y = (i / 8) * squareSize + yOffset;
-//        
-//        Color color = (toggle) ? Renderer::whiteColor : Renderer::blackColor;
-//
-//		DrawRectangle(x, y, squareSize, squareSize, color);
-//
-//        if (visualizedBoard & (1ULL << i))
-//        {
-//            DrawRectangle(x, y, squareSize, squareSize, Color(220, 10, 10, 110));
-//        }
-//        if (i == startSquare)
-//        {
-//            DrawRectangle(x, y, squareSize, squareSize, Color(252, 215, 3, 110));
-//        }
-//
-//		toggle = !toggle;
-//		toggle = (i % 8 == 7) ? !toggle : toggle;
-//	}
-//}
-//
-//void Renderer::drawPieces(const BoardState& boardState, int8_t selectedSquare) 
-// {
-// 	constexpr int C_WHITE = 0;
-// 	constexpr int C_BLACK = 1;
-//
-// 	constexpr int P_KING = 0;
-// 	constexpr int P_QUEEN = 1;
-// 	constexpr int P_BISHOP = 2;
-// 	constexpr int P_KNIGHT = 3;
-// 	constexpr int P_ROOK = 4;
-// 	constexpr int P_PAWN = 5;
-//
-//
-// 	drawPieceType(boardState.whitePawns,   P_PAWN,   C_WHITE, selectedSquare); 
-// 	drawPieceType(boardState.whiteRooks,   P_ROOK,   C_WHITE, selectedSquare); 
-// 	drawPieceType(boardState.whiteKnights,  P_KNIGHT,  C_WHITE, selectedSquare); 
-//    drawPieceType(boardState.whiteBishops,  P_BISHOP,  C_WHITE, selectedSquare); 
-// 	drawPieceType(boardState.whiteQueens,  P_QUEEN,  C_WHITE, selectedSquare); 
-//    drawPieceType(boardState.whiteKing,    P_KING,   C_WHITE, selectedSquare); 
-//
-// 	drawPieceType(boardState.blackPawns,   P_PAWN,   C_BLACK, selectedSquare); 
-// 	drawPieceType(boardState.blackRooks,   P_ROOK,   C_BLACK, selectedSquare); 
-// 	drawPieceType(boardState.blackKnights,  P_KNIGHT,  C_BLACK, selectedSquare); 
-// 	drawPieceType(boardState.blackBishops,  P_BISHOP,  C_BLACK, selectedSquare); 
-// 	drawPieceType(boardState.blackQueens,  P_QUEEN,  C_BLACK, selectedSquare); 
-// 	drawPieceType(boardState.blackKing,    P_KING,   C_BLACK, selectedSquare); 
-// }
-//
-//void Renderer::drawPieceType(uint64_t pieceBitboard, int pieceType, int pieceColor, int8_t selectedSquare) 
-// {
-// 	int xOffset = screenWidth / 2 - boardSize / 2; 
-// 	int yOffset = screenHeight / 2 - boardSize / 2; 
-// 	int squareSize = boardSize / 8;
-//
-// 	Rectangle sourceRec{ 0.f, 0.f, 2160.f / 6.f, 720.f / 2.f };
-// 	Rectangle destRec{};
-// 	Square i = 0;
-//
-//	lerpTimer.stop();
-// 	Bitloop(pieceBitboard)
-// 	{
-// 		i = SquareOf(pieceBitboard);
-//
-//        if (i == selectedSquare)
-//        {
-//            destRec.x = GetMouseX() - squareSize / 2;
-//            destRec.y = GetMouseY() - squareSize / 2;
-//        }
-//        else if (i == endSquare && lerpTimer.elapsedTime<std::chrono::milliseconds>() < animLength)
-//        {
-//            float startX = xOffset + squareSize * (startSquare % 8);
-//            float startY = yOffset + squareSize * (startSquare / 8);
-//            float endX = xOffset + squareSize * (endSquare % 8);
-//            float endY = yOffset + squareSize * (endSquare / 8);
-//
-//            destRec.x = startX + (endX - startX) * (lerpTimer.elapsedTime<std::chrono::milliseconds>() / animLength);
-//            destRec.y = startY + (endY - startY) * (lerpTimer.elapsedTime<std::chrono::milliseconds>() / animLength);
-//        }
-//        else
-//        {
-//			destRec.x = xOffset + squareSize * (i%8);
-//			destRec.y = yOffset + squareSize * (i/8);
-//        }
-//		destRec.width = squareSize;
-// 		destRec.height = squareSize;
-//
-// 		sourceRec.x = sourceRec.width * pieceType;
-// 		sourceRec.y = sourceRec.height * pieceColor;
-//
-//        DrawTexturePro(piecesTexture, sourceRec, destRec, Vector2{ 0,0 }, 0, WHITE);
-// 	}
-// }
-//
-//
-//
+#include "Renderer.h"
 
+void Rendering::DrawBoard(int boardSize, ImDrawList* windowDrawList)
+{
+	int squareSize = boardSize / 8;
+	for (int i = 0; i < 8; ++i)
+	{
+		for (int j = 0; j < 8; ++j)
+		{
+			ImVec2 min(i * squareSize + ImGui::GetCursorScreenPos().x + (ImGui::GetWindowSize().x - boardSize) / 2, j * squareSize + ImGui::GetCursorScreenPos().y);
+			ImVec2 max;
+
+			max.x = min.x + squareSize;
+			max.y = min.y + squareSize;
+
+			bool color = (i + (j & 1)) & 1;
+			if (!color)
+				windowDrawList->AddRectFilled(min, max, whiteColor);
+			else
+				windowDrawList->AddRectFilled(min, max, blackColor);
+		}
+	}
+}
+
+void Rendering::DrawPieces(BoardState& board, int boardSize, std::unique_ptr<Walnut::Image>& piecesSpriteSheet, int selectedSq, int hoveredSq)
+{
+	int squareSize = boardSize / 8;
+
+	auto drawBB = [&](Bitboard board, int rowIndex, int columnIndex)
+		{
+			Bitloop(board)
+			{
+				Square sq = SquareOf(board);
+
+				ImVec2 min;
+				ImVec2 max;
+				if (sq == selectedSq && (ImGui::IsMouseDown(ImGuiMouseButton_Left) || (ImGui::IsMouseReleased(ImGuiMouseButton_Left) && selectedSq != hoveredSq)))
+				{
+					min = ImVec2(ImGui::GetMousePos());
+					max.x = min.x + squareSize;
+					max.y = min.y + squareSize;
+
+					min.x -= squareSize / 2;
+					min.y -= squareSize / 2;
+
+					max.x -= squareSize / 2;
+					max.y -= squareSize / 2;
+				}
+				else
+				{
+					int x = sq % 8;
+					int y = sq / 8;
+
+					min = ImVec2(x * squareSize + ImGui::GetCursorScreenPos().x + (ImGui::GetWindowSize().x - boardSize) / 2, y * squareSize + ImGui::GetCursorScreenPos().y);
+
+					max.x = min.x + squareSize;
+					max.y = min.y + squareSize;
+				}
+
+
+				ImGui::GetForegroundDrawList()->AddImage(piecesSpriteSheet->GetDescriptorSet(), min, max, ImVec2((float)rowIndex / 6.f, (float)columnIndex / 2), ImVec2(((float)rowIndex + 1.f) / 6.f, ((float)columnIndex + 1.f) / 2.f));
+			}
+		};
+
+	drawBB(board.whitePawns, 5, 0);
+	drawBB(board.blackPawns, 5, 1);
+	drawBB(board.whiteKnights, 3, 0);
+	drawBB(board.blackKnights, 3, 1);
+	drawBB(board.whiteBishops, 2, 0);
+	drawBB(board.blackBishops, 2, 1);
+	drawBB(board.whiteRooks, 4, 0);
+	drawBB(board.blackRooks, 4, 1);
+	drawBB(board.whiteQueens, 1, 0);
+	drawBB(board.blackQueens, 1, 1);
+	drawBB(board.whiteKing, 0, 0);
+	drawBB(board.blackKing, 0, 1);
+}
+
+int8_t Rendering::MouseToSquare(int boardSize)
+{
+	ImVec2 mousePos = ImGui::GetMousePos();
+
+	ImVec2 topLeft;
+	topLeft.x = ImGui::GetCursorScreenPos().x + (ImGui::GetWindowSize().x - boardSize) / 2;
+	topLeft.y = ImGui::GetCursorScreenPos().y;
+
+	ImVec2 bottomRight;
+	bottomRight.x = topLeft.x + boardSize;
+	bottomRight.y = topLeft.y + boardSize;
+
+	if (mousePos.x < topLeft.x || mousePos.y < topLeft.y || mousePos.x > bottomRight.x || mousePos.y > bottomRight.y) return -1;
+
+	int x = (static_cast<float>(mousePos.x - topLeft.x) / static_cast<float>(boardSize)) * 8;
+	int y = (static_cast<float>(mousePos.y - topLeft.y) / static_cast<float>(boardSize)) * 8;
+
+	return y * 8 + x;
+}
+
+void Rendering::DrawMoves(Bitboard bb, int boardSize)
+{
+	int squareSize = boardSize / 8;
+	Bitloop(bb)
+	{
+		Square sq = SquareOf(bb);
+
+		int x = sq % 8;
+		int y = sq / 8;
+
+		ImVec2 min(x * squareSize + ImGui::GetCursorScreenPos().x + (ImGui::GetWindowSize().x - boardSize) / 2, y * squareSize + ImGui::GetCursorScreenPos().y);
+		ImVec2 pos;
+
+		pos.x = min.x + squareSize / 2;
+		pos.y = min.y + squareSize / 2;
+
+		ImGui::GetForegroundDrawList()->AddCircleFilled(pos, (float)squareSize / 6, IM_COL32(150, 150, 150, 110));
+	}
+}

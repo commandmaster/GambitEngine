@@ -111,11 +111,11 @@ public:
 		int boardSize = std::min<int>(windowSize.x, windowSize.y);
 
 
+		hoveredSq = Rendering::MouseToSquare(boardSize);
+		Rendering::DrawMoves(legalMovesToVisualize, boardSize);
 		Rendering::DrawBoard(boardSize, ImGui::GetWindowDrawList());
 		Rendering::DrawPieces(board, boardSize, piecesSpriteSheet, selectedSq, hoveredSq);
 
-		hoveredSq = Rendering::MouseToSquare(boardSize);
-		Rendering::DrawMoves(legalMovesToVisualize, boardSize);
 
 		ImGui::End();
 

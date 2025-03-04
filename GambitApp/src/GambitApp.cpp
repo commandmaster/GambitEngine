@@ -17,10 +17,13 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 	spec.Name = "Gambit Engine";
 	spec.CustomTitlebar = true;
 	spec.IconPath = "assets/appLogo.png";
-	spec.UIScale = 1.5f;
+
+	spec.UIScale = 1.f;
 
 
 	Walnut::Application* app = new Walnut::Application(spec);
+
+
 	std::shared_ptr<GameLayer> mainLayer = std::make_shared<GameLayer>("Chess Game");
 	app->PushLayer(mainLayer);
 	app->SetMenubarCallback([app]()

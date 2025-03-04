@@ -24,6 +24,8 @@
 
 #include "stb_image.h"
 
+#include <windows.h>
+
 #include <iostream>
 
 // Emedded font
@@ -80,6 +82,18 @@ void check_vk_result(VkResult err)
 	fprintf(stderr, "[vulkan] Error: VkResult = %d\n", err);
 	if (err < 0)
 		abort();
+}
+
+void EnableDpiAwareness() {
+    HMODULE shcore = LoadLibraryA("Shcore.dll");
+    if (shcore) {
+        typedef HRESULT(WINAPI * SetProcessDpiAwarenessFn)(int);
+        SetProcessDpiAwarenessFn setDpiAwareness = (SetProcessDpiAwarenessFn)GetProcAddress(shcore, "SetProcessDpiAwareness");
+        if (setDpiAwareness) setDpiAwareness(2); // Per-Monitor DPI Awareness
+        FreeLibrary(shcore);
+    } else {
+        SetProcessDPIAware(); // Windows 8.1 and below fallback
+    }
 }
 
 #ifdef IMGUI_VULKAN_DEBUG_REPORT
@@ -436,6 +450,7 @@ namespace Walnut {
 
 		// Setup GLFW window
 		glfwSetErrorCallback(glfw_error_callback);
+		EnableDpiAwareness();
 		if (!glfwInit())
 		{
 			std::cerr << "Could not initalize GLFW!\n";
