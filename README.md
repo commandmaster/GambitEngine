@@ -1,7 +1,9 @@
 ## Gambit Chess Engine
 - A chess engine inspired by the wonderful videos created by Sebatian Lague, the engine is written in C++.
 - The current release includes a bare-bones support for the UCI (Universal Chess Interface).
-- 
+- Use the command line arg --uci to use the uci mode
+- By default the engine has a gui to play against the Engine
+  
 # Features
 - Bitboard Move generation
 - Pext compiler intrinsics for sliding piece lookups (a replacement for magic bitboards)
