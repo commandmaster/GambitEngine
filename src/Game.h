@@ -24,8 +24,8 @@ public:
 	bool wait = false;
 	Searcher searcher;
 
-	Game()
-		: boardHistory(), renderer(1800, 1300), moveGenerator{}, board(), searcher()
+	Game(int screenWidth, int screenHeight)
+		: boardHistory(), renderer(screenWidth, screenHeight), moveGenerator{}, board(), searcher()
 	{
 		boardHistory.reserve(40);
 		

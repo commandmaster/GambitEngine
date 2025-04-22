@@ -17,12 +17,12 @@ int main(int argc, char* argv[]) {
         return 0;
     }
 
-    const int screenWidth = 2000;
-    const int screenHeight = 1200;
+    const int screenWidth = 1280;
+    const int screenHeight = 720;
     SetConfigFlags(FLAG_MSAA_4X_HINT);
     InitWindow(screenWidth, screenHeight, "Chess Engine V4");
     
-    Game game;
+    Game game(screenWidth, screenHeight);
     while (game.update()) {}
     
     return EXIT_SUCCESS;
