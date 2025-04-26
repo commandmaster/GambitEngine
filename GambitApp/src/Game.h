@@ -1,10 +1,10 @@
 #pragma once
 
-
 #include <array>
 #include <string>
 #include <vector>
 #include <type_traits>
+#include <thread>
 
 #include "Board.h"
 #include "MoveGenerator.h"
@@ -12,6 +12,7 @@
 #include "Search.h"
 #include "TranspositionTable.h"
 #include "Test.h"
+#include "Timer.h"
 
 #include "Walnut/Application.h"
 #include "Walnut/EntryPoint.h"
@@ -20,10 +21,6 @@
 #include "Walnut/UI/UI.h"
 
 #include "imgui.h"
-
-
-
-
 
 class GameLayer : public Walnut::Layer
 {
@@ -44,6 +41,18 @@ public:
 	int8_t hoveredSq = -1;
 	int8_t selectedSq = -1;
 
+	Timer lerpTimer;
+	int animLength = 1000; // Default value but will be changed when animStartSq and animEndSq is set
+	int8_t animStartSq = -1;
+	int8_t animEndSq = -1;
+
+	struct {
+		uint32_t aiMoveLengthLimit = 1000;
+		bool isWhiteAi = false;
+		bool isBlackAi = false;
+	} boardSettings;
+
+
 	GameLayer(const std::string& windowName = std::string("New Game"))
 		: moveCount{ 0 }, moves{}, moveGen{}, board{}, searcher{}
 	{
@@ -59,11 +68,30 @@ public:
 		loadIcons();
 	}
 
-
-
 	virtual void OnUIRender() override
 	{
 		ImGui::Begin(winName.c_str());
+		
+		ImVec2 min = ImGui::GetCursorScreenPos();  
+		ImVec2 max = ImGui::GetWindowPos();       
+		max.x += ImGui::GetWindowContentRegionMax().x;
+		max.y += ImGui::GetWindowContentRegionMax().y;
+
+		ImVec2 windowSize;
+		windowSize.x = max.x - min.x;
+		windowSize.y = max.y - min.y;
+
+		int boardSize = std::min<int>(windowSize.x, windowSize.y);
+
+		hoveredSq = Rendering::MouseToSquare(boardSize);
+		Rendering::DrawMoves(legalMovesToVisualize, boardSize);
+		Rendering::DrawBoard(boardSize, ImGui::GetWindowDrawList());
+
+		lerpTimer.stop();
+		Rendering::DrawPieces(board, boardSize, piecesSpriteSheet, selectedSq, hoveredSq, animStartSq, animEndSq, 0.001 * lerpTimer.elapsedTime<std::chrono::microseconds>() / (double)animLength);
+		ImGui::End();
+		
+		ImGui::Begin("Board Settings");
 
 		float buttonSize = 40.f;
 
@@ -77,7 +105,6 @@ public:
 
 		// Forward move
 		bool forward = ImGui::ImageButton(icons[(size_t)IconIndex::play]->GetDescriptorSet(), ImVec2(buttonSize, buttonSize), ImVec2(0,0), ImVec2(1,1), -1, ImVec4(0, 0, 0, 0), ImVec4(0, 0, 0, 1));
-
 		ImGui::SameLine(); 
 
 		// To end of history
@@ -102,40 +129,46 @@ public:
 			goBack();
 		}
 
-		ImVec2 min = ImGui::GetCursorScreenPos();  
-		ImVec2 max = ImGui::GetWindowPos();       
-		max.x += ImGui::GetWindowContentRegionMax().x;
-		max.y += ImGui::GetWindowContentRegionMax().y;
+		ImGui::Text("AI Color: ");
+		ImGui::SameLine();
+		ImGui::Checkbox("White", &boardSettings.isWhiteAi);
+		ImGui::SameLine();
+		ImGui::Checkbox("Black", &boardSettings.isBlackAi);
 
-		ImVec2 windowSize;
-		windowSize.x = max.x - min.x;
-		windowSize.y = max.y - min.y;
-
-		int boardSize = std::min<int>(windowSize.x, windowSize.y);
-
-
-		hoveredSq = Rendering::MouseToSquare(boardSize);
-		Rendering::DrawMoves(legalMovesToVisualize, boardSize);
-		Rendering::DrawBoard(boardSize, ImGui::GetWindowDrawList());
-		Rendering::DrawPieces(board, boardSize, piecesSpriteSheet, selectedSq, hoveredSq);
-
+		ImGui::InputInt("AI Time Limit (ms)", (int*)&boardSettings.aiMoveLengthLimit);
 
 		ImGui::End();
 
-
 		ImGui::ShowDemoWindow();
-
 	}
-	
+
 	virtual void OnUpdate(float ts) override
 	{
-		playerTurn(true);
-		playerTurn(false);
+		if (board.whiteTurn && boardSettings.isWhiteAi)
+		{
+			lerpTimer.stop();
+			if (lerpTimer.elapsedTime<std::chrono::microseconds>() * 0.001 < animLength) return;
+			aiTurn(true);
+		}
+		else if (board.whiteTurn)
+		{
+			playerTurn(true);
+		}
+		else if (boardSettings.isBlackAi)
+		{
+			lerpTimer.stop();
+			if (lerpTimer.elapsedTime<std::chrono::microseconds>() * 0.001 < animLength) return;
+			aiTurn(false);
+		}
+		else
+		{
+			playerTurn(false);
+		}
 	}
 
 	virtual void OnRender() override 
 	{
-
+	
 	}
 
 private:
@@ -149,7 +182,6 @@ private:
 		gameHistory.push_back(board);
 		++historyPointer;
 	}
-
 
 	void advance()
 	{
@@ -166,7 +198,6 @@ private:
 			board = gameHistory[--historyPointer];
 		}
 	}
-
 
 	void playerTurn(bool playerColor)
 	{
@@ -243,10 +274,25 @@ private:
 					break;
 				}
 			}
-
 		}
+		
+		
 	}
 
+	void aiTurn(bool color)
+	{
+		if (board.whiteTurn != color) return;
+
+		Move bestMove = searcher.findBestMove(board, 100, boardSettings.aiMoveLengthLimit);
+		animStartSq = bestMove.startSquare;
+		animEndSq = bestMove.endSquare;
+		animLength = 175;
+
+		lerpTimer.stop();
+		lerpTimer.start();
+
+		playMove(bestMove);
+	}
 
 	enum class IconIndex
 	{

@@ -19,7 +19,7 @@ namespace Rendering
 	
 	void DrawBoard(int boardSize, ImDrawList* windowDrawList);
 
-	void DrawPieces(BoardState& board, int boardSize, std::unique_ptr<Walnut::Image>& piecesSpriteSheet, int selectedSq, int hoveredSq);
+	void DrawPieces(BoardState& board, int boardSize, std::unique_ptr<Walnut::Image>& piecesSpriteSheet, int selectedSq, int hoveredSq, int animStartSquare = -1, int animEndSquare = -1, float animPercentage = 1);
 
 	int8_t MouseToSquare(int boardSize);
 

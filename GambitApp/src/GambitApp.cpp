@@ -28,7 +28,7 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 
 	std::shared_ptr<GameLayer> mainLayer = std::make_shared<GameLayer>("Chess Game");
 	app->PushLayer(mainLayer);
-	app->SetMenubarCallback([app]()
+	app->SetMenubarCallback([app, mainLayer]()
 	{
 		if (ImGui::BeginMenu("File"))
 		{
@@ -38,6 +38,15 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 			}
 			ImGui::EndMenu();
 		}
+
+		//if (ImGui::BeginMenu("Engines"))
+		//{
+		//	if (ImGui::MenuItem("Manage Engines"))
+		//	{
+		//		//mainLayer->showEngineManagementPopup();
+		//	}
+		//	ImGui::EndMenu();
+		//}
 	});
 	return app;
 }

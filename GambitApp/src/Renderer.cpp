@@ -22,9 +22,11 @@ void Rendering::DrawBoard(int boardSize, ImDrawList* windowDrawList)
 	}
 }
 
-void Rendering::DrawPieces(BoardState& board, int boardSize, std::unique_ptr<Walnut::Image>& piecesSpriteSheet, int selectedSq, int hoveredSq)
+void Rendering::DrawPieces(BoardState& board, int boardSize, std::unique_ptr<Walnut::Image>& piecesSpriteSheet, int selectedSq, int hoveredSq, int animStartSquare, int animEndSquare, float animPercentage)
 {
 	int squareSize = boardSize / 8;
+
+	animPercentage = std::clamp<float>(animPercentage, 0.f, 1.f);
 
 	auto drawBB = [&](Bitboard board, int rowIndex, int columnIndex)
 		{
@@ -34,6 +36,7 @@ void Rendering::DrawPieces(BoardState& board, int boardSize, std::unique_ptr<Wal
 
 				ImVec2 min;
 				ImVec2 max;
+
 				if (sq == selectedSq && (ImGui::IsMouseDown(ImGuiMouseButton_Left) || (ImGui::IsMouseReleased(ImGuiMouseButton_Left) && selectedSq != hoveredSq)))
 				{
 					min = ImVec2(ImGui::GetMousePos());
@@ -45,6 +48,22 @@ void Rendering::DrawPieces(BoardState& board, int boardSize, std::unique_ptr<Wal
 
 					max.x -= squareSize / 2;
 					max.y -= squareSize / 2;
+				}
+				else if (sq == animEndSquare && animEndSquare != -1)
+				{
+					float endX = (sq % 8) * squareSize;
+					float endY = (sq / 8) * squareSize;
+
+					float startX = (animStartSquare % 8) * squareSize;
+					float startY = (animStartSquare / 8) * squareSize;
+
+					float finalX = startX + (endX - startX) * animPercentage;
+					float finalY = startY + (endY - startY) * animPercentage;
+
+					min = ImVec2(finalX + ImGui::GetCursorScreenPos().x + (ImGui::GetWindowSize().x - boardSize) / 2, finalY + ImGui::GetCursorScreenPos().y);
+
+					max.x = min.x + squareSize;
+					max.y = min.y + squareSize;
 				}
 				else
 				{

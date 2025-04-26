@@ -14,6 +14,8 @@
 #include <thread>
 #include <fstream>
 #include <iostream>
+#include <mutex>
+#include <atomic>
 
 #include "Board.h"
 #include "MoveGenerator.h"
@@ -29,21 +31,23 @@ public:
 	static constexpr int MAX_IMPLEMENTED_DEPTH = 40;
 
 	Searcher()
-		: rng(dev()), dist(0, 3), openingBookEntries{}, timeout{ false }, bestEval{ INT_MIN }, bestMove{}, bestMoveThisIteration{}, bestEvalThisIteration{ INT_MIN }, ttTable(128)
+		: rng(dev()), dist(0, 3), m_openingBookEntries{}, m_timeout{ false }, m_bestEval{ INT_MIN }, m_bestMove{}, m_bestMoveThisIteration{}, m_bestEvalThisIteration{ INT_MIN }, m_ttTable(128)
     {
 		#ifdef SEARCH_LOGS
-		logFile = std::ofstream("search_logs.txt", std::ios::app);
-		if (!logFile)
+		m_logFile = std::ofstream("search_logs.txt", std::ios::app);
+		if (!m_logFile)
 		{
 			std::cerr << "Error opening log file!" << std::endl;
 		}
 		#endif // SEARCH_LOGS
+
+
 	}
 
 	~Searcher()
 	{
 		#ifdef SEARCH_LOGS
-		logFile.close();
+		m_logFile.close();
 		#endif // SEARCH_LOGS
 	}
 
@@ -51,7 +55,7 @@ public:
 	{
         try 
 		{
-            openingBookEntries = loadPolyglotBook(filename);
+            m_openingBookEntries = loadPolyglotBook(filename);
 			std::cout << "Book Loaded Successfully" << "\n";
         }
 		catch (const std::exception& e) 
@@ -66,8 +70,8 @@ public:
 
 		Timer timer;
 		timer.start();
-		logFile << "\n ----Search Start---- \n";
-		logFile << "Max depth of: " << std::dec << maxDepth << " - Max time allowed: " << timeLimit << "ms \n";
+		m_logFile << "\n ----Search Start---- \n";
+		m_logFile << "Max depth of: " << std::dec << maxDepth << " - Max time allowed: " << timeLimit << "ms \n";
 
 		#endif // SEARCH_LOGS
 
@@ -77,18 +81,18 @@ public:
 			#ifdef SEARCH_LOGS
 
 			timer.stop();
-			logFile << '\n';
-			logFile << "Search skipped... Move found in opening table.\n";
-			logFile << "Best move is " << moveToUCI(bookMove) << "\n";
-			logFile << " ----Search End----\n";
-			logFile.flush();
+			m_logFile << '\n';
+			m_logFile << "Search skipped... Move found in opening table.\n";
+			m_logFile << "Best move is " << moveToUCI(bookMove) << "\n";
+			m_logFile << " ----Search End----\n";
+			m_logFile.flush();
 
 			#endif // SEARCH_LOGS
 
 			return bookMove;
 		}
 
-		timeout = false;
+		m_timeout = false;
 		std::thread timerThread(&Searcher::beginTimeout, this, timeLimit);
 		timerThread.detach();
 
@@ -98,66 +102,66 @@ public:
 
         for (; currentSearchDepth <= maxDepth; ++currentSearchDepth)
         {
-            bestMoveThisIteration = Move{};
-            bestEvalThisIteration = INT_MIN;
+            m_bestMoveThisIteration = Move{};
+            m_bestEvalThisIteration = INT_MIN;
 
 			#ifdef SEARCH_LOGS
-			evaluatedNodes = 0; 
+			m_evaluatedNodes = 0; 
 			#endif
 
             startIterativeSearch(board, currentSearchDepth, board.whiteTurn);
 
-            if (!bestMoveThisIteration.isNull())
+            if (!m_bestMoveThisIteration.isNull())
             {
-                bestMove = bestMoveThisIteration;
-                bestEval = bestEvalThisIteration;
+                m_bestMove = m_bestMoveThisIteration;
+                m_bestEval = m_bestEvalThisIteration;
 
 				#ifdef SEARCH_LOGS
 				int timeElapsed = static_cast<int>(timer.elapsedTime<std::chrono::milliseconds>());
 				timer.stop();
-				logFile << "Iteration depth: " << currentSearchDepth 
-						<< " Best move so far: " << moveToUCI(bestMove) 
-						<< " with evaluation of " << bestEval 
+				m_logFile << "Iteration depth: " << currentSearchDepth 
+						<< " Best move so far: " << moveToUCI(m_bestMove) 
+						<< " with evaluation of " << m_bestEval 
 						<< " for " << (board.whiteTurn ? "white" : "black") 
 						<< ". Time Elapsed: " << timeElapsed << "ms"
-						<< " Nodes evaluated: " << std::dec << evaluatedNodes << "\n"; 
+						<< " Nodes evaluated: " << std::dec << m_evaluatedNodes << "\n"; 
 				#endif
             }
 
-            if (timeout) break;
+            if (m_timeout) break;
         }
 
 
 		#ifdef SEARCH_LOGS
 
 		timer.stop();
-		logFile << '\n';
-		logFile << "Search fully completed up to depth: " << currentSearchDepth << " Time taken: " << static_cast<int>(timer.elapsedTime<std::chrono::milliseconds>()) << "ms\n";
-		logFile << "Best move is " << moveToUCI(bestMove) << " - Eval: " << bestEval << "\n";
-		logFile << " ----Search End----\n";
-		logFile.flush();
+		m_logFile << '\n';
+		m_logFile << "Search fully completed up to depth: " << currentSearchDepth << " Time taken: " << static_cast<int>(timer.elapsedTime<std::chrono::milliseconds>()) << "ms\n";
+		m_logFile << "Best move is " << moveToUCI(m_bestMove) << " - Eval: " << m_bestEval << "\n";
+		m_logFile << " ----Search End----\n";
+		m_logFile.flush();
 
 		#endif // SEARCH_LOGS
 
 
-        return bestMove;
+        return m_bestMove;
 	}
 
 private:
 	void beginTimeout(int timeoutMS) 
 	{
 		auto start = std::chrono::steady_clock::now();
-		while (!timeout.load(std::memory_order_relaxed)) {
+		while (!m_timeout.load(std::memory_order_relaxed)) 
+		{
 			auto elapsed = std::chrono::steady_clock::now() - start;
 			if (std::chrono::duration_cast<std::chrono::milliseconds>(elapsed).count() >= timeoutMS) {
-				timeout.store(true, std::memory_order_release);
+				m_timeout.store(true, std::memory_order_release);
 				break;
 			}
 			std::this_thread::sleep_for(std::chrono::milliseconds(5));
 		}
 	}
 
-	template<int Depth>
     void orderMoves(MoveArr& moves, Move& previousBest, int moveCount, const BoardState& board)
 	{
 		struct MoveScore 
@@ -168,12 +172,13 @@ private:
 		};
 		
 		Move hashedMove{};
-		auto& data = ttTable.retrieve(board.zobristKey);
+		auto& data = m_ttTable.retrieve(board.zobristKey);
 		hashedMove = data.move;
 		
 		std::array<MoveScore, 218> moveScores;
 
-		for (int i = 0; i < moveCount; ++i) {
+		for (int i = 0; i < moveCount; ++i) 
+		{
 			moveScores[i].move = moves[i];
 			int score = 0;
 
@@ -211,11 +216,11 @@ private:
 
 	Move getBookMove(const BoardState& board) 
 	{
-        if (openingBookEntries.empty()) return Move{};
+        if (m_openingBookEntries.empty()) return Move{};
 
         uint64_t key = computePolyglotHash(board);
 
-        auto [lower, upper] = lookupEntries(openingBookEntries, key);
+        auto [lower, upper] = lookupEntries(m_openingBookEntries, key);
         if (lower == upper) return Move{};
 
 
@@ -278,54 +283,9 @@ private:
         else 
 			moveCount = mg.generateLegalMoves<false>(moves, board);
 
-
 		// We can do this as order moves does a null check on best move for us, if it is not null we search it first
-		switch (depth)
-		{
-		case 0: throw std::runtime_error("You cannot start a search with a depth of 0"); break;
-		case 1: orderMoves<1>(moves, bestMove, moveCount, board); break;
-		case 2: orderMoves<2>(moves, bestMove, moveCount, board); break;
-		case 3: orderMoves<3>(moves, bestMove, moveCount, board); break;
-		case 4: orderMoves<4>(moves, bestMove, moveCount, board); break;
-		case 5: orderMoves<5>(moves, bestMove, moveCount, board); break;
-		case 6: orderMoves<6>(moves, bestMove, moveCount, board); break;
-		case 7: orderMoves<7>(moves, bestMove, moveCount, board); break;
-		case 8: orderMoves<8>(moves, bestMove, moveCount, board); break;
-		case 9: orderMoves<9>(moves, bestMove, moveCount, board); break;
-		case 10: orderMoves<10>(moves, bestMove, moveCount, board); break;
-		case 11: orderMoves<11>(moves, bestMove, moveCount, board); break;
-		case 12: orderMoves<12>(moves, bestMove, moveCount, board); break;
-		case 13: orderMoves<13>(moves, bestMove, moveCount, board); break;
-		case 14: orderMoves<14>(moves, bestMove, moveCount, board); break;
-		case 15: orderMoves<15>(moves, bestMove, moveCount, board); break;
-		case 16: orderMoves<16>(moves, bestMove, moveCount, board); break;
-		case 17: orderMoves<17>(moves, bestMove, moveCount, board); break;
-		case 18: orderMoves<18>(moves, bestMove, moveCount, board); break;
-		case 19: orderMoves<19>(moves, bestMove, moveCount, board); break;
-		case 20: orderMoves<20>(moves, bestMove, moveCount, board); break;
-		case 21: orderMoves<21>(moves, bestMove, moveCount, board); break;
-		case 22: orderMoves<22>(moves, bestMove, moveCount, board); break;
-		case 23: orderMoves<23>(moves, bestMove, moveCount, board); break;
-		case 24: orderMoves<24>(moves, bestMove, moveCount, board); break;
-		case 25: orderMoves<25>(moves, bestMove, moveCount, board); break;
-		case 26: orderMoves<26>(moves, bestMove, moveCount, board); break;
-		case 27: orderMoves<27>(moves, bestMove, moveCount, board); break;
-		case 28: orderMoves<28>(moves, bestMove, moveCount, board); break;
-		case 29: orderMoves<29>(moves, bestMove, moveCount, board); break;
-		case 30: orderMoves<30>(moves, bestMove, moveCount, board); break;
-		case 31: orderMoves<31>(moves, bestMove, moveCount, board); break;
-		case 32: orderMoves<32>(moves, bestMove, moveCount, board); break;
-		case 33: orderMoves<33>(moves, bestMove, moveCount, board); break;
-		case 34: orderMoves<34>(moves, bestMove, moveCount, board); break;
-		case 35: orderMoves<35>(moves, bestMove, moveCount, board); break;
-		case 36: orderMoves<36>(moves, bestMove, moveCount, board); break;
-		case 37: orderMoves<37>(moves, bestMove, moveCount, board); break;
-		case 38: orderMoves<38>(moves, bestMove, moveCount, board); break;
-		case 39: orderMoves<39>(moves, bestMove, moveCount, board); break;
-		case 40: orderMoves<40>(moves, bestMove, moveCount, board); break;
-		default: throw std::runtime_error("Depth exceeds supported limit"); break;
-		}
-
+		orderMoves(moves, m_bestMove, moveCount, board);
+		
         int alpha = -20000;
 		int beta = 20000;
 
@@ -439,12 +399,12 @@ private:
 
             board.unmakeMove();
 
-			if (timeout) return;
+			if (m_timeout) return;
 
-            if (score > bestEvalThisIteration) 
+            if (score > m_bestEvalThisIteration) 
             {
-				bestEvalThisIteration = score;
-				bestMoveThisIteration = move;
+				m_bestEvalThisIteration = score;
+				m_bestMoveThisIteration = move;
 			}
 
 			alpha = std::max(alpha, score);
@@ -455,7 +415,7 @@ private:
 	template<bool Turn, int Depth>
     int negamax(BoardState& board, int alpha, int beta)
     {
-		if (timeout) return 0;
+		if (m_timeout) return 0;
 
 		int originalAlpha = alpha;
 
@@ -466,10 +426,10 @@ private:
 		}
 
 		#ifdef SEARCH_LOGS
-		++evaluatedNodes; 
+		++m_evaluatedNodes; 
 		#endif
 
-		TTEntry::SmpData& data = ttTable.retrieve(board.zobristKey);
+		TTEntry::SmpData& data = m_ttTable.retrieve(board.zobristKey);
 		if (data.depth >= Depth) // data.depth will be 0 if null result is found and thus it will never be used as 'Depth' is always >= 1 during the main search
 		{
 			int ttScore = data.score;
@@ -512,7 +472,7 @@ private:
             }
         }
 
-        orderMoves<Depth>(moves, bestMove, moveCount, board);
+        orderMoves(moves, m_bestMove, moveCount, board);
 
         int bestScore = -25000;
 		Move bestMoveInCurrentSearch{};
@@ -524,7 +484,7 @@ private:
 			int score = -negamax<!Turn, Depth - 1>(board, -beta, -alpha);
 			board.unmakeMove();
 
-			if (timeout) return 0;
+			if (m_timeout) return 0;
 
 			if (score > bestScore) 
             {
@@ -535,7 +495,7 @@ private:
 				
 				if (score >= beta) 
 				{
-					ttTable.store(board.zobristKey, TTEntry::SmpData{ static_cast<int16_t>(score), static_cast<uint8_t>(Depth), TTEntry::LOWERBOUND, move });
+					m_ttTable.store(board.zobristKey, TTEntry::SmpData{ static_cast<int16_t>(score), static_cast<uint8_t>(Depth), TTEntry::LOWERBOUND, move });
 					return score; 
 				}
 			}
@@ -551,17 +511,17 @@ private:
 		newEntryData.depth = Depth;
 		newEntryData.move = bestMoveInCurrentSearch;
 
-		ttTable.store(board.zobristKey, newEntryData);
+		m_ttTable.store(board.zobristKey, newEntryData);
 
         return bestScore;
     }
     
     template<bool Turn>
-    int quiescence(BoardState& board, int alpha, int beta) {
+    int quiescence(BoardState& board, int alpha, int beta) 
+	{
 		#ifdef SEARCH_LOGS
-		++evaluatedNodes; 
+		++m_evaluatedNodes; 
 		#endif
-
 
         int standPat = Evaluation::evaluate<Turn>(board);
         if (standPat >= beta)
@@ -576,17 +536,20 @@ private:
         // Filter captures and promotions
         MoveArr qMoves;
         int qCount = 0;
-        for (int i = 0; i < moveCount; ++i) {
-            if (moves[i].captureFlag || moves[i].promotedPiece != Piece::NONE) {
+        for (int i = 0; i < moveCount; ++i) 
+		{
+            if (moves[i].captureFlag || moves[i].promotedPiece != Piece::NONE) 
+			{
                 qMoves[qCount++] = moves[i];
             }
         }
 
         // Order moves (without previous best)
         Move nullMove;
-        orderMoves<0>(qMoves, nullMove, qCount, board);
+        orderMoves(qMoves, nullMove, qCount, board);
 
-        for (int i = 0; i < qCount; ++i) {
+        for (int i = 0; i < qCount; ++i) 
+		{
             Move& move = qMoves[i];
             board.makeMove(move);
             int score = -quiescence<!Turn>(board, -beta, -alpha);
@@ -602,12 +565,14 @@ private:
     }
 
 	template<>
-	int negamax<true, 0>(BoardState& board, int alpha, int beta) {
+	int negamax<true, 0>(BoardState& board, int alpha, int beta) 
+	{
 		return quiescence<true>(board, alpha, beta);
 	}
 
 	template<>
-	int negamax<false, 0>(BoardState& board, int alpha, int beta) {
+	int negamax<false, 0>(BoardState& board, int alpha, int beta) 
+	{
 		return quiescence<false>(board, alpha, beta);
 	}
 
@@ -615,21 +580,23 @@ private:
     std::mt19937 rng;
     std::uniform_int_distribution<std::mt19937::result_type> dist;
 
-    std::vector<TableEntry> openingBookEntries;
+    std::vector<TableEntry> m_openingBookEntries;
 
-	TranspositionTable ttTable;
+	TranspositionTable m_ttTable;
 
-    std::atomic<bool> timeout;
+    std::atomic<bool> m_timeout;
+
+	std::vector<std::thread> m_searchThreads;
     
-    Move bestMove;
-    int bestEval;
+    Move m_bestMove;
+    int m_bestEval;
 
-    Move bestMoveThisIteration;
-	int bestEvalThisIteration;
+    Move m_bestMoveThisIteration;
+	int m_bestEvalThisIteration;
 
 	#ifdef SEARCH_LOGS
-		std::ofstream logFile;
-		uint64_t evaluatedNodes = 0;
+		std::ofstream m_logFile;
+		uint64_t m_evaluatedNodes = 0;
 	#endif // SEARCH_LOGS
 
 
