@@ -16,6 +16,9 @@
 #include <iostream>
 #include <mutex>
 #include <atomic>
+#include <condition_variable>
+#include <functional>
+#include <queue>
 
 #include "Board.h"
 #include "MoveGenerator.h"
@@ -40,8 +43,6 @@ public:
 			std::cerr << "Error opening log file!" << std::endl;
 		}
 		#endif // SEARCH_LOGS
-
-
 	}
 
 	~Searcher()
@@ -49,6 +50,12 @@ public:
 		#ifdef SEARCH_LOGS
 		m_logFile.close();
 		#endif // SEARCH_LOGS
+
+		m_mainThreadRunning.store(false, std::memory_order_release);
+		if (m_mainSearchThread.joinable())
+		{
+			m_mainSearchThread.join();
+		}
 	}
 
 	void loadOpeningBook(const std::string& filename) 
@@ -147,7 +154,60 @@ public:
         return m_bestMove;
 	}
 
+	struct AsyncResult
+	{
+		bool isCompleted;
+		Move bestMove;
+	};
+
+	std::shared_ptr<AsyncResult> findBestMoveAsync(BoardState& board, int maxDepth, int timeLimit)
+	{
+		auto result = std::make_shared<AsyncResult>();
+
+		std::function<void()> job = [this, result, &board, maxDepth, timeLimit]()
+		{
+			result->isCompleted = false;
+			result->bestMove = this->findBestMove(board, maxDepth, timeLimit);
+			result->isCompleted = true;
+		};
+
+		{
+			std::lock_guard lock(m_queueMutex);
+			m_jobQueue.push(std::move(job));
+		}
+
+		m_queueCondition.notify_one();
+
+		return result;
+	}
+
 private:
+	static void mainSearchThreadFunction(Searcher* searcher)
+	{
+		while (searcher->m_mainThreadRunning)
+		{
+			std::function<void()> job;
+
+			{
+				std::unique_lock lock(searcher->m_queueMutex);
+				searcher->m_queueCondition.wait(lock, [searcher] {return !searcher->m_jobQueue.empty() || !searcher->m_mainThreadRunning; });
+				
+				job = std::move(searcher->m_jobQueue.front());
+				searcher->m_jobQueue.pop();
+			}
+
+			job();
+		}
+	}
+
+	void startMainSearchThread()
+	{
+		if (m_mainThreadRunning) return;
+
+		m_mainThreadRunning.store(true, std::memory_order_relaxed);
+		m_mainSearchThread = std::thread(mainSearchThreadFunction, this);
+	}
+
 	void beginTimeout(int timeoutMS) 
 	{
 		auto start = std::chrono::steady_clock::now();
@@ -472,7 +532,8 @@ private:
             }
         }
 
-        orderMoves(moves, m_bestMove, moveCount, board);
+		Move nullMove{};
+		orderMoves(moves, nullMove, moveCount, board);
 
         int bestScore = -25000;
 		Move bestMoveInCurrentSearch{};
@@ -585,6 +646,12 @@ private:
 	TranspositionTable m_ttTable;
 
     std::atomic<bool> m_timeout;
+
+	std::thread m_mainSearchThread;
+	std::atomic<bool> m_mainThreadRunning{false};
+	std::condition_variable m_queueCondition;
+	std::mutex m_queueMutex;
+	std::queue<std::function<void()>> m_jobQueue;
 
 	std::vector<std::thread> m_searchThreads;
     

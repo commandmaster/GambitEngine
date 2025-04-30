@@ -34,8 +34,6 @@ typedef uint64_t Square;
 // 56 57 58 59 60 61 62 63
 
 
-
-
 _Compiletime Bitboard mirrorVertical(Bitboard x) 
 {
     x = ((x >> 8)  & 0x00FF00FF00FF00FFULL) | ((x & 0x00FF00FF00FF00FFULL) << 8);
@@ -140,7 +138,8 @@ static std::string moveToUCI(const Move& move) {
 }
 
 template <bool turn, bool kw, bool qw, bool kb, bool qb, bool hasEnPassant>
-struct BoardStatus {
+struct BoardStatus 
+{
     static constexpr bool whiteToMove = turn;
     static constexpr bool kingsideWhite = kw;
     static constexpr bool queensideWhite = qw;
@@ -151,8 +150,6 @@ struct BoardStatus {
     template <bool newTurn, bool newKW, bool newQW, bool newKB, bool newQB, bool newEP>
     using Update = BoardStatus<newTurn, newKW, newQW, newKB, newQB, newEP>;
 };
-
-
 
 struct BoardState
 {

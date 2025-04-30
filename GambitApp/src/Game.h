@@ -46,6 +46,8 @@ public:
 	int8_t animStartSq = -1;
 	int8_t animEndSq = -1;
 
+	std::shared_ptr<Searcher::AsyncResult> asyncAiSearchRes;
+
 	struct {
 		uint32_t aiMoveLengthLimit = 1000;
 		bool isWhiteAi = false;
@@ -65,6 +67,11 @@ public:
 		searcher.loadOpeningBook("assets/baron30.bin");
 
 		piecesSpriteSheet = std::make_unique<Walnut::Image>("assets/chessPieces.png");
+
+		asyncAiSearchRes = std::make_shared<Searcher::AsyncResult>();
+		asyncAiSearchRes->bestMove = Move{};
+		asyncAiSearchRes->isCompleted = true;
+
 		loadIcons();
 	}
 
@@ -139,7 +146,7 @@ public:
 
 		ImGui::End();
 
-		ImGui::ShowDemoWindow();
+		//ImGui::ShowDemoWindow();
 	}
 
 	virtual void OnUpdate(float ts) override
@@ -148,7 +155,10 @@ public:
 		{
 			lerpTimer.stop();
 			if (lerpTimer.elapsedTime<std::chrono::microseconds>() * 0.001 < animLength) return;
-			aiTurn(true);
+
+			{
+				aiTurn(true);
+			}
 		}
 		else if (board.whiteTurn)
 		{
@@ -158,7 +168,10 @@ public:
 		{
 			lerpTimer.stop();
 			if (lerpTimer.elapsedTime<std::chrono::microseconds>() * 0.001 < animLength) return;
-			aiTurn(false);
+
+			{
+				aiTurn(false);
+			}
 		}
 		else
 		{
@@ -275,23 +288,31 @@ private:
 				}
 			}
 		}
-		
-		
 	}
 
 	void aiTurn(bool color)
 	{
-		if (board.whiteTurn != color) return;
+		if (board.whiteTurn != color || !asyncAiSearchRes->isCompleted) return;
 
-		Move bestMove = searcher.findBestMove(board, 100, boardSettings.aiMoveLengthLimit);
-		animStartSq = bestMove.startSquare;
-		animEndSq = bestMove.endSquare;
-		animLength = 175;
+		if (asyncAiSearchRes->bestMove.isNull())
+		{
+			asyncAiSearchRes = searcher.findBestMoveAsync(board, 100, boardSettings.aiMoveLengthLimit);
+		}
+		else
+		{
+			Move& bestMove = asyncAiSearchRes->bestMove;
+			animStartSq = bestMove.startSquare;
+			animEndSq = bestMove.endSquare;
+			animLength = 175;
 
-		lerpTimer.stop();
-		lerpTimer.start();
+			lerpTimer.stop();
+			lerpTimer.start();
 
-		playMove(bestMove);
+			playMove(bestMove);
+
+			asyncAiSearchRes->bestMove = Move{};
+			asyncAiSearchRes->isCompleted = true;
+		}
 	}
 
 	enum class IconIndex
