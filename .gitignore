@@ -9,6 +9,7 @@ out/
 *.vcxproj.user
 *.vcxproj.filters
 *.sln
+*VulkanSDK*
 
 # Exclude
 !vendor/bin
