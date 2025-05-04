@@ -46,12 +46,16 @@ public:
 	int8_t animStartSq = -1;
 	int8_t animEndSq = -1;
 
+	char buf[128] = "";
+
+	std::vector<std::string> logBuffer;
+	bool autoScrollToTop = true;
+
 	struct {
 		uint32_t aiMoveLengthLimit = 1000;
 		bool isWhiteAi = false;
 		bool isBlackAi = false;
 	} boardSettings;
-
 
 	GameLayer(const std::string& windowName = std::string("New Game"))
 		: moveCount{ 0 }, moves{}, moveGen{}, board{}, searcher{}
@@ -136,10 +140,37 @@ public:
 		ImGui::Checkbox("Black", &boardSettings.isBlackAi);
 
 		ImGui::InputInt("AI Time Limit (ms)", (int*)&boardSettings.aiMoveLengthLimit);
+		
+		// Serial commincation:
 
+		ImGui::Text("Serial Communication:");
+		
+		if (ImGui::InputText("Write", buf, IM_ARRAYSIZE(buf), ImGuiInputTextFlags_EnterReturnsTrue)) {
+			// This block is only entered when Enter is pressed
+			printf("Enter was pressed. Input: %s\n", buf);
+			// send it here
+
+			logBuffer.insert(logBuffer.begin(), buf); // Insert at top
+			buf[0] = '\0'; // reset
+			autoScrollToTop = true; // Flag to scroll to top
+
+		}
+
+		ImGui::BeginChild("LogRegion", ImVec2(0, 300), true, ImGuiWindowFlags_HorizontalScrollbar);
+		for (const auto& line : logBuffer) {
+			ImGui::TextUnformatted(line.c_str());
+		}
+
+		if (autoScrollToTop) {
+			ImGui::SetScrollY(0.0f);  // Scroll to the top
+			autoScrollToTop = false;  // Reset the flag
+		}
+
+		ImGui::EndChild();
+		
 		ImGui::End();
 
-		ImGui::ShowDemoWindow();
+		//ImGui::ShowDemoWindow();
 	}
 
 	virtual void OnUpdate(float ts) override
