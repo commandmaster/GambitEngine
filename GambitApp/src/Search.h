@@ -43,6 +43,8 @@ public:
 			std::cerr << "Error opening log file!" << std::endl;
 		}
 		#endif // SEARCH_LOGS
+
+		startMainSearchThread();
 	}
 
 	~Searcher()
@@ -167,7 +169,8 @@ public:
 		std::function<void()> job = [this, result, &board, maxDepth, timeLimit]()
 		{
 			result->isCompleted = false;
-			result->bestMove = this->findBestMove(board, maxDepth, timeLimit);
+			BoardState localBoard = board;
+			result->bestMove = this->findBestMove(localBoard, maxDepth, timeLimit);
 			result->isCompleted = true;
 		};
 

@@ -324,15 +324,14 @@ private:
 
 	void aiTurn(bool color)
 	{
-		if (board.whiteTurn != color || !asyncAiSearchRes->isCompleted) return;
+		if (board.whiteTurn != color) return;
 
-		if (asyncAiSearchRes->bestMove.isNull())
+		if (asyncAiSearchRes && asyncAiSearchRes->isCompleted && !asyncAiSearchRes->bestMove.isNull())
 		{
-			asyncAiSearchRes = searcher.findBestMoveAsync(board, 100, boardSettings.aiMoveLengthLimit);
-		}
-		else
-		{
-			Move& bestMove = asyncAiSearchRes->bestMove;
+			Move bestMove = asyncAiSearchRes->bestMove; // Copy the move
+
+			asyncAiSearchRes->bestMove = Move{}; // Mark move as consumed
+
 			animStartSq = bestMove.startSquare;
 			animEndSq = bestMove.endSquare;
 			animLength = 175;
@@ -340,11 +339,21 @@ private:
 			lerpTimer.stop();
 			lerpTimer.start();
 
-			playMove(bestMove);
+			playMove(bestMove); // This changes board.whiteTurn
 
-			asyncAiSearchRes->bestMove = Move{};
-			asyncAiSearchRes->isCompleted = true;
+			return;
 		}
+
+		if (asyncAiSearchRes && !asyncAiSearchRes->isCompleted)
+		{
+			return;
+		}
+
+		if (!asyncAiSearchRes || (asyncAiSearchRes->isCompleted && asyncAiSearchRes->bestMove.isNull()))
+		{
+			asyncAiSearchRes = searcher.findBestMoveAsync(board, 100, boardSettings.aiMoveLengthLimit);
+			return;
+		}		
 	}
 
 	enum class IconIndex
