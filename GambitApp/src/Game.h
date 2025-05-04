@@ -13,6 +13,7 @@
 #include "TranspositionTable.h"
 #include "Test.h"
 #include "Timer.h"
+#include "SerialCommunication.h"
 
 #include "Walnut/Application.h"
 #include "Walnut/EntryPoint.h"
@@ -53,6 +54,7 @@ public:
 
 	std::shared_ptr<Searcher::AsyncResult> asyncAiSearchRes;
 
+	HANDLE serialHandle;
 
 	struct {
 		uint32_t aiMoveLengthLimit = 1000;
@@ -76,6 +78,8 @@ public:
 		asyncAiSearchRes = std::make_shared<Searcher::AsyncResult>();
 		asyncAiSearchRes->bestMove = Move{};
 		asyncAiSearchRes->isCompleted = true;
+
+		serialHandle = getSerialHandle(3);
 
 		loadIcons();
 	}
@@ -154,9 +158,15 @@ public:
 		ImGui::Text("Serial Communication:");
 		
 		if (ImGui::InputText("Write", buf, IM_ARRAYSIZE(buf), ImGuiInputTextFlags_EnterReturnsTrue)) {
-			// This block is only entered when Enter is pressed
 			printf("Enter was pressed. Input: %s\n", buf);
-			// send it here
+
+			if (serialHandle == INVALID_HANDLE_VALUE)
+				throw std::runtime_error("Serial handle is invalid before write.");
+
+			if (!writeData(serialHandle, &buf, sizeof(buf)))
+			{
+				throw std::runtime_error("Failed to write to port!");
+			}
 
 			logBuffer.insert(logBuffer.begin(), buf); // Insert at top
 			buf[0] = '\0'; // reset

@@ -50,12 +50,11 @@ HANDLE getSerialHandle(uint8_t comPort)
     return hSerial;
 }
 
-template<typename Type>
-bool writeData(HANDLE handle, const Type& data)
+bool writeData(HANDLE handle, void* data, size_t size)
 {
     DWORD bytesWritten;
 
-    if (!WriteFile(handle, &data, sizeof(data), &bytesWritten, NULL)) 
+    if (!WriteFile(handle, data, size, &bytesWritten, NULL)) 
     {
         std::cerr << "Error writing\n";
         return false;
