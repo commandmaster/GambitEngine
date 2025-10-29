@@ -153198,3 +153198,2552 @@ Iteration depth: 9 Best move so far: b8c6 with evaluation of 90 for black. Time 
 Search fully completed up to depth: 9 Time taken: 5005ms
 Best move is b8c6 - Eval: 90
  ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c7c5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is a7a6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e7e6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b7b5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of -150 for black. Time Elapsed: 0ms Nodes evaluated: 47
+Iteration depth: 2 Best move so far: c5c4 with evaluation of -5 for black. Time Elapsed: 0ms Nodes evaluated: 418
+Iteration depth: 3 Best move so far: c5c4 with evaluation of -5 for black. Time Elapsed: 1ms Nodes evaluated: 979
+Iteration depth: 4 Best move so far: c5c4 with evaluation of -8 for black. Time Elapsed: 2ms Nodes evaluated: 9194
+Iteration depth: 5 Best move so far: c5c4 with evaluation of 20 for black. Time Elapsed: 8ms Nodes evaluated: 41665
+Iteration depth: 6 Best move so far: c5c4 with evaluation of -3 for black. Time Elapsed: 24ms Nodes evaluated: 160477
+Iteration depth: 7 Best move so far: c5c4 with evaluation of 55 for black. Time Elapsed: 105ms Nodes evaluated: 566652
+Iteration depth: 8 Best move so far: c5c4 with evaluation of 27 for black. Time Elapsed: 299ms Nodes evaluated: 1508079
+
+Search fully completed up to depth: 8 Time taken: 1003ms
+Best move is c5c4 - Eval: 27
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c7c5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is a7a6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e7e6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c5d4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g8f6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of -5 for black. Time Elapsed: 0ms Nodes evaluated: 313
+Iteration depth: 2 Best move so far: h7h6 with evaluation of -50 for black. Time Elapsed: 0ms Nodes evaluated: 1772
+Iteration depth: 3 Best move so far: e6e5 with evaluation of -30 for black. Time Elapsed: 2ms Nodes evaluated: 3048
+Iteration depth: 4 Best move so far: d8a5 with evaluation of 25 for black. Time Elapsed: 4ms Nodes evaluated: 14122
+Iteration depth: 5 Best move so far: d8a5 with evaluation of 25 for black. Time Elapsed: 12ms Nodes evaluated: 25547
+Iteration depth: 6 Best move so far: d8a5 with evaluation of 95 for black. Time Elapsed: 22ms Nodes evaluated: 96911
+Iteration depth: 7 Best move so far: d8a5 with evaluation of 95 for black. Time Elapsed: 77ms Nodes evaluated: 338515
+Iteration depth: 8 Best move so far: d8a5 with evaluation of 95 for black. Time Elapsed: 192ms Nodes evaluated: 1624493
+
+Search fully completed up to depth: 8 Time taken: 1013ms
+Best move is d8a5 - Eval: 95
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a5g5 with evaluation of 300 for black. Time Elapsed: 0ms Nodes evaluated: 47
+Iteration depth: 2 Best move so far: a5g5 with evaluation of 290 for black. Time Elapsed: 0ms Nodes evaluated: 686
+Iteration depth: 3 Best move so far: a5g5 with evaluation of 330 for black. Time Elapsed: 1ms Nodes evaluated: 1687
+Iteration depth: 4 Best move so far: a5g5 with evaluation of 330 for black. Time Elapsed: 1ms Nodes evaluated: 17335
+Iteration depth: 5 Best move so far: a5g5 with evaluation of 330 for black. Time Elapsed: 16ms Nodes evaluated: 76051
+Iteration depth: 6 Best move so far: a5g5 with evaluation of 305 for black. Time Elapsed: 62ms Nodes evaluated: 546946
+Iteration depth: 7 Best move so far: a5g5 with evaluation of 340 for black. Time Elapsed: 351ms Nodes evaluated: 1258109
+
+Search fully completed up to depth: 8 Time taken: 1004ms
+Best move is a5g5 - Eval: 340
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e2e4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c7c5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g1f3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d7d6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d2d4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g8f6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b1c3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c5d4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is f3d4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is a7a6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c1e3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e7e6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is f2f3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b7b5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g2g4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b5b4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c3e2
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is h7h6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c2c4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b8d7
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is h2h4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d8c7
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is f1h3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e6e5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d4f5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g7g6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is f5g3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d7c5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d1d2
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c8e6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d2b4 with evaluation of 75 for white. Time Elapsed: 0ms Nodes evaluated: 114
+Iteration depth: 2 Best move so far: d2b4 with evaluation of 50 for white. Time Elapsed: 0ms Nodes evaluated: 7331
+Iteration depth: 3 Best move so far: e1g1 with evaluation of -5 for white. Time Elapsed: 11ms Nodes evaluated: 27341
+Iteration depth: 4 Best move so far: g4g5 with evaluation of 20 for white. Time Elapsed: 51ms Nodes evaluated: 64294
+Iteration depth: 5 Best move so far: g4g5 with evaluation of 5 for white. Time Elapsed: 112ms Nodes evaluated: 79753
+Iteration depth: 6 Best move so far: g4g5 with evaluation of 5 for white. Time Elapsed: 145ms Nodes evaluated: 710656
+Iteration depth: 7 Best move so far: g4g5 with evaluation of -20 for white. Time Elapsed: 531ms Nodes evaluated: 1276171
+
+Search fully completed up to depth: 7 Time taken: 1015ms
+Best move is g4g5 - Eval: -20
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h6g5 with evaluation of 20 for black. Time Elapsed: 0ms Nodes evaluated: 573
+Iteration depth: 2 Best move so far: h6g5 with evaluation of 20 for black. Time Elapsed: 1ms Nodes evaluated: 407
+Iteration depth: 3 Best move so far: e6h3 with evaluation of 20 for black. Time Elapsed: 1ms Nodes evaluated: 796
+Iteration depth: 4 Best move so far: e6h3 with evaluation of 20 for black. Time Elapsed: 2ms Nodes evaluated: 47
+Iteration depth: 5 Best move so far: e6h3 with evaluation of 20 for black. Time Elapsed: 2ms Nodes evaluated: 47
+Iteration depth: 6 Best move so far: e6h3 with evaluation of 20 for black. Time Elapsed: 2ms Nodes evaluated: 47
+Iteration depth: 7 Best move so far: e6h3 with evaluation of 0 for black. Time Elapsed: 2ms Nodes evaluated: 809484
+Iteration depth: 8 Best move so far: e6h3 with evaluation of 35 for black. Time Elapsed: 292ms Nodes evaluated: 1707774
+
+Search fully completed up to depth: 8 Time taken: 1008ms
+Best move is e6h3 - Eval: 35
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g5f6 with evaluation of 25 for white. Time Elapsed: 0ms Nodes evaluated: 105
+Iteration depth: 2 Best move so far: g5f6 with evaluation of 25 for white. Time Elapsed: 0ms Nodes evaluated: 190
+Iteration depth: 3 Best move so far: g5f6 with evaluation of 5 for white. Time Elapsed: 0ms Nodes evaluated: 567
+Iteration depth: 4 Best move so far: g5f6 with evaluation of 5 for white. Time Elapsed: 1ms Nodes evaluated: 1883
+Iteration depth: 5 Best move so far: h1h3 with evaluation of -35 for white. Time Elapsed: 2ms Nodes evaluated: 2175
+Iteration depth: 6 Best move so far: h1h3 with evaluation of -35 for white. Time Elapsed: 3ms Nodes evaluated: 39
+Iteration depth: 7 Best move so far: h1h3 with evaluation of -35 for white. Time Elapsed: 3ms Nodes evaluated: 39
+Iteration depth: 8 Best move so far: h1h3 with evaluation of -35 for white. Time Elapsed: 3ms Nodes evaluated: 2234821
+
+Search fully completed up to depth: 8 Time taken: 1015ms
+Best move is h1h3 - Eval: -35
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h6g5 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 107
+Iteration depth: 2 Best move so far: h6g5 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 3 Best move so far: h6g5 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 4 Best move so far: h6g5 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 5 Best move so far: h6g5 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 6 Best move so far: h6g5 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 7 Best move so far: h6g5 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 41
+
+Search fully completed up to depth: 8 Time taken: 1001ms
+Best move is h6g5 - Eval: 35
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e3g5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 87
+Iteration depth: 2 Best move so far: e3g5 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 39
+Iteration depth: 3 Best move so far: e3g5 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 39
+Iteration depth: 4 Best move so far: e3g5 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 39
+Iteration depth: 5 Best move so far: e3g5 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 39
+Iteration depth: 6 Best move so far: e3g5 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 39
+Iteration depth: 7 Best move so far: e3g5 with evaluation of -28 for white. Time Elapsed: 0ms Nodes evaluated: 1088813
+
+Search fully completed up to depth: 8 Time taken: 1006ms
+Best move is e3g5 - Eval: -28
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f6h7 with evaluation of 10 for black. Time Elapsed: 0ms Nodes evaluated: 417
+Iteration depth: 2 Best move so far: f8e7 with evaluation of 36 for black. Time Elapsed: 0ms Nodes evaluated: 166
+Iteration depth: 3 Best move so far: f8e7 with evaluation of 36 for black. Time Elapsed: 0ms Nodes evaluated: 43
+Iteration depth: 4 Best move so far: f8e7 with evaluation of 36 for black. Time Elapsed: 0ms Nodes evaluated: 43
+Iteration depth: 5 Best move so far: f8e7 with evaluation of 36 for black. Time Elapsed: 0ms Nodes evaluated: 43
+Iteration depth: 6 Best move so far: f8e7 with evaluation of 36 for black. Time Elapsed: 0ms Nodes evaluated: 43
+Iteration depth: 7 Best move so far: f8e7 with evaluation of 36 for black. Time Elapsed: 0ms Nodes evaluated: 947857
+
+Search fully completed up to depth: 8 Time taken: 1011ms
+Best move is f8e7 - Eval: 36
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d2b4 with evaluation of 60 for white. Time Elapsed: 0ms Nodes evaluated: 186
+Iteration depth: 2 Best move so far: e1f1 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 1659
+Iteration depth: 3 Best move so far: e1f1 with evaluation of -35 for white. Time Elapsed: 2ms Nodes evaluated: 500
+Iteration depth: 4 Best move so far: f3f4 with evaluation of -35 for white. Time Elapsed: 2ms Nodes evaluated: 12720
+Iteration depth: 5 Best move so far: f3f4 with evaluation of -37 for white. Time Elapsed: 11ms Nodes evaluated: 36759
+Iteration depth: 6 Best move so far: a1d1 with evaluation of -40 for white. Time Elapsed: 34ms Nodes evaluated: 236053
+Iteration depth: 7 Best move so far: a1d1 with evaluation of -40 for white. Time Elapsed: 158ms Nodes evaluated: 1640890
+
+Search fully completed up to depth: 7 Time taken: 1006ms
+Best move is a1d1 - Eval: -40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c7d7 with evaluation of 45 for black. Time Elapsed: 0ms Nodes evaluated: 612
+Iteration depth: 2 Best move so far: c7d7 with evaluation of 45 for black. Time Elapsed: 1ms Nodes evaluated: 195
+Iteration depth: 3 Best move so far: c7d7 with evaluation of 40 for black. Time Elapsed: 1ms Nodes evaluated: 1229
+Iteration depth: 4 Best move so far: c7b6 with evaluation of 40 for black. Time Elapsed: 2ms Nodes evaluated: 3473
+Iteration depth: 5 Best move so far: c7b6 with evaluation of 40 for black. Time Elapsed: 5ms Nodes evaluated: 43
+Iteration depth: 6 Best move so far: c7b6 with evaluation of 40 for black. Time Elapsed: 5ms Nodes evaluated: 43
+Iteration depth: 7 Best move so far: c7b6 with evaluation of 40 for black. Time Elapsed: 5ms Nodes evaluated: 1395538
+
+Search fully completed up to depth: 8 Time taken: 1013ms
+Best move is c7b6 - Eval: 40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g5f6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 135
+Iteration depth: 2 Best move so far: g5f6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 35
+Iteration depth: 3 Best move so far: g5f6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 35
+Iteration depth: 4 Best move so far: g5f6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 35
+Iteration depth: 5 Best move so far: g5f6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 35
+Iteration depth: 6 Best move so far: g5f6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 35
+Iteration depth: 7 Best move so far: g5f6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 1944274
+
+Search fully completed up to depth: 7 Time taken: 1009ms
+Best move is g5f6 - Eval: -40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e7f6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 78
+Iteration depth: 2 Best move so far: e7f6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: e7f6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 4 Best move so far: e7f6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 5 Best move so far: e7f6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 6 Best move so far: e7f6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 7 Best move so far: e7f6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 500984
+Iteration depth: 8 Best move so far: e7f6 with evaluation of 35 for black. Time Elapsed: 178ms Nodes evaluated: 1472920
+
+Search fully completed up to depth: 9 Time taken: 1009ms
+Best move is e7f6 - Eval: 35
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d2d6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 69
+Iteration depth: 2 Best move so far: d2d6 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 3 Best move so far: d2d6 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 4 Best move so far: d2d6 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 5 Best move so far: d2d6 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 6 Best move so far: d2d6 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 7 Best move so far: d2d6 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 8 Best move so far: d2d6 with evaluation of -35 for white. Time Elapsed: 0ms Nodes evaluated: 1996340
+
+Search fully completed up to depth: 8 Time taken: 1017ms
+Best move is d2d6 - Eval: -35
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b6d6 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 65
+Iteration depth: 2 Best move so far: b6d6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 3 Best move so far: b6d6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 4 Best move so far: b6d6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 5 Best move so far: b6d6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 6 Best move so far: b6d6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 7 Best move so far: b6d6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 8 Best move so far: b6d6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 585998
+Iteration depth: 9 Best move so far: b6d6 with evaluation of 25 for black. Time Elapsed: 336ms Nodes evaluated: 1159702
+
+Search fully completed up to depth: 10 Time taken: 1015ms
+Best move is b6d6 - Eval: 25
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d1d6 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 48
+Iteration depth: 2 Best move so far: d1d6 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 3 Best move so far: d1d6 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 4 Best move so far: d1d6 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 5 Best move so far: d1d6 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 6 Best move so far: d1d6 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 7 Best move so far: d1d6 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 8 Best move so far: d1d6 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 26
+
+Search fully completed up to depth: 9 Time taken: 1004ms
+Best move is d1d6 - Eval: -25
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h8h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 47
+Iteration depth: 2 Best move so far: h8h4 with evaluation of 27 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 3 Best move so far: h8h4 with evaluation of 27 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 4 Best move so far: h8h4 with evaluation of 27 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 5 Best move so far: h8h4 with evaluation of 27 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 6 Best move so far: h8h4 with evaluation of 27 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 7 Best move so far: h8h4 with evaluation of 27 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 8 Best move so far: h8h4 with evaluation of 27 for black. Time Elapsed: 0ms Nodes evaluated: 408494
+Iteration depth: 9 Best move so far: h8h4 with evaluation of 39 for black. Time Elapsed: 225ms Nodes evaluated: 2465429
+
+Search fully completed up to depth: 9 Time taken: 1007ms
+Best move is h8h4 - Eval: 39
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h3h4 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 53
+Iteration depth: 2 Best move so far: h3h4 with evaluation of -39 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: h3h4 with evaluation of -39 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 4 Best move so far: h3h4 with evaluation of -39 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 5 Best move so far: h3h4 with evaluation of -39 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 6 Best move so far: h3h4 with evaluation of -39 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 7 Best move so far: h3h4 with evaluation of -39 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 8 Best move so far: h3h4 with evaluation of -39 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 9 Best move so far: h3h4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 1400291
+Iteration depth: 10 Best move so far: h3h4 with evaluation of -40 for white. Time Elapsed: 518ms Nodes evaluated: 1332142
+
+Search fully completed up to depth: 10 Time taken: 1017ms
+Best move is h3h4 - Eval: -40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 2 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 3 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 4 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 5 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 6 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 7 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 8 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 9 Best move so far: f6h4 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 22
+
+Search fully completed up to depth: 10 Time taken: 1007ms
+Best move is f6h4 - Eval: 40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e1d2 with evaluation of -20 for white. Time Elapsed: 0ms Nodes evaluated: 58
+Iteration depth: 2 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 3 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 4 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 5 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 6 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 7 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 8 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 9 Best move so far: d6d5 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 1459082
+
+Search fully completed up to depth: 10 Time taken: 1007ms
+Best move is d6d5 - Eval: -30
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h4g3 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 59
+Iteration depth: 2 Best move so far: c5d7 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 3 Best move so far: c5d7 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 4 Best move so far: c5d7 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 5 Best move so far: c5d7 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 6 Best move so far: c5d7 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 7 Best move so far: c5d7 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 8 Best move so far: c5d7 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 9 Best move so far: c5d7 with evaluation of 45 for black. Time Elapsed: 0ms Nodes evaluated: 1291827
+
+Search fully completed up to depth: 10 Time taken: 1009ms
+Best move is c5d7 - Eval: 45
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e1f2 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 2 Best move so far: e1f2 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 3 Best move so far: e1f2 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 4 Best move so far: e1f2 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 5 Best move so far: e1f2 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 6 Best move so far: e1f2 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 7 Best move so far: e1f2 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 8 Best move so far: e1f2 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 9 Best move so far: e1f2 with evaluation of -55 for white. Time Elapsed: 0ms Nodes evaluated: 2272877
+
+Search fully completed up to depth: 9 Time taken: 1013ms
+Best move is e1f2 - Eval: -55
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h4f6 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 48
+Iteration depth: 2 Best move so far: h4e7 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 3 Best move so far: h4e7 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 4 Best move so far: h4e7 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 5 Best move so far: h4e7 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 6 Best move so far: h4e7 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 7 Best move so far: h4e7 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 8 Best move so far: h4e7 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 9 Best move so far: h4e7 with evaluation of 58 for black. Time Elapsed: 0ms Nodes evaluated: 2631119
+
+Search fully completed up to depth: 9 Time taken: 1007ms
+Best move is h4e7 - Eval: 58
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f3f4 with evaluation of 15 for white. Time Elapsed: 0ms Nodes evaluated: 42
+Iteration depth: 2 Best move so far: f3f4 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 124
+Iteration depth: 3 Best move so far: f3f4 with evaluation of 15 for white. Time Elapsed: 0ms Nodes evaluated: 305
+Iteration depth: 4 Best move so far: f3f4 with evaluation of -17 for white. Time Elapsed: 0ms Nodes evaluated: 775
+Iteration depth: 5 Best move so far: f3f4 with evaluation of -17 for white. Time Elapsed: 1ms Nodes evaluated: 3490
+Iteration depth: 6 Best move so far: f3f4 with evaluation of -55 for white. Time Elapsed: 4ms Nodes evaluated: 8521
+Iteration depth: 7 Best move so far: d5d1 with evaluation of -58 for white. Time Elapsed: 7ms Nodes evaluated: 14753
+Iteration depth: 8 Best move so far: d5d1 with evaluation of -58 for white. Time Elapsed: 13ms Nodes evaluated: 29
+Iteration depth: 9 Best move so far: b2b3 with evaluation of -59 for white. Time Elapsed: 13ms Nodes evaluated: 2359498
+
+Search fully completed up to depth: 9 Time taken: 1011ms
+Best move is b2b3 - Eval: -59
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e7f6 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 38
+Iteration depth: 2 Best move so far: e7c5 with evaluation of 59 for black. Time Elapsed: 0ms Nodes evaluated: 61
+Iteration depth: 3 Best move so far: e7c5 with evaluation of 59 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 4 Best move so far: e7c5 with evaluation of 59 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 5 Best move so far: e7c5 with evaluation of 59 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 6 Best move so far: e7c5 with evaluation of 59 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 7 Best move so far: e7c5 with evaluation of 59 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 8 Best move so far: e7c5 with evaluation of 59 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 9 Best move so far: e7c5 with evaluation of 75 for black. Time Elapsed: 0ms Nodes evaluated: 1447476
+
+Search fully completed up to depth: 10 Time taken: 1003ms
+Best move is e7c5 - Eval: 75
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f2g2 with evaluation of -58 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 2 Best move so far: f2e1 with evaluation of -75 for white. Time Elapsed: 0ms Nodes evaluated: 55
+Iteration depth: 3 Best move so far: f2e1 with evaluation of -75 for white. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 4 Best move so far: f2e1 with evaluation of -75 for white. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 5 Best move so far: f2e1 with evaluation of -75 for white. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 6 Best move so far: f2e1 with evaluation of -75 for white. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 7 Best move so far: f2e1 with evaluation of -75 for white. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 8 Best move so far: f2e1 with evaluation of -75 for white. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 9 Best move so far: f2g2 with evaluation of -65 for white. Time Elapsed: 0ms Nodes evaluated: 1860191
+
+Search fully completed up to depth: 10 Time taken: 1006ms
+Best move is f2g2 - Eval: -65
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e8d8 with evaluation of 78 for black. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 2 Best move so far: c5e3 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 3 Best move so far: c5e3 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 4 Best move so far: c5e3 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 5 Best move so far: c5e3 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 6 Best move so far: c5e3 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 7 Best move so far: c5e3 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 8 Best move so far: c5e3 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 9 Best move so far: c5e3 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 2334663
+
+Search fully completed up to depth: 9 Time taken: 1015ms
+Best move is c5e3 - Eval: 25
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g2h3 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 96
+Iteration depth: 2 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 3 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 4 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 5 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 6 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 7 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 8 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 9 Best move so far: f3f4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 2727239
+
+Search fully completed up to depth: 9 Time taken: 1002ms
+Best move is f3f4 - Eval: -25
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e5f4 with evaluation of 138 for black. Time Elapsed: 0ms Nodes evaluated: 54
+Iteration depth: 2 Best move so far: e5f4 with evaluation of 112 for black. Time Elapsed: 0ms Nodes evaluated: 68
+Iteration depth: 3 Best move so far: e5f4 with evaluation of 132 for black. Time Elapsed: 0ms Nodes evaluated: 265
+Iteration depth: 4 Best move so far: e5f4 with evaluation of 132 for black. Time Elapsed: 0ms Nodes evaluated: 1485
+Iteration depth: 5 Best move so far: e5f4 with evaluation of 121 for black. Time Elapsed: 1ms Nodes evaluated: 5528
+Iteration depth: 6 Best move so far: e5f4 with evaluation of 101 for black. Time Elapsed: 4ms Nodes evaluated: 19484
+Iteration depth: 7 Best move so far: e3f4 with evaluation of 25 for black. Time Elapsed: 11ms Nodes evaluated: 12827
+Iteration depth: 8 Best move so far: e3f4 with evaluation of 25 for black. Time Elapsed: 17ms Nodes evaluated: 27
+Iteration depth: 9 Best move so far: e3f4 with evaluation of 32 for black. Time Elapsed: 17ms Nodes evaluated: 1969272
+
+Search fully completed up to depth: 10 Time taken: 1007ms
+Best move is e3f4 - Eval: 32
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g2f3 with evaluation of -112 for white. Time Elapsed: 0ms Nodes evaluated: 48
+Iteration depth: 2 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 0ms Nodes evaluated: 90
+Iteration depth: 3 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 0ms Nodes evaluated: 366
+Iteration depth: 4 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 0ms Nodes evaluated: 1381
+Iteration depth: 5 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 1ms Nodes evaluated: 4946
+Iteration depth: 6 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 3ms Nodes evaluated: 17907
+Iteration depth: 7 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 13ms Nodes evaluated: 69980
+Iteration depth: 8 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 38ms Nodes evaluated: 77553
+Iteration depth: 9 Best move so far: e2f4 with evaluation of -47 for white. Time Elapsed: 81ms Nodes evaluated: 266826
+Iteration depth: 10 Best move so far: e2f4 with evaluation of -15 for white. Time Elapsed: 161ms Nodes evaluated: 1806037
+
+Search fully completed up to depth: 10 Time taken: 1015ms
+Best move is e2f4 - Eval: -15
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e5f4 with evaluation of 125 for black. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 3 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 4 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 5 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 6 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 7 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 8 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 9 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 10 Best move so far: e5f4 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 1384799
+
+Search fully completed up to depth: 11 Time taken: 1003ms
+Best move is e5f4 - Eval: 15
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g3e2 with evaluation of -125 for white. Time Elapsed: 0ms Nodes evaluated: 64
+Iteration depth: 2 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 3 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 4 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 5 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 6 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 7 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 8 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 9 Best move so far: g3e2 with evaluation of -15 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 10 Best move so far: g3e2 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 2164418
+
+Search fully completed up to depth: 11 Time taken: 1015ms
+Best move is g3e2 - Eval: -5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d7f6 with evaluation of 145 for black. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 2 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 3 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: d7f6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 2297759
+
+Search fully completed up to depth: 10 Time taken: 1011ms
+Best move is d7f6 - Eval: 5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d5e5 with evaluation of -145 for white. Time Elapsed: 0ms Nodes evaluated: 97
+Iteration depth: 2 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 3 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 4 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 5 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 6 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 7 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 8 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 9 Best move so far: d5a5 with evaluation of -5 for white. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 10 Best move so far: d5a5 with evaluation of 4 for white. Time Elapsed: 0ms Nodes evaluated: 2232601
+
+Search fully completed up to depth: 10 Time taken: 1006ms
+Best move is d5a5 - Eval: 4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g6g5 with evaluation of 155 for black. Time Elapsed: 0ms Nodes evaluated: 45
+Iteration depth: 2 Best move so far: g6g5 with evaluation of 118 for black. Time Elapsed: 0ms Nodes evaluated: 60
+Iteration depth: 3 Best move so far: g6g5 with evaluation of 98 for black. Time Elapsed: 0ms Nodes evaluated: 322
+Iteration depth: 4 Best move so far: g6g5 with evaluation of 15 for black. Time Elapsed: 1ms Nodes evaluated: 656
+Iteration depth: 5 Best move so far: f6h5 with evaluation of -4 for black. Time Elapsed: 1ms Nodes evaluated: 2431
+Iteration depth: 6 Best move so far: f6h5 with evaluation of -4 for black. Time Elapsed: 3ms Nodes evaluated: 18
+Iteration depth: 7 Best move so far: f6h5 with evaluation of -4 for black. Time Elapsed: 3ms Nodes evaluated: 18
+Iteration depth: 8 Best move so far: f6h5 with evaluation of -4 for black. Time Elapsed: 3ms Nodes evaluated: 18
+Iteration depth: 9 Best move so far: f6h5 with evaluation of -4 for black. Time Elapsed: 3ms Nodes evaluated: 18
+Iteration depth: 10 Best move so far: f6h5 with evaluation of -14 for black. Time Elapsed: 3ms Nodes evaluated: 2552672
+
+Search fully completed up to depth: 10 Time taken: 1012ms
+Best move is f6h5 - Eval: -14
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g2f3 with evaluation of -93 for white. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 2 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 3 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 4 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 5 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 6 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 7 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 8 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 9 Best move so far: g2f3 with evaluation of 14 for white. Time Elapsed: 0ms Nodes evaluated: 27
+Iteration depth: 10 Best move so far: g2f3 with evaluation of 15 for white. Time Elapsed: 0ms Nodes evaluated: 2106687
+
+Search fully completed up to depth: 10 Time taken: 1010ms
+Best move is g2f3 - Eval: 15
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g6g5 with evaluation of -7 for black. Time Elapsed: 0ms Nodes evaluated: 74
+Iteration depth: 2 Best move so far: g6g5 with evaluation of -7 for black. Time Elapsed: 0ms Nodes evaluated: 40
+Iteration depth: 3 Best move so far: e8e7 with evaluation of -15 for black. Time Elapsed: 0ms Nodes evaluated: 159
+Iteration depth: 4 Best move so far: e8e7 with evaluation of -15 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 5 Best move so far: e8e7 with evaluation of -15 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 6 Best move so far: e8e7 with evaluation of -15 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 7 Best move so far: e8e7 with evaluation of -15 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 8 Best move so far: e8e7 with evaluation of -15 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 9 Best move so far: e8e7 with evaluation of -15 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 10 Best move so far: e8e7 with evaluation of -19 for black. Time Elapsed: 0ms Nodes evaluated: 2652591
+
+Search fully completed up to depth: 10 Time taken: 1008ms
+Best move is e8e7 - Eval: -19
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e2f4 with evaluation of 20 for white. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 2 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 3 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 4 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 5 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 6 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 7 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 8 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 9 Best move so far: e2f4 with evaluation of 19 for white. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 10 Best move so far: e2f4 with evaluation of 17 for white. Time Elapsed: 0ms Nodes evaluated: 2361770
+
+Search fully completed up to depth: 10 Time taken: 1013ms
+Best move is e2f4 - Eval: 17
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h5f6 with evaluation of -10 for black. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 2 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 54
+Iteration depth: 3 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 4 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 5 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 6 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 7 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 8 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 9 Best move so far: h5f4 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 10 Best move so far: h5f4 with evaluation of -22 for black. Time Elapsed: 0ms Nodes evaluated: 935954
+Iteration depth: 11 Best move so far: h5f4 with evaluation of -22 for black. Time Elapsed: 407ms Nodes evaluated: 1571139
+
+Search fully completed up to depth: 11 Time taken: 1003ms
+Best move is h5f4 - Eval: -22
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f3f4 with evaluation of 20 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 3 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: f3f4 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+
+Search fully completed up to depth: 11 Time taken: 1012ms
+Best move is f3f4 - Eval: 22
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e7f6 with evaluation of 6 for black. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 2 Best move so far: e7f6 with evaluation of -4 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: e7f6 with evaluation of -4 for black. Time Elapsed: 0ms Nodes evaluated: 80
+Iteration depth: 4 Best move so far: e7d6 with evaluation of -22 for black. Time Elapsed: 0ms Nodes evaluated: 406
+Iteration depth: 5 Best move so far: e7d6 with evaluation of -22 for black. Time Elapsed: 0ms Nodes evaluated: 485
+Iteration depth: 6 Best move so far: e7d6 with evaluation of -22 for black. Time Elapsed: 1ms Nodes evaluated: 4573
+Iteration depth: 7 Best move so far: e7d6 with evaluation of -22 for black. Time Elapsed: 3ms Nodes evaluated: 10955
+Iteration depth: 8 Best move so far: e7d6 with evaluation of -22 for black. Time Elapsed: 10ms Nodes evaluated: 58760
+Iteration depth: 9 Best move so far: e7d6 with evaluation of -22 for black. Time Elapsed: 36ms Nodes evaluated: 148460
+Iteration depth: 10 Best move so far: e7e6 with evaluation of -22 for black. Time Elapsed: 108ms Nodes evaluated: 1269148
+
+Search fully completed up to depth: 11 Time taken: 1012ms
+Best move is e7e6 - Eval: -22
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c4c5 with evaluation of 9 for white. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 52
+Iteration depth: 3 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: a5e5 with evaluation of 22 for white. Time Elapsed: 0ms Nodes evaluated: 1543237
+Iteration depth: 11 Best move so far: e4e5 with evaluation of 27 for white. Time Elapsed: 664ms Nodes evaluated: 982490
+
+Search fully completed up to depth: 11 Time taken: 1004ms
+Best move is e4e5 - Eval: 27
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a8a7 with evaluation of -9 for black. Time Elapsed: 0ms Nodes evaluated: 36
+Iteration depth: 2 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 3 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 4 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 5 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 6 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 7 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 8 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 9 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: f7f6 with evaluation of -27 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: f7f6 with evaluation of -29 for black. Time Elapsed: 0ms Nodes evaluated: 936707
+Iteration depth: 12 Best move so far: f7f6 with evaluation of -34 for black. Time Elapsed: 376ms Nodes evaluated: 1739780
+
+Search fully completed up to depth: 12 Time taken: 1007ms
+Best move is f7f6 - Eval: -34
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a5c5 with evaluation of 4 for white. Time Elapsed: 0ms Nodes evaluated: 54
+Iteration depth: 2 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 3 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 4 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 5 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 6 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 7 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 8 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 9 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 10 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 11 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 12 Best move so far: e5f6 with evaluation of 34 for white. Time Elapsed: 0ms Nodes evaluated: 2337519
+
+Search fully completed up to depth: 12 Time taken: 1005ms
+Best move is e5f6 - Eval: 34
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e6f6 with evaluation of 6 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 2 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 3 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 4 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 5 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 6 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 7 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 8 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 9 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: e6f6 with evaluation of -34 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: e6f6 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 3001026
+
+Search fully completed up to depth: 12 Time taken: 1003ms
+Best move is e6f6 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c4c5 with evaluation of 4 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 3 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 4 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 5 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 6 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 7 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 8 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 9 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 10 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 11 Best move so far: f4e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 18
+
+Search fully completed up to depth: 12 Time taken: 1009ms
+Best move is f4e4 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g6g5 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: g6g5 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: g6g5 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 109
+Iteration depth: 4 Best move so far: g6g5 with evaluation of -36 for black. Time Elapsed: 0ms Nodes evaluated: 72
+Iteration depth: 5 Best move so far: g6g5 with evaluation of -38 for black. Time Elapsed: 0ms Nodes evaluated: 153
+Iteration depth: 6 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 0ms Nodes evaluated: 1548
+Iteration depth: 7 Best move so far: g6g5 with evaluation of -48 for black. Time Elapsed: 1ms Nodes evaluated: 7200
+Iteration depth: 8 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 7ms Nodes evaluated: 29013
+Iteration depth: 9 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 20ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 20ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 20ms Nodes evaluated: 1666534
+
+Search fully completed up to depth: 12 Time taken: 1003ms
+Best move is a8a7 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e4f4 with evaluation of -1 for white. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 11 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 373782
+Iteration depth: 12 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 130ms Nodes evaluated: 2206254
+
+Search fully completed up to depth: 12 Time taken: 1004ms
+Best move is e4e3 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a7a8 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 2 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 3 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 4 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 5 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 6 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 7 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 8 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 9 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 2778161
+
+Search fully completed up to depth: 12 Time taken: 1008ms
+Best move is a7a8 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e3f4 with evaluation of -6 for white. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 2 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 3 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 4 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 5 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 6 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 7 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 8 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 9 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 10 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 11 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 12 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 2197480
+
+Search fully completed up to depth: 12 Time taken: 1010ms
+Best move is e3e4 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g6g5 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: g6g5 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: g6g5 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 97
+Iteration depth: 4 Best move so far: g6g5 with evaluation of -36 for black. Time Elapsed: 0ms Nodes evaluated: 227
+Iteration depth: 5 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 0ms Nodes evaluated: 873
+Iteration depth: 6 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 1ms Nodes evaluated: 3184
+Iteration depth: 7 Best move so far: g6g5 with evaluation of -48 for black. Time Elapsed: 2ms Nodes evaluated: 9593
+Iteration depth: 8 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 8ms Nodes evaluated: 7575
+Iteration depth: 9 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 1019226
+
+Search fully completed up to depth: 13 Time taken: 1009ms
+Best move is a8a7 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e4f4 with evaluation of -1 for white. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 11 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 12 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 983006
+Iteration depth: 13 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 431ms Nodes evaluated: 1975973
+
+Search fully completed up to depth: 13 Time taken: 1015ms
+Best move is e4e3 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a7a8 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 2 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 3 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 4 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 5 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 6 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 7 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 8 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 9 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 13 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 2841911
+
+Search fully completed up to depth: 13 Time taken: 1004ms
+Best move is a7a8 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e3f4 with evaluation of -6 for white. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 2 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 3 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 4 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 5 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 6 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 7 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 8 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 9 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 10 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 11 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 12 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 13 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 3297223
+
+Search fully completed up to depth: 13 Time taken: 1008ms
+Best move is e3e4 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g6g5 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: g6g5 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: g6g5 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 97
+Iteration depth: 4 Best move so far: g6g5 with evaluation of -36 for black. Time Elapsed: 0ms Nodes evaluated: 227
+Iteration depth: 5 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 0ms Nodes evaluated: 875
+Iteration depth: 6 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 1ms Nodes evaluated: 3216
+Iteration depth: 7 Best move so far: g6g5 with evaluation of -48 for black. Time Elapsed: 3ms Nodes evaluated: 10132
+Iteration depth: 8 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 9ms Nodes evaluated: 7887
+Iteration depth: 9 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 13
+Iteration depth: 13 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 3394519
+
+Search fully completed up to depth: 14 Time taken: 1016ms
+Best move is a8a7 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e4f4 with evaluation of -1 for white. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 11 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 12 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 13 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 3137918
+
+Search fully completed up to depth: 13 Time taken: 1014ms
+Best move is e4e3 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a7a8 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 2 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 3 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 4 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 5 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 6 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 7 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 8 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 9 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 13 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 2197606
+
+Search fully completed up to depth: 14 Time taken: 1009ms
+Best move is a7a8 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e3f4 with evaluation of -6 for white. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 2 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 3 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 4 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 5 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 6 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 7 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 8 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 9 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 10 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 11 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 12 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 13 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 2970266
+
+Search fully completed up to depth: 13 Time taken: 1003ms
+Best move is e3e4 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g6g5 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: g6g5 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: g6g5 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 97
+Iteration depth: 4 Best move so far: g6g5 with evaluation of -36 for black. Time Elapsed: 0ms Nodes evaluated: 227
+Iteration depth: 5 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 0ms Nodes evaluated: 870
+Iteration depth: 6 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 1ms Nodes evaluated: 3183
+Iteration depth: 7 Best move so far: g6g5 with evaluation of -48 for black. Time Elapsed: 2ms Nodes evaluated: 9847
+Iteration depth: 8 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 7ms Nodes evaluated: 8729
+Iteration depth: 9 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 13 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+
+Search fully completed up to depth: 14 Time taken: 1009ms
+Best move is a8a7 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e4f4 with evaluation of -1 for white. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 11 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 12 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 13 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 2049965
+Iteration depth: 14 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 626ms Nodes evaluated: 889177
+
+Search fully completed up to depth: 14 Time taken: 1004ms
+Best move is e4e3 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a7a8 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 2 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 3 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 4 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 5 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 6 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 7 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 8 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 9 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 13 Best move so far: a7a8 with evaluation of -53 for black. Time Elapsed: 0ms Nodes evaluated: 13
+
+Search fully completed up to depth: 14 Time taken: 1012ms
+Best move is a7a8 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e3f4 with evaluation of -6 for white. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 2 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 3 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 4 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 5 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 6 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 7 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 8 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 9 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 10 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 11 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 12 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 13 Best move so far: e3e4 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 3109266
+
+Search fully completed up to depth: 13 Time taken: 1016ms
+Best move is e3e4 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g6g5 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: g6g5 with evaluation of 15 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: g6g5 with evaluation of -17 for black. Time Elapsed: 0ms Nodes evaluated: 97
+Iteration depth: 4 Best move so far: g6g5 with evaluation of -36 for black. Time Elapsed: 0ms Nodes evaluated: 227
+Iteration depth: 5 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 0ms Nodes evaluated: 864
+Iteration depth: 6 Best move so far: g6g5 with evaluation of -41 for black. Time Elapsed: 1ms Nodes evaluated: 3149
+Iteration depth: 7 Best move so far: g6g5 with evaluation of -48 for black. Time Elapsed: 2ms Nodes evaluated: 9763
+Iteration depth: 8 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 8ms Nodes evaluated: 8117
+Iteration depth: 9 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 11 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 12ms Nodes evaluated: 13
+Iteration depth: 12 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 13
+Iteration depth: 13 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 13
+Iteration depth: 14 Best move so far: a8a7 with evaluation of -53 for black. Time Elapsed: 13ms Nodes evaluated: 2361787
+
+Search fully completed up to depth: 14 Time taken: 1007ms
+Best move is a8a7 - Eval: -53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e4f4 with evaluation of -1 for white. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 11 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 12 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 13 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 14 Best move so far: e4e3 with evaluation of 53 for white. Time Elapsed: 0ms Nodes evaluated: 2350737
+
+Search fully completed up to depth: 14 Time taken: 1004ms
+Best move is e4e3 - Eval: 53
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g1f3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d7d5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d2d4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g8f6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c2c4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e7e6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g2g3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is f8b4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c1d2
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b4d6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is f1g2
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d5c4 with evaluation of 140 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 2 Best move so far: b8c6 with evaluation of 110 for black. Time Elapsed: 1ms Nodes evaluated: 351
+Iteration depth: 3 Best move so far: b8c6 with evaluation of 110 for black. Time Elapsed: 1ms Nodes evaluated: 2403
+Iteration depth: 4 Best move so far: d5c4 with evaluation of 65 for black. Time Elapsed: 4ms Nodes evaluated: 13813
+Iteration depth: 5 Best move so far: d5c4 with evaluation of 115 for black. Time Elapsed: 20ms Nodes evaluated: 142584
+Iteration depth: 6 Best move so far: d5c4 with evaluation of 55 for black. Time Elapsed: 121ms Nodes evaluated: 346461
+Iteration depth: 7 Best move so far: d5c4 with evaluation of 100 for black. Time Elapsed: 288ms Nodes evaluated: 1508284
+
+Search fully completed up to depth: 8 Time taken: 1017ms
+Best move is d5c4 - Eval: 100
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d1a4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of 115 for black. Time Elapsed: 0ms Nodes evaluated: 56
+Iteration depth: 2 Best move so far: b8c6 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 3 Best move so far: d8d7 with evaluation of 90 for black. Time Elapsed: 0ms Nodes evaluated: 2820
+Iteration depth: 4 Best move so far: b8c6 with evaluation of 65 for black. Time Elapsed: 3ms Nodes evaluated: 1993
+Iteration depth: 5 Best move so far: b8c6 with evaluation of 65 for black. Time Elapsed: 5ms Nodes evaluated: 20145
+Iteration depth: 6 Best move so far: b8d7 with evaluation of 50 for black. Time Elapsed: 18ms Nodes evaluated: 320006
+Iteration depth: 7 Best move so far: b8d7 with evaluation of 60 for black. Time Elapsed: 185ms Nodes evaluated: 1459052
+
+Search fully completed up to depth: 7 Time taken: 1011ms
+Best move is b8d7 - Eval: 60
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a4c4 with evaluation of -105 for white. Time Elapsed: 0ms Nodes evaluated: 48
+Iteration depth: 2 Best move so far: b1c3 with evaluation of -60 for white. Time Elapsed: 0ms Nodes evaluated: 42
+Iteration depth: 3 Best move so far: b1c3 with evaluation of -60 for white. Time Elapsed: 0ms Nodes evaluated: 42
+Iteration depth: 4 Best move so far: b1c3 with evaluation of -60 for white. Time Elapsed: 0ms Nodes evaluated: 42
+Iteration depth: 5 Best move so far: b1c3 with evaluation of -60 for white. Time Elapsed: 0ms Nodes evaluated: 42
+Iteration depth: 6 Best move so far: b1c3 with evaluation of -60 for white. Time Elapsed: 0ms Nodes evaluated: 42
+Iteration depth: 7 Best move so far: b1c3 with evaluation of -40 for white. Time Elapsed: 0ms Nodes evaluated: 2325024
+
+Search fully completed up to depth: 7 Time taken: 1025ms
+Best move is b1c3 - Eval: -40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e8g8 with evaluation of 45 for black. Time Elapsed: 0ms Nodes evaluated: 131
+Iteration depth: 2 Best move so far: e8g8 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 3 Best move so far: e8g8 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 4 Best move so far: e8g8 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 5 Best move so far: e8g8 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 6 Best move so far: e8g8 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 7 Best move so far: e8g8 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 1949634
+
+Search fully completed up to depth: 7 Time taken: 1012ms
+Best move is e8g8 - Eval: 30
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: a4c4 with evaluation of -45 for white. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 2 Best move so far: a4c4 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 46
+Iteration depth: 3 Best move so far: a4c4 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 46
+Iteration depth: 4 Best move so far: a4c4 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 46
+Iteration depth: 5 Best move so far: a4c4 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 46
+Iteration depth: 6 Best move so far: a4c4 with evaluation of -30 for white. Time Elapsed: 0ms Nodes evaluated: 46
+Iteration depth: 7 Best move so far: a4c4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 2845841
+
+Search fully completed up to depth: 7 Time taken: 1009ms
+Best move is a4c4 - Eval: -22
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e6e5 with evaluation of 65 for black. Time Elapsed: 0ms Nodes evaluated: 77
+Iteration depth: 2 Best move so far: e6e5 with evaluation of 22 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: e6e5 with evaluation of 22 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 4 Best move so far: e6e5 with evaluation of 22 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 5 Best move so far: e6e5 with evaluation of 22 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 6 Best move so far: e6e5 with evaluation of 22 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 7 Best move so far: e6e5 with evaluation of 40 for black. Time Elapsed: 0ms Nodes evaluated: 1898969
+
+Search fully completed up to depth: 8 Time taken: 1002ms
+Best move is e6e5 - Eval: 40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e2e4 with evaluation of -25 for white. Time Elapsed: 0ms Nodes evaluated: 100
+Iteration depth: 2 Best move so far: e2e4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 3 Best move so far: e2e4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 4 Best move so far: e2e4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 5 Best move so far: e2e4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 6 Best move so far: e2e4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 7 Best move so far: e2e4 with evaluation of -22 for white. Time Elapsed: 0ms Nodes evaluated: 2120617
+
+Search fully completed up to depth: 8 Time taken: 1008ms
+Best move is e2e4 - Eval: -22
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d7b6 with evaluation of 35 for black. Time Elapsed: 0ms Nodes evaluated: 56
+Iteration depth: 2 Best move so far: d7b6 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 3 Best move so far: d7b6 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 4 Best move so far: d7b6 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 5 Best move so far: d7b6 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 6 Best move so far: d7b6 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 7 Best move so far: d7b6 with evaluation of 25 for black. Time Elapsed: 0ms Nodes evaluated: 728189
+Iteration depth: 8 Best move so far: d7b6 with evaluation of 19 for black. Time Elapsed: 324ms Nodes evaluated: 1649446
+
+Search fully completed up to depth: 8 Time taken: 1022ms
+Best move is d7b6 - Eval: 19
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of 610 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 2 Best move so far: b8c6 with evaluation of 550 for black. Time Elapsed: 0ms Nodes evaluated: 202
+Iteration depth: 3 Best move so far: b8c6 with evaluation of 610 for black. Time Elapsed: 0ms Nodes evaluated: 2339
+Iteration depth: 4 Best move so far: b8c6 with evaluation of 580 for black. Time Elapsed: 2ms Nodes evaluated: 10225
+Iteration depth: 5 Best move so far: b8c6 with evaluation of 610 for black. Time Elapsed: 10ms Nodes evaluated: 65309
+Iteration depth: 6 Best move so far: b8c6 with evaluation of 580 for black. Time Elapsed: 38ms Nodes evaluated: 203163
+Iteration depth: 7 Best move so far: b8c6 with evaluation of 620 for black. Time Elapsed: 132ms Nodes evaluated: 797172
+Iteration depth: 8 Best move so far: b8c6 with evaluation of 580 for black. Time Elapsed: 491ms Nodes evaluated: 1456808
+
+Search fully completed up to depth: 8 Time taken: 1002ms
+Best move is b8c6 - Eval: 580
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g8f6 with evaluation of 670 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 2 Best move so far: g8f6 with evaluation of 610 for black. Time Elapsed: 0ms Nodes evaluated: 345
+Iteration depth: 3 Best move so far: e7e5 with evaluation of 650 for black. Time Elapsed: 1ms Nodes evaluated: 1614
+Iteration depth: 4 Best move so far: g8f6 with evaluation of 605 for black. Time Elapsed: 2ms Nodes evaluated: 25900
+Iteration depth: 5 Best move so far: g8f6 with evaluation of 620 for black. Time Elapsed: 21ms Nodes evaluated: 67428
+Iteration depth: 6 Best move so far: e7e6 with evaluation of 605 for black. Time Elapsed: 63ms Nodes evaluated: 406477
+Iteration depth: 7 Best move so far: e7e6 with evaluation of 620 for black. Time Elapsed: 245ms Nodes evaluated: 1081022
+
+Search fully completed up to depth: 8 Time taken: 1014ms
+Best move is e7e6 - Eval: 620
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g8f6 with evaluation of 670 for black. Time Elapsed: 0ms Nodes evaluated: 39
+Iteration depth: 2 Best move so far: g8f6 with evaluation of 610 for black. Time Elapsed: 0ms Nodes evaluated: 1751
+Iteration depth: 3 Best move so far: g8f6 with evaluation of 640 for black. Time Elapsed: 1ms Nodes evaluated: 3750
+Iteration depth: 4 Best move so far: f8b4 with evaluation of 645 for black. Time Elapsed: 3ms Nodes evaluated: 32229
+Iteration depth: 5 Best move so far: f8b4 with evaluation of 645 for black. Time Elapsed: 23ms Nodes evaluated: 90291
+Iteration depth: 6 Best move so far: f8b4 with evaluation of 645 for black. Time Elapsed: 59ms Nodes evaluated: 671017
+Iteration depth: 7 Best move so far: f8b4 with evaluation of 655 for black. Time Elapsed: 401ms Nodes evaluated: 1125377
+
+Search fully completed up to depth: 7 Time taken: 1004ms
+Best move is f8b4 - Eval: 655
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b4c3 with evaluation of 660 for black. Time Elapsed: 0ms Nodes evaluated: 58
+Iteration depth: 2 Best move so far: b4c3 with evaluation of 660 for black. Time Elapsed: 0ms Nodes evaluated: 327
+Iteration depth: 3 Best move so far: b4c3 with evaluation of 720 for black. Time Elapsed: 0ms Nodes evaluated: 1544
+Iteration depth: 4 Best move so far: b4c3 with evaluation of 700 for black. Time Elapsed: 1ms Nodes evaluated: 8832
+Iteration depth: 5 Best move so far: b4c3 with evaluation of 715 for black. Time Elapsed: 8ms Nodes evaluated: 40413
+Iteration depth: 6 Best move so far: b4c3 with evaluation of 690 for black. Time Elapsed: 25ms Nodes evaluated: 178743
+Iteration depth: 7 Best move so far: b4c3 with evaluation of 690 for black. Time Elapsed: 125ms Nodes evaluated: 840885
+Iteration depth: 8 Best move so far: b4c3 with evaluation of 665 for black. Time Elapsed: 354ms Nodes evaluated: 1320069
+
+Search fully completed up to depth: 8 Time taken: 1010ms
+Best move is b4c3 - Eval: 665
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g8f6 with evaluation of 720 for black. Time Elapsed: 0ms Nodes evaluated: 36
+Iteration depth: 2 Best move so far: g8f6 with evaluation of 665 for black. Time Elapsed: 0ms Nodes evaluated: 151
+Iteration depth: 3 Best move so far: g8f6 with evaluation of 665 for black. Time Elapsed: 0ms Nodes evaluated: 36
+Iteration depth: 4 Best move so far: g8f6 with evaluation of 665 for black. Time Elapsed: 0ms Nodes evaluated: 36
+Iteration depth: 5 Best move so far: g8f6 with evaluation of 665 for black. Time Elapsed: 0ms Nodes evaluated: 36
+Iteration depth: 6 Best move so far: g8f6 with evaluation of 665 for black. Time Elapsed: 0ms Nodes evaluated: 36
+Iteration depth: 7 Best move so far: g8f6 with evaluation of 665 for black. Time Elapsed: 0ms Nodes evaluated: 2371541
+
+Search fully completed up to depth: 7 Time taken: 1006ms
+Best move is g8f6 - Eval: 665
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e8g8 with evaluation of 740 for black. Time Elapsed: 0ms Nodes evaluated: 59
+Iteration depth: 2 Best move so far: e8g8 with evaluation of 695 for black. Time Elapsed: 0ms Nodes evaluated: 744
+Iteration depth: 3 Best move so far: e8g8 with evaluation of 715 for black. Time Elapsed: 1ms Nodes evaluated: 3263
+Iteration depth: 4 Best move so far: e8g8 with evaluation of 692 for black. Time Elapsed: 3ms Nodes evaluated: 30911
+Iteration depth: 5 Best move so far: e8g8 with evaluation of 692 for black. Time Elapsed: 25ms Nodes evaluated: 103615
+Iteration depth: 6 Best move so far: e6e5 with evaluation of 680 for black. Time Elapsed: 78ms Nodes evaluated: 847258
+Iteration depth: 7 Best move so far: d7d5 with evaluation of 685 for black. Time Elapsed: 506ms Nodes evaluated: 1130496
+
+Search fully completed up to depth: 7 Time taken: 1003ms
+Best move is d7d5 - Eval: 685
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e6d5 with evaluation of 730 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 2 Best move so far: b6d5 with evaluation of 700 for black. Time Elapsed: 0ms Nodes evaluated: 494
+Iteration depth: 3 Best move so far: b6d5 with evaluation of 705 for black. Time Elapsed: 1ms Nodes evaluated: 1789
+Iteration depth: 4 Best move so far: b6d5 with evaluation of 700 for black. Time Elapsed: 1ms Nodes evaluated: 21567
+Iteration depth: 5 Best move so far: b6d5 with evaluation of 719 for black. Time Elapsed: 16ms Nodes evaluated: 48353
+Iteration depth: 6 Best move so far: f6d5 with evaluation of 690 for black. Time Elapsed: 38ms Nodes evaluated: 286455
+Iteration depth: 7 Best move so far: b6d5 with evaluation of 695 for black. Time Elapsed: 176ms Nodes evaluated: 673124
+Iteration depth: 8 Best move so far: b6d5 with evaluation of 680 for black. Time Elapsed: 448ms Nodes evaluated: 1476231
+
+Search fully completed up to depth: 8 Time taken: 1011ms
+Best move is b6d5 - Eval: 680
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e8g8 with evaluation of 760 for black. Time Elapsed: 0ms Nodes evaluated: 95
+Iteration depth: 2 Best move so far: d5e3 with evaluation of 745 for black. Time Elapsed: 0ms Nodes evaluated: 1160
+Iteration depth: 3 Best move so far: d5e3 with evaluation of 772 for black. Time Elapsed: 1ms Nodes evaluated: 2834
+Iteration depth: 4 Best move so far: e8f8 with evaluation of 750 for black. Time Elapsed: 2ms Nodes evaluated: 39032
+Iteration depth: 5 Best move so far: e8f8 with evaluation of 755 for black. Time Elapsed: 33ms Nodes evaluated: 66630
+Iteration depth: 6 Best move so far: e8g8 with evaluation of 747 for black. Time Elapsed: 67ms Nodes evaluated: 817396
+Iteration depth: 7 Best move so far: e8g8 with evaluation of 752 for black. Time Elapsed: 503ms Nodes evaluated: 1272987
+
+Search fully completed up to depth: 7 Time taken: 1014ms
+Best move is e8g8 - Eval: 752
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d5c3 with evaluation of 850 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 2 Best move so far: d5c3 with evaluation of 845 for black. Time Elapsed: 0ms Nodes evaluated: 1348
+Iteration depth: 3 Best move so far: d5c3 with evaluation of 855 for black. Time Elapsed: 1ms Nodes evaluated: 2901
+Iteration depth: 4 Best move so far: f6e4 with evaluation of 839 for black. Time Elapsed: 2ms Nodes evaluated: 51120
+Iteration depth: 5 Best move so far: f6e4 with evaluation of 855 for black. Time Elapsed: 37ms Nodes evaluated: 85026
+Iteration depth: 6 Best move so far: f6e4 with evaluation of 839 for black. Time Elapsed: 70ms Nodes evaluated: 738127
+Iteration depth: 7 Best move so far: f6e4 with evaluation of 837 for black. Time Elapsed: 475ms Nodes evaluated: 1595512
+
+Search fully completed up to depth: 7 Time taken: 1006ms
+Best move is f6e4 - Eval: 837
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e4g3 with evaluation of 1672 for black. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 2 Best move so far: e4g3 with evaluation of 1710 for black. Time Elapsed: 0ms Nodes evaluated: 277
+Iteration depth: 3 Best move so far: e4g3 with evaluation of 1710 for black. Time Elapsed: 1ms Nodes evaluated: 1662
+Iteration depth: 4 Best move so far: e4g3 with evaluation of 1705 for black. Time Elapsed: 1ms Nodes evaluated: 7720
+Iteration depth: 5 Best move so far: e4g3 with evaluation of 1720 for black. Time Elapsed: 7ms Nodes evaluated: 44578
+Iteration depth: 6 Best move so far: e4g3 with evaluation of 1682 for black. Time Elapsed: 21ms Nodes evaluated: 175825
+Iteration depth: 7 Best move so far: e4g3 with evaluation of 1702 for black. Time Elapsed: 117ms Nodes evaluated: 791247
+Iteration depth: 8 Best move so far: e4g3 with evaluation of 1755 for black. Time Elapsed: 332ms Nodes evaluated: 1403593
+
+Search fully completed up to depth: 8 Time taken: 1006ms
+Best move is e4g3 - Eval: 1755
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d5e3 with evaluation of 1710 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 2 Best move so far: d5e3 with evaluation of 1755 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 3 Best move so far: d5e3 with evaluation of 1755 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 4 Best move so far: d5e3 with evaluation of 1755 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 5 Best move so far: d5e3 with evaluation of 1755 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 6 Best move so far: d5e3 with evaluation of 1755 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 7 Best move so far: d5e3 with evaluation of 1737 for black. Time Elapsed: 0ms Nodes evaluated: 1263732
+Iteration depth: 8 Best move so far: d5e3 with evaluation of 1737 for black. Time Elapsed: 383ms Nodes evaluated: 1305897
+
+Search fully completed up to depth: 8 Time taken: 1014ms
+Best move is d5e3 - Eval: 1737
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e7e6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d7d5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d5e4 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 37
+Iteration depth: 2 Best move so far: d5e4 with evaluation of -5 for black. Time Elapsed: 0ms Nodes evaluated: 253
+Iteration depth: 3 Best move so far: d5e4 with evaluation of 55 for black. Time Elapsed: 0ms Nodes evaluated: 1943
+Iteration depth: 4 Best move so far: d5e4 with evaluation of 10 for black. Time Elapsed: 1ms Nodes evaluated: 9876
+Iteration depth: 5 Best move so far: d5e4 with evaluation of 45 for black. Time Elapsed: 8ms Nodes evaluated: 60115
+Iteration depth: 6 Best move so far: d5e4 with evaluation of 15 for black. Time Elapsed: 38ms Nodes evaluated: 213003
+Iteration depth: 7 Best move so far: d5e4 with evaluation of 40 for black. Time Elapsed: 144ms Nodes evaluated: 893283
+
+Search fully completed up to depth: 8 Time taken: 1010ms
+Best move is d5e4 - Eval: 40
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g8f6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is d7d6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is h7h6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of -30 for black. Time Elapsed: 0ms Nodes evaluated: 52
+Iteration depth: 2 Best move so far: b8c6 with evaluation of -70 for black. Time Elapsed: 0ms Nodes evaluated: 422
+Iteration depth: 3 Best move so far: g7g5 with evaluation of -30 for black. Time Elapsed: 2ms Nodes evaluated: 3614
+Iteration depth: 4 Best move so far: g7g5 with evaluation of -70 for black. Time Elapsed: 6ms Nodes evaluated: 26533
+Iteration depth: 5 Best move so far: g7g5 with evaluation of -5 for black. Time Elapsed: 49ms Nodes evaluated: 50300
+Iteration depth: 6 Best move so far: g7g5 with evaluation of -45 for black. Time Elapsed: 88ms Nodes evaluated: 416294
+Iteration depth: 7 Best move so far: g7g5 with evaluation of -5 for black. Time Elapsed: 403ms Nodes evaluated: 897205
+
+Search fully completed up to depth: 8 Time taken: 1010ms
+Best move is g7g5 - Eval: -5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of -20 for black. Time Elapsed: 0ms Nodes evaluated: 62
+Iteration depth: 2 Best move so far: b8d7 with evaluation of -30 for black. Time Elapsed: 0ms Nodes evaluated: 494
+Iteration depth: 3 Best move so far: g5g4 with evaluation of 5 for black. Time Elapsed: 1ms Nodes evaluated: 1345
+Iteration depth: 4 Best move so far: g5g4 with evaluation of -15 for black. Time Elapsed: 2ms Nodes evaluated: 15803
+Iteration depth: 5 Best move so far: g5g4 with evaluation of 15 for black. Time Elapsed: 30ms Nodes evaluated: 50790
+Iteration depth: 6 Best move so far: g5g4 with evaluation of -25 for black. Time Elapsed: 74ms Nodes evaluated: 507269
+Iteration depth: 7 Best move so far: g5g4 with evaluation of 5 for black. Time Elapsed: 369ms Nodes evaluated: 1007682
+
+Search fully completed up to depth: 8 Time taken: 1009ms
+Best move is g5g4 - Eval: 5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 41
+Iteration depth: 2 Best move so far: e7e5 with evaluation of -10 for black. Time Elapsed: 1ms Nodes evaluated: 28
+Iteration depth: 3 Best move so far: e7e5 with evaluation of -10 for black. Time Elapsed: 1ms Nodes evaluated: 28
+Iteration depth: 4 Best move so far: e7e5 with evaluation of -10 for black. Time Elapsed: 1ms Nodes evaluated: 28
+Iteration depth: 5 Best move so far: e7e5 with evaluation of -10 for black. Time Elapsed: 1ms Nodes evaluated: 28
+Iteration depth: 6 Best move so far: e7e5 with evaluation of -10 for black. Time Elapsed: 1ms Nodes evaluated: 28
+Iteration depth: 7 Best move so far: e7e5 with evaluation of 10 for black. Time Elapsed: 1ms Nodes evaluated: 861682
+Iteration depth: 8 Best move so far: e7e5 with evaluation of -10 for black. Time Elapsed: 385ms Nodes evaluated: 1344522
+
+Search fully completed up to depth: 8 Time taken: 1004ms
+Best move is e7e5 - Eval: -10
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d6e5 with evaluation of -45 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 2 Best move so far: d6e5 with evaluation of -65 for black. Time Elapsed: 0ms Nodes evaluated: 191
+Iteration depth: 3 Best move so far: d6e5 with evaluation of 5 for black. Time Elapsed: 1ms Nodes evaluated: 462
+Iteration depth: 4 Best move so far: d6e5 with evaluation of 5 for black. Time Elapsed: 2ms Nodes evaluated: 2716
+Iteration depth: 5 Best move so far: d6e5 with evaluation of 15 for black. Time Elapsed: 4ms Nodes evaluated: 22671
+Iteration depth: 6 Best move so far: d6e5 with evaluation of -5 for black. Time Elapsed: 18ms Nodes evaluated: 108302
+Iteration depth: 7 Best move so far: d6e5 with evaluation of 25 for black. Time Elapsed: 118ms Nodes evaluated: 649019
+
+Search fully completed up to depth: 8 Time taken: 1010ms
+Best move is d6e5 - Eval: 25
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 54
+Iteration depth: 2 Best move so far: f6e4 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 2126
+Iteration depth: 3 Best move so far: b8c6 with evaluation of 25 for black. Time Elapsed: 3ms Nodes evaluated: 6673
+Iteration depth: 4 Best move so far: b8c6 with evaluation of 20 for black. Time Elapsed: 8ms Nodes evaluated: 44524
+Iteration depth: 5 Best move so far: b8c6 with evaluation of 30 for black. Time Elapsed: 43ms Nodes evaluated: 144854
+Iteration depth: 6 Best move so far: b8c6 with evaluation of 15 for black. Time Elapsed: 124ms Nodes evaluated: 912038
+Iteration depth: 7 Best move so far: f6e4 with evaluation of 30 for black. Time Elapsed: 650ms Nodes evaluated: 677276
+
+Search fully completed up to depth: 7 Time taken: 1001ms
+Best move is f6e4 - Eval: 30
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d8h4 with evaluation of 5 for black. Time Elapsed: 0ms Nodes evaluated: 43
+Iteration depth: 2 Best move so far: d8h4 with evaluation of 30 for black. Time Elapsed: 0ms Nodes evaluated: 36
+Iteration depth: 3 Best move so far: d8h4 with evaluation of 30 for black. Time Elapsed: 1ms Nodes evaluated: 36
+Iteration depth: 4 Best move so far: d8h4 with evaluation of 30 for black. Time Elapsed: 1ms Nodes evaluated: 36
+Iteration depth: 5 Best move so far: d8h4 with evaluation of 30 for black. Time Elapsed: 1ms Nodes evaluated: 36
+Iteration depth: 6 Best move so far: d8h4 with evaluation of 20 for black. Time Elapsed: 1ms Nodes evaluated: 290482
+Iteration depth: 7 Best move so far: d8h4 with evaluation of 50 for black. Time Elapsed: 232ms Nodes evaluated: 1478205
+
+Search fully completed up to depth: 7 Time taken: 1017ms
+Best move is d8h4 - Eval: 50
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h4d8 with evaluation of 20 for black. Time Elapsed: 0ms Nodes evaluated: 67
+Iteration depth: 2 Best move so far: h4d8 with evaluation of 50 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 3 Best move so far: h4d8 with evaluation of 50 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 4 Best move so far: h4d8 with evaluation of 50 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 5 Best move so far: h4d8 with evaluation of 50 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 6 Best move so far: h4d8 with evaluation of 36 for black. Time Elapsed: 0ms Nodes evaluated: 426891
+Iteration depth: 7 Best move so far: h4d8 with evaluation of 66 for black. Time Elapsed: 210ms Nodes evaluated: 935442
+
+Search fully completed up to depth: 8 Time taken: 1014ms
+Best move is h4d8 - Eval: 66
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b8c6 with evaluation of 100 for black. Time Elapsed: 0ms Nodes evaluated: 49
+Iteration depth: 2 Best move so far: b8c6 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 216
+Iteration depth: 3 Best move so far: d8d1 with evaluation of 88 for black. Time Elapsed: 0ms Nodes evaluated: 1646
+Iteration depth: 4 Best move so far: b8c6 with evaluation of 80 for black. Time Elapsed: 2ms Nodes evaluated: 6587
+Iteration depth: 5 Best move so far: b8c6 with evaluation of 80 for black. Time Elapsed: 8ms Nodes evaluated: 31988
+Iteration depth: 6 Best move so far: c8f5 with evaluation of 88 for black. Time Elapsed: 31ms Nodes evaluated: 135945
+Iteration depth: 7 Best move so far: b8c6 with evaluation of 81 for black. Time Elapsed: 109ms Nodes evaluated: 1030930
+Iteration depth: 8 Best move so far: b8c6 with evaluation of 80 for black. Time Elapsed: 593ms Nodes evaluated: 1020734
+
+Search fully completed up to depth: 8 Time taken: 1001ms
+Best move is b8c6 - Eval: 80
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c8f5 with evaluation of 80 for black. Time Elapsed: 0ms Nodes evaluated: 153
+Iteration depth: 2 Best move so far: c8f5 with evaluation of 80 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 3 Best move so far: c8f5 with evaluation of 80 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 4 Best move so far: c8f5 with evaluation of 80 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 5 Best move so far: c8f5 with evaluation of 80 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 6 Best move so far: c8f5 with evaluation of 80 for black. Time Elapsed: 0ms Nodes evaluated: 31
+Iteration depth: 7 Best move so far: f8g7 with evaluation of 95 for black. Time Elapsed: 0ms Nodes evaluated: 494962
+Iteration depth: 8 Best move so far: f8g7 with evaluation of 85 for black. Time Elapsed: 297ms Nodes evaluated: 1728528
+
+Search fully completed up to depth: 9 Time taken: 1002ms
+Best move is f8g7 - Eval: 85
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: b7c6 with evaluation of 75 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 2 Best move so far: b7c6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 8
+Iteration depth: 3 Best move so far: b7c6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 4 Best move so far: b7c6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 5 Best move so far: b7c6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 6 Best move so far: b7c6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 6
+Iteration depth: 7 Best move so far: b7c6 with evaluation of 100 for black. Time Elapsed: 0ms Nodes evaluated: 440622
+Iteration depth: 8 Best move so far: b7c6 with evaluation of 90 for black. Time Elapsed: 259ms Nodes evaluated: 712096
+
+Search fully completed up to depth: 9 Time taken: 1005ms
+Best move is b7c6 - Eval: 90
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e8d8 with evaluation of 90 for black. Time Elapsed: 0ms Nodes evaluated: 3
+Iteration depth: 2 Best move so far: e8d8 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 1
+Iteration depth: 3 Best move so far: e8d8 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 1
+Iteration depth: 4 Best move so far: e8d8 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 1
+Iteration depth: 5 Best move so far: e8d8 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 1
+Iteration depth: 6 Best move so far: e8d8 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 1
+Iteration depth: 7 Best move so far: e8d8 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 1
+Iteration depth: 8 Best move so far: e8d8 with evaluation of 83 for black. Time Elapsed: 0ms Nodes evaluated: 581972
+
+Search fully completed up to depth: 9 Time taken: 1012ms
+Best move is e8d8 - Eval: 83
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c8d7 with evaluation of 95 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 2 Best move so far: c8d7 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 53
+Iteration depth: 3 Best move so far: d8e7 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 145
+Iteration depth: 4 Best move so far: d8e7 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 3
+Iteration depth: 5 Best move so far: d8e7 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 3
+Iteration depth: 6 Best move so far: d8e7 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 3
+Iteration depth: 7 Best move so far: d8e7 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 3
+Iteration depth: 8 Best move so far: d8e7 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 794662
+
+Search fully completed up to depth: 9 Time taken: 1010ms
+Best move is d8e7 - Eval: 70
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c8f5 with evaluation of 110 for black. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 2 Best move so far: c8e6 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 3 Best move so far: c8e6 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 4 Best move so far: c8e6 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 5 Best move so far: c8e6 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 6 Best move so far: c8e6 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 7 Best move so far: c8e6 with evaluation of 70 for black. Time Elapsed: 0ms Nodes evaluated: 22
+Iteration depth: 8 Best move so far: c8e6 with evaluation of 73 for black. Time Elapsed: 0ms Nodes evaluated: 1372431
+
+Search fully completed up to depth: 9 Time taken: 1011ms
+Best move is c8e6 - Eval: 73
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e6f5 with evaluation of 100 for black. Time Elapsed: 0ms Nodes evaluated: 48
+Iteration depth: 2 Best move so far: e6f5 with evaluation of 104 for black. Time Elapsed: 0ms Nodes evaluated: 445
+Iteration depth: 3 Best move so far: e6d5 with evaluation of 95 for black. Time Elapsed: 0ms Nodes evaluated: 3736
+Iteration depth: 4 Best move so far: a8d8 with evaluation of 85 for black. Time Elapsed: 3ms Nodes evaluated: 16880
+Iteration depth: 5 Best move so far: a8d8 with evaluation of 95 for black. Time Elapsed: 15ms Nodes evaluated: 50393
+Iteration depth: 6 Best move so far: e6d5 with evaluation of 90 for black. Time Elapsed: 47ms Nodes evaluated: 126768
+Iteration depth: 7 Best move so far: h8d8 with evaluation of 100 for black. Time Elapsed: 117ms Nodes evaluated: 841604
+Iteration depth: 8 Best move so far: h8d8 with evaluation of 104 for black. Time Elapsed: 506ms Nodes evaluated: 1266419
+
+Search fully completed up to depth: 8 Time taken: 1001ms
+Best move is h8d8 - Eval: 104
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d8d1 with evaluation of 120 for black. Time Elapsed: 0ms Nodes evaluated: 40
+Iteration depth: 2 Best move so far: d8d1 with evaluation of 120 for black. Time Elapsed: 0ms Nodes evaluated: 150
+Iteration depth: 3 Best move so far: d8d1 with evaluation of 135 for black. Time Elapsed: 0ms Nodes evaluated: 424
+Iteration depth: 4 Best move so far: d8d1 with evaluation of 130 for black. Time Elapsed: 0ms Nodes evaluated: 1858
+Iteration depth: 5 Best move so far: d8d1 with evaluation of 135 for black. Time Elapsed: 2ms Nodes evaluated: 13517
+Iteration depth: 6 Best move so far: d8d1 with evaluation of 130 for black. Time Elapsed: 9ms Nodes evaluated: 44466
+Iteration depth: 7 Best move so far: d8d1 with evaluation of 121 for black. Time Elapsed: 35ms Nodes evaluated: 382327
+Iteration depth: 8 Best move so far: d8d1 with evaluation of 110 for black. Time Elapsed: 215ms Nodes evaluated: 1127036
+
+Search fully completed up to depth: 9 Time taken: 1015ms
+Best move is d8d1 - Eval: 110
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g7f6 with evaluation of 135 for black. Time Elapsed: 0ms Nodes evaluated: 51
+Iteration depth: 2 Best move so far: g7f6 with evaluation of 130 for black. Time Elapsed: 0ms Nodes evaluated: 70
+Iteration depth: 3 Best move so far: g7f6 with evaluation of 130 for black. Time Elapsed: 0ms Nodes evaluated: 790
+Iteration depth: 4 Best move so far: g7f6 with evaluation of 125 for black. Time Elapsed: 1ms Nodes evaluated: 1080
+Iteration depth: 5 Best move so far: a8b8 with evaluation of 110 for black. Time Elapsed: 2ms Nodes evaluated: 13644
+Iteration depth: 6 Best move so far: a8b8 with evaluation of 110 for black. Time Elapsed: 13ms Nodes evaluated: 26
+Iteration depth: 7 Best move so far: a8d8 with evaluation of 110 for black. Time Elapsed: 13ms Nodes evaluated: 1600164
+
+Search fully completed up to depth: 8 Time taken: 1005ms
+Best move is a8d8 - Eval: 110
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e7d8 with evaluation of 125 for black. Time Elapsed: 0ms Nodes evaluated: 26
+Iteration depth: 2 Best move so far: e7d8 with evaluation of 110 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 3 Best move so far: e7d8 with evaluation of 110 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: e7d8 with evaluation of 110 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: e7d8 with evaluation of 110 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: e7d8 with evaluation of 90 for black. Time Elapsed: 0ms Nodes evaluated: 26959
+Iteration depth: 7 Best move so far: e7d8 with evaluation of 108 for black. Time Elapsed: 15ms Nodes evaluated: 109916
+Iteration depth: 8 Best move so far: e7d8 with evaluation of 83 for black. Time Elapsed: 78ms Nodes evaluated: 234478
+Iteration depth: 9 Best move so far: e7d8 with evaluation of 93 for black. Time Elapsed: 161ms Nodes evaluated: 1276125
+
+Search fully completed up to depth: 10 Time taken: 1015ms
+Best move is e7d8 - Eval: 93
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f7e6 with evaluation of 125 for black. Time Elapsed: 0ms Nodes evaluated: 7
+Iteration depth: 2 Best move so far: f7e6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 5
+Iteration depth: 3 Best move so far: f7e6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 5
+Iteration depth: 4 Best move so far: f7e6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 5
+Iteration depth: 5 Best move so far: f7e6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 5
+Iteration depth: 6 Best move so far: f7e6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 5
+Iteration depth: 7 Best move so far: f7e6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 5
+Iteration depth: 8 Best move so far: f7e6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 5
+Iteration depth: 9 Best move so far: f7e6 with evaluation of 67 for black. Time Elapsed: 0ms Nodes evaluated: 231331
+Iteration depth: 10 Best move so far: f7e6 with evaluation of 67 for black. Time Elapsed: 133ms Nodes evaluated: 394470
+Iteration depth: 11 Best move so far: f7e6 with evaluation of 77 for black. Time Elapsed: 244ms Nodes evaluated: 1067090
+
+Search fully completed up to depth: 12 Time taken: 1003ms
+Best move is f7e6 - Eval: 77
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g7f6 with evaluation of 116 for black. Time Elapsed: 0ms Nodes evaluated: 16
+Iteration depth: 2 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 3 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 4 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 5 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 6 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 7 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 8 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 9 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 10 Best move so far: c6c5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 11 Best move so far: c6c5 with evaluation of 67 for black. Time Elapsed: 0ms Nodes evaluated: 2616689
+
+Search fully completed up to depth: 11 Time taken: 1014ms
+Best move is c6c5 - Eval: 67
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g7f6 with evaluation of 100 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: g7f6 with evaluation of 75 for black. Time Elapsed: 0ms Nodes evaluated: 32
+Iteration depth: 3 Best move so far: g7f6 with evaluation of 85 for black. Time Elapsed: 0ms Nodes evaluated: 109
+Iteration depth: 4 Best move so far: g7f6 with evaluation of 67 for black. Time Elapsed: 0ms Nodes evaluated: 122
+Iteration depth: 5 Best move so far: g7f6 with evaluation of 67 for black. Time Elapsed: 0ms Nodes evaluated: 2903
+Iteration depth: 6 Best move so far: g7f6 with evaluation of 67 for black. Time Elapsed: 2ms Nodes evaluated: 6325
+Iteration depth: 7 Best move so far: g7f6 with evaluation of 77 for black. Time Elapsed: 5ms Nodes evaluated: 38461
+Iteration depth: 8 Best move so far: g7f6 with evaluation of 77 for black. Time Elapsed: 28ms Nodes evaluated: 150595
+Iteration depth: 9 Best move so far: g7f6 with evaluation of 67 for black. Time Elapsed: 80ms Nodes evaluated: 369855
+Iteration depth: 10 Best move so far: g7f6 with evaluation of 67 for black. Time Elapsed: 234ms Nodes evaluated: 839333
+
+Search fully completed up to depth: 11 Time taken: 1006ms
+Best move is g7f6 - Eval: 67
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d8d7 with evaluation of 100 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 2 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 3 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 4 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 5 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 6 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 7 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 8 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 9 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 10 Best move so far: d8d7 with evaluation of 76 for black. Time Elapsed: 0ms Nodes evaluated: 1019741
+
+Search fully completed up to depth: 11 Time taken: 1012ms
+Best move is d8d7 - Eval: 76
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d7d6 with evaluation of 67 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 2 Best move so far: d7d6 with evaluation of 67 for black. Time Elapsed: 0ms Nodes evaluated: 77
+Iteration depth: 3 Best move so far: d7d6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 116
+Iteration depth: 4 Best move so far: d7d6 with evaluation of 67 for black. Time Elapsed: 0ms Nodes evaluated: 635
+Iteration depth: 5 Best move so far: d7d6 with evaluation of 67 for black. Time Elapsed: 1ms Nodes evaluated: 3523
+Iteration depth: 6 Best move so far: d7d6 with evaluation of 67 for black. Time Elapsed: 2ms Nodes evaluated: 7041
+Iteration depth: 7 Best move so far: d7d6 with evaluation of 72 for black. Time Elapsed: 6ms Nodes evaluated: 45832
+Iteration depth: 8 Best move so far: d7d6 with evaluation of 72 for black. Time Elapsed: 25ms Nodes evaluated: 83978
+Iteration depth: 9 Best move so far: d7d6 with evaluation of 72 for black. Time Elapsed: 72ms Nodes evaluated: 283407
+Iteration depth: 10 Best move so far: d7d6 with evaluation of 72 for black. Time Elapsed: 166ms Nodes evaluated: 885807
+
+Search fully completed up to depth: 11 Time taken: 1003ms
+Best move is d7d6 - Eval: 72
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c5c4 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 2 Best move so far: c5c4 with evaluation of 72 for black. Time Elapsed: 0ms Nodes evaluated: 46
+Iteration depth: 3 Best move so far: h6h5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 86
+Iteration depth: 4 Best move so far: h6h5 with evaluation of 75 for black. Time Elapsed: 0ms Nodes evaluated: 341
+Iteration depth: 5 Best move so far: h6h5 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 1046
+Iteration depth: 6 Best move so far: h6h5 with evaluation of 75 for black. Time Elapsed: 1ms Nodes evaluated: 3223
+Iteration depth: 7 Best move so far: h6h5 with evaluation of 72 for black. Time Elapsed: 2ms Nodes evaluated: 11904
+Iteration depth: 8 Best move so far: h6h5 with evaluation of 75 for black. Time Elapsed: 6ms Nodes evaluated: 32303
+Iteration depth: 9 Best move so far: h6h5 with evaluation of 77 for black. Time Elapsed: 15ms Nodes evaluated: 136044
+Iteration depth: 10 Best move so far: h6h5 with evaluation of 77 for black. Time Elapsed: 85ms Nodes evaluated: 1310618
+
+Search fully completed up to depth: 11 Time taken: 1007ms
+Best move is h6h5 - Eval: 77
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c5c4 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 20
+Iteration depth: 2 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 3 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 4 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 5 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 6 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 7 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 8 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 9 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 10 Best move so far: a7a6 with evaluation of 77 for black. Time Elapsed: 0ms Nodes evaluated: 541569
+Iteration depth: 11 Best move so far: a7a6 with evaluation of 72 for black. Time Elapsed: 222ms Nodes evaluated: 1336312
+
+Search fully completed up to depth: 12 Time taken: 1013ms
+Best move is a7a6 - Eval: 72
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f6g7 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 2 Best move so far: f6g7 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 34
+Iteration depth: 3 Best move so far: f6g7 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 92
+Iteration depth: 4 Best move so far: f6g7 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 276
+Iteration depth: 5 Best move so far: f6h8 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 684
+Iteration depth: 6 Best move so far: f6h8 with evaluation of 82 for black. Time Elapsed: 1ms Nodes evaluated: 3027
+Iteration depth: 7 Best move so far: f6g7 with evaluation of 82 for black. Time Elapsed: 2ms Nodes evaluated: 22646
+Iteration depth: 8 Best move so far: f6g7 with evaluation of 82 for black. Time Elapsed: 15ms Nodes evaluated: 101573
+Iteration depth: 9 Best move so far: f6h8 with evaluation of 82 for black. Time Elapsed: 57ms Nodes evaluated: 192751
+Iteration depth: 10 Best move so far: f6h8 with evaluation of 82 for black. Time Elapsed: 132ms Nodes evaluated: 432450
+Iteration depth: 11 Best move so far: f6h8 with evaluation of 77 for black. Time Elapsed: 289ms Nodes evaluated: 1014212
+Iteration depth: 12 Best move so far: f6h8 with evaluation of 77 for black. Time Elapsed: 648ms Nodes evaluated: 1150925
+
+Search fully completed up to depth: 12 Time taken: 1005ms
+Best move is f6h8 - Eval: 77
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h8f6 with evaluation of 117 for black. Time Elapsed: 0ms Nodes evaluated: 35
+Iteration depth: 2 Best move so far: h8f6 with evaluation of 117 for black. Time Elapsed: 0ms Nodes evaluated: 69
+Iteration depth: 3 Best move so far: g4f3 with evaluation of 112 for black. Time Elapsed: 0ms Nodes evaluated: 365
+Iteration depth: 4 Best move so far: g4f3 with evaluation of 125 for black. Time Elapsed: 0ms Nodes evaluated: 1183
+Iteration depth: 5 Best move so far: g4f3 with evaluation of 138 for black. Time Elapsed: 1ms Nodes evaluated: 4510
+Iteration depth: 6 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 4ms Nodes evaluated: 20731
+Iteration depth: 7 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 12ms Nodes evaluated: 52991
+Iteration depth: 8 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 37ms Nodes evaluated: 216744
+Iteration depth: 9 Best move so far: g4f3 with evaluation of 136 for black. Time Elapsed: 124ms Nodes evaluated: 480456
+Iteration depth: 10 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 329ms Nodes evaluated: 1224744
+
+Search fully completed up to depth: 11 Time taken: 1002ms
+Best move is g4f3 - Eval: 128
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h8f6 with evaluation of 112 for black. Time Elapsed: 0ms Nodes evaluated: 15
+Iteration depth: 2 Best move so far: e5e4 with evaluation of 314 for black. Time Elapsed: 0ms Nodes evaluated: 51
+Iteration depth: 3 Best move so far: e5e4 with evaluation of 314 for black. Time Elapsed: 0ms Nodes evaluated: 155
+Iteration depth: 4 Best move so far: e5e4 with evaluation of 385 for black. Time Elapsed: 0ms Nodes evaluated: 501
+Iteration depth: 5 Best move so far: e5e4 with evaluation of 404 for black. Time Elapsed: 1ms Nodes evaluated: 1351
+Iteration depth: 6 Best move so far: e5e4 with evaluation of 404 for black. Time Elapsed: 1ms Nodes evaluated: 4791
+Iteration depth: 7 Best move so far: e5e4 with evaluation of 406 for black. Time Elapsed: 5ms Nodes evaluated: 13602
+Iteration depth: 8 Best move so far: e5e4 with evaluation of 401 for black. Time Elapsed: 16ms Nodes evaluated: 43489
+Iteration depth: 9 Best move so far: e5e4 with evaluation of 415 for black. Time Elapsed: 56ms Nodes evaluated: 66978
+Iteration depth: 10 Best move so far: e5e4 with evaluation of 410 for black. Time Elapsed: 88ms Nodes evaluated: 212146
+Iteration depth: 11 Best move so far: e5e4 with evaluation of 421 for black. Time Elapsed: 166ms Nodes evaluated: 543543
+Iteration depth: 12 Best move so far: e5e4 with evaluation of 421 for black. Time Elapsed: 316ms Nodes evaluated: 1906803
+
+Search fully completed up to depth: 12 Time taken: 1003ms
+Best move is e5e4 - Eval: 421
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h8c3 with evaluation of 314 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 2 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 3 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 4 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 5 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 6 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 7 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 8 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 9 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 10 Best move so far: h8c3 with evaluation of 421 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 11 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 839629
+Iteration depth: 12 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 267ms Nodes evaluated: 1688480
+
+Search fully completed up to depth: 13 Time taken: 1002ms
+Best move is h8c3 - Eval: 435
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c3a5 with evaluation of 385 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 2 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 3 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: c3d2 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 11 Best move so far: c3d2 with evaluation of 451 for black. Time Elapsed: 0ms Nodes evaluated: 2714884
+
+Search fully completed up to depth: 12 Time taken: 1014ms
+Best move is c3d2 - Eval: 451
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d2a5 with evaluation of 404 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 2 Best move so far: d6e5 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 104
+Iteration depth: 3 Best move so far: d6e5 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 127
+Iteration depth: 4 Best move so far: d6e7 with evaluation of 445 for black. Time Elapsed: 0ms Nodes evaluated: 258
+Iteration depth: 5 Best move so far: d6e7 with evaluation of 445 for black. Time Elapsed: 0ms Nodes evaluated: 1975
+Iteration depth: 6 Best move so far: d6d5 with evaluation of 440 for black. Time Elapsed: 2ms Nodes evaluated: 9936
+Iteration depth: 7 Best move so far: d6d5 with evaluation of 440 for black. Time Elapsed: 7ms Nodes evaluated: 49310
+Iteration depth: 8 Best move so far: d6e5 with evaluation of 450 for black. Time Elapsed: 33ms Nodes evaluated: 223120
+Iteration depth: 9 Best move so far: e6e5 with evaluation of 471 for black. Time Elapsed: 141ms Nodes evaluated: 486325
+Iteration depth: 10 Best move so far: e6e5 with evaluation of 471 for black. Time Elapsed: 299ms Nodes evaluated: 1108645
+Iteration depth: 11 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 708ms Nodes evaluated: 1023610
+
+Search fully completed up to depth: 11 Time taken: 1005ms
+Best move is e6e5 - Eval: 475
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h5g4 with evaluation of 429 for black. Time Elapsed: 0ms Nodes evaluated: 21
+Iteration depth: 2 Best move so far: h5g4 with evaluation of 465 for black. Time Elapsed: 0ms Nodes evaluated: 70
+Iteration depth: 3 Best move so far: h5g4 with evaluation of 465 for black. Time Elapsed: 0ms Nodes evaluated: 444
+Iteration depth: 4 Best move so far: h5g4 with evaluation of 446 for black. Time Elapsed: 0ms Nodes evaluated: 1398
+Iteration depth: 5 Best move so far: h5g4 with evaluation of 446 for black. Time Elapsed: 1ms Nodes evaluated: 7175
+Iteration depth: 6 Best move so far: h5g4 with evaluation of 485 for black. Time Elapsed: 4ms Nodes evaluated: 10670
+Iteration depth: 7 Best move so far: h5g4 with evaluation of 485 for black. Time Elapsed: 10ms Nodes evaluated: 30741
+Iteration depth: 8 Best move so far: h5g4 with evaluation of 485 for black. Time Elapsed: 22ms Nodes evaluated: 90289
+Iteration depth: 9 Best move so far: h5g4 with evaluation of 504 for black. Time Elapsed: 66ms Nodes evaluated: 287315
+Iteration depth: 10 Best move so far: h5g4 with evaluation of 514 for black. Time Elapsed: 155ms Nodes evaluated: 558923
+Iteration depth: 11 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 406ms Nodes evaluated: 982293
+
+Search fully completed up to depth: 12 Time taken: 1004ms
+Best move is h5g4 - Eval: 512
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d2a5 with evaluation of 465 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 2 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 3 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 4 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 5 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 6 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 7 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 8 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 9 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 10 Best move so far: e5e4 with evaluation of 514 for black. Time Elapsed: 0ms Nodes evaluated: 48965
+Iteration depth: 11 Best move so far: e5e4 with evaluation of 521 for black. Time Elapsed: 22ms Nodes evaluated: 1856674
+Iteration depth: 12 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 536ms Nodes evaluated: 1228422
+
+Search fully completed up to depth: 12 Time taken: 1011ms
+Best move is e5e4 - Eval: 531
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d2a5 with evaluation of 465 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 2 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 3 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 4 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 5 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 6 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 7 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 8 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 9 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 10 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 11 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 17
+Iteration depth: 12 Best move so far: e5e4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 2427683
+
+Search fully completed up to depth: 12 Time taken: 1006ms
+Best move is e5e4 - Eval: 531
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h5g4 with evaluation of 429 for black. Time Elapsed: 0ms Nodes evaluated: 24
+Iteration depth: 2 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 3 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 4 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 5 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 6 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 7 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 8 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 9 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 10 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 11 Best move so far: h5g4 with evaluation of 512 for black. Time Elapsed: 0ms Nodes evaluated: 19
+Iteration depth: 12 Best move so far: h5g4 with evaluation of 531 for black. Time Elapsed: 0ms Nodes evaluated: 1604720
+Iteration depth: 13 Best move so far: h5g4 with evaluation of 531 for black. Time Elapsed: 692ms Nodes evaluated: 1176332
+
+Search fully completed up to depth: 13 Time taken: 1013ms
+Best move is h5g4 - Eval: 531
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d2a5 with evaluation of 404 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 2 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 58
+Iteration depth: 3 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 4 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 5 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 6 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 7 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 8 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 9 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 10 Best move so far: e6e5 with evaluation of 475 for black. Time Elapsed: 0ms Nodes evaluated: 18
+Iteration depth: 11 Best move so far: d6e5 with evaluation of 487 for black. Time Elapsed: 0ms Nodes evaluated: 2617993
+
+Search fully completed up to depth: 12 Time taken: 1014ms
+Best move is d6e5 - Eval: 487
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h8c3 with evaluation of 314 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 2 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 3 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 4 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 5 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 6 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 7 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 8 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 9 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 10 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 11 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 12 Best move so far: h8c3 with evaluation of 435 for black. Time Elapsed: 0ms Nodes evaluated: 12
+Iteration depth: 13 Best move so far: h8c3 with evaluation of 451 for black. Time Elapsed: 0ms Nodes evaluated: 1056693
+
+Search fully completed up to depth: 14 Time taken: 1004ms
+Best move is h8c3 - Eval: 451
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h8f6 with evaluation of 117 for black. Time Elapsed: 0ms Nodes evaluated: 35
+Iteration depth: 2 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 3 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 4 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 5 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 6 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 7 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 8 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 9 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 10 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 0ms Nodes evaluated: 9
+Iteration depth: 11 Best move so far: g4f3 with evaluation of 126 for black. Time Elapsed: 0ms Nodes evaluated: 302957
+Iteration depth: 12 Best move so far: g4f3 with evaluation of 128 for black. Time Elapsed: 144ms Nodes evaluated: 2335338
+
+Search fully completed up to depth: 13 Time taken: 1016ms
+Best move is g4f3 - Eval: 128
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: h8f6 with evaluation of 97 for black. Time Elapsed: 0ms Nodes evaluated: 13
+Iteration depth: 2 Best move so far: h8g7 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 3 Best move so far: h8g7 with evaluation of 97 for black. Time Elapsed: 0ms Nodes evaluated: 185
+Iteration depth: 4 Best move so far: h8g7 with evaluation of 97 for black. Time Elapsed: 0ms Nodes evaluated: 457
+Iteration depth: 5 Best move so far: h8g7 with evaluation of 82 for black. Time Elapsed: 0ms Nodes evaluated: 688
+Iteration depth: 6 Best move so far: h8g7 with evaluation of 82 for black. Time Elapsed: 1ms Nodes evaluated: 2826
+Iteration depth: 7 Best move so far: h8g7 with evaluation of 82 for black. Time Elapsed: 2ms Nodes evaluated: 7843
+Iteration depth: 8 Best move so far: h8g7 with evaluation of 82 for black. Time Elapsed: 6ms Nodes evaluated: 32955
+Iteration depth: 9 Best move so far: h8g7 with evaluation of 82 for black. Time Elapsed: 15ms Nodes evaluated: 86694
+Iteration depth: 10 Best move so far: h8g7 with evaluation of 82 for black. Time Elapsed: 51ms Nodes evaluated: 244982
+Iteration depth: 11 Best move so far: h8g7 with evaluation of 77 for black. Time Elapsed: 138ms Nodes evaluated: 1015704
+Iteration depth: 12 Best move so far: h8g7 with evaluation of 77 for black. Time Elapsed: 553ms Nodes evaluated: 1393335
+
+Search fully completed up to depth: 12 Time taken: 1005ms
+Best move is h8g7 - Eval: 77
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: d6c6 with evaluation of 782 for black. Time Elapsed: 0ms Nodes evaluated: 23
+Iteration depth: 2 Best move so far: d6c6 with evaluation of 782 for black. Time Elapsed: 0ms Nodes evaluated: 115
+Iteration depth: 3 Best move so far: d6d7 with evaluation of 782 for black. Time Elapsed: 0ms Nodes evaluated: 1249
+Iteration depth: 4 Best move so far: d6d7 with evaluation of 782 for black. Time Elapsed: 1ms Nodes evaluated: 3185
+Iteration depth: 5 Best move so far: d6c6 with evaluation of 782 for black. Time Elapsed: 3ms Nodes evaluated: 16740
+Iteration depth: 6 Best move so far: d6c6 with evaluation of 782 for black. Time Elapsed: 13ms Nodes evaluated: 24179
+Iteration depth: 7 Best move so far: d6c6 with evaluation of 782 for black. Time Elapsed: 28ms Nodes evaluated: 99203
+Iteration depth: 8 Best move so far: d6c6 with evaluation of 782 for black. Time Elapsed: 74ms Nodes evaluated: 301830
+Iteration depth: 9 Best move so far: g7h6 with evaluation of 792 for black. Time Elapsed: 197ms Nodes evaluated: 746122
+Iteration depth: 10 Best move so far: g7h6 with evaluation of 804 for black. Time Elapsed: 474ms Nodes evaluated: 835472
+
+Search fully completed up to depth: 11 Time taken: 1004ms
+Best move is g7h6 - Eval: 804
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is c7c5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is a7a6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e7e6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b8c6
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is b7b5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: e6d5 with evaluation of 110 for black. Time Elapsed: 0ms Nodes evaluated: 40
+Iteration depth: 2 Best move so far: e6d5 with evaluation of 110 for black. Time Elapsed: 0ms Nodes evaluated: 154
+Iteration depth: 3 Best move so far: e6d5 with evaluation of 120 for black. Time Elapsed: 0ms Nodes evaluated: 1395
+Iteration depth: 4 Best move so far: e6d5 with evaluation of 100 for black. Time Elapsed: 1ms Nodes evaluated: 4420
+Iteration depth: 5 Best move so far: e6d5 with evaluation of 140 for black. Time Elapsed: 3ms Nodes evaluated: 28057
+Iteration depth: 6 Best move so far: e6d5 with evaluation of 125 for black. Time Elapsed: 16ms Nodes evaluated: 90497
+Iteration depth: 7 Best move so far: e6d5 with evaluation of 150 for black. Time Elapsed: 60ms Nodes evaluated: 565844
+Iteration depth: 8 Best move so far: e6d5 with evaluation of 135 for black. Time Elapsed: 296ms Nodes evaluated: 1581967
+
+Search fully completed up to depth: 9 Time taken: 1022ms
+Best move is e6d5 - Eval: 135
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c6b4 with evaluation of 120 for black. Time Elapsed: 0ms Nodes evaluated: 96
+Iteration depth: 2 Best move so far: c6d4 with evaluation of 135 for black. Time Elapsed: 0ms Nodes evaluated: 109
+Iteration depth: 3 Best move so far: c6d4 with evaluation of 135 for black. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 4 Best move so far: c6d4 with evaluation of 135 for black. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 5 Best move so far: c6d4 with evaluation of 135 for black. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 6 Best move so far: c6d4 with evaluation of 135 for black. Time Elapsed: 0ms Nodes evaluated: 33
+Iteration depth: 7 Best move so far: c6d4 with evaluation of 150 for black. Time Elapsed: 0ms Nodes evaluated: 291037
+Iteration depth: 8 Best move so far: c6d4 with evaluation of 155 for black. Time Elapsed: 97ms Nodes evaluated: 1960700
+
+Search fully completed up to depth: 8 Time taken: 1007ms
+Best move is c6d4 - Eval: 155
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: c5d4 with evaluation of 130 for black. Time Elapsed: 0ms Nodes evaluated: 29
+Iteration depth: 2 Best move so far: c5d4 with evaluation of 120 for black. Time Elapsed: 0ms Nodes evaluated: 252
+Iteration depth: 3 Best move so far: c5d4 with evaluation of 175 for black. Time Elapsed: 0ms Nodes evaluated: 912
+Iteration depth: 4 Best move so far: c5d4 with evaluation of 165 for black. Time Elapsed: 1ms Nodes evaluated: 4259
+Iteration depth: 5 Best move so far: c5d4 with evaluation of 185 for black. Time Elapsed: 3ms Nodes evaluated: 21466
+Iteration depth: 6 Best move so far: c5d4 with evaluation of 170 for black. Time Elapsed: 13ms Nodes evaluated: 119717
+Iteration depth: 7 Best move so far: c5d4 with evaluation of 185 for black. Time Elapsed: 76ms Nodes evaluated: 350490
+Iteration depth: 8 Best move so far: c5d4 with evaluation of 170 for black. Time Elapsed: 203ms Nodes evaluated: 1441068
+
+Search fully completed up to depth: 9 Time taken: 1012ms
+Best move is c5d4 - Eval: 170
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: g8f6 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 30
+Iteration depth: 2 Best move so far: g8f6 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 3 Best move so far: g8f6 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 4 Best move so far: g8f6 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 5 Best move so far: g8f6 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 6 Best move so far: g8f6 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 7 Best move so far: g8f6 with evaluation of 160 for black. Time Elapsed: 0ms Nodes evaluated: 1986242
+
+Search fully completed up to depth: 7 Time taken: 1010ms
+Best move is g8f6 - Eval: 160
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f8b4 with evaluation of 195 for black. Time Elapsed: 0ms Nodes evaluated: 51
+Iteration depth: 2 Best move so far: f8b4 with evaluation of 182 for black. Time Elapsed: 0ms Nodes evaluated: 39
+Iteration depth: 3 Best move so far: d8a5 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 227
+Iteration depth: 4 Best move so far: d8a5 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 5 Best move so far: d8a5 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 25
+Iteration depth: 6 Best move so far: f8e7 with evaluation of 180 for black. Time Elapsed: 0ms Nodes evaluated: 81636
+Iteration depth: 7 Best move so far: f8e7 with evaluation of 180 for black. Time Elapsed: 36ms Nodes evaluated: 244354
+Iteration depth: 8 Best move so far: f8e7 with evaluation of 170 for black. Time Elapsed: 146ms Nodes evaluated: 1128792
+
+Search fully completed up to depth: 9 Time taken: 1014ms
+Best move is f8e7 - Eval: 170
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+Iteration depth: 1 Best move so far: f6d5 with evaluation of 280 for black. Time Elapsed: 0ms Nodes evaluated: 28
+Iteration depth: 2 Best move so far: f6d5 with evaluation of 280 for black. Time Elapsed: 0ms Nodes evaluated: 255
+Iteration depth: 3 Best move so far: f6d5 with evaluation of 291 for black. Time Elapsed: 0ms Nodes evaluated: 889
+Iteration depth: 4 Best move so far: f6d5 with evaluation of 270 for black. Time Elapsed: 0ms Nodes evaluated: 4302
+Iteration depth: 5 Best move so far: f6d5 with evaluation of 300 for black. Time Elapsed: 3ms Nodes evaluated: 25703
+Iteration depth: 6 Best move so far: f6d5 with evaluation of 280 for black. Time Elapsed: 13ms Nodes evaluated: 130818
+Iteration depth: 7 Best move so far: f6d5 with evaluation of 286 for black. Time Elapsed: 73ms Nodes evaluated: 417057
+Iteration depth: 8 Best move so far: f6d5 with evaluation of 281 for black. Time Elapsed: 237ms Nodes evaluated: 1704297
+
+Search fully completed up to depth: 9 Time taken: 1013ms
+Best move is f6d5 - Eval: 281
+ ----Search End----

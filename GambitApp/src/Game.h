@@ -79,7 +79,7 @@ public:
 		asyncAiSearchRes->bestMove = Move{};
 		asyncAiSearchRes->isCompleted = true;
 
-		serialHandle = getSerialHandle(3);
+		//serialHandle = getSerialHandle(3);
 
 		loadIcons();
 	}
