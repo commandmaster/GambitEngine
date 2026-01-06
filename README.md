@@ -59,9 +59,9 @@ Gambit Engine is a modern chess engine written in C++20, featuring both a polish
 
 ### Prerequisites
 
-- **C++20 Compiler** - MSVC 2022, GCC 11+, or Clang 13+
+- **Windows 10/11** - Currently Windows-only
+- **Visual Studio 2022** - With C++20 support
 - **Vulkan SDK** - Required for the graphical interface
-- **Premake5** - Build system generator
 
 ### Building
 
@@ -71,29 +71,16 @@ Gambit Engine is a modern chess engine written in C++20, featuring both a polish
    cd GambitEngine
    ```
 
-2. **Generate project files:**
-
-   **Windows (Visual Studio):**
+2. **Generate Visual Studio solution:**
    ```bash
-   vendor/premake/premake5.exe vs2022
-   ```
-
-   **Linux (Make):**
-   ```bash
-   vendor/premake/premake5 gmake2
+   vendor\premake\premake5.exe vs2022
    ```
 
 3. **Build the project:**
-
-   **Windows:**
-   Open `GambitEngine.sln` in Visual Studio and build, or:
+   
+   Open `GambitEngine.sln` in Visual Studio and build (Release recommended), or:
    ```bash
    msbuild GambitEngine.sln /p:Configuration=Release
-   ```
-
-   **Linux:**
-   ```bash
-   make config=release
    ```
 
 ### Dependencies (included as submodules)
@@ -111,8 +98,7 @@ Gambit Engine is a modern chess engine written in C++20, featuring both a polish
 Run the `GambitApp` executable to launch the graphical interface:
 
 ```bash
-./bin/Release-linux-x86_64/GambitApp/GambitApp    # Linux
-bin\Release-windows-x86_64\GambitApp\GambitApp.exe # Windows
+bin\Release-windows-x86_64\GambitApp\GambitApp.exe
 ```
 
 **Controls:**
@@ -120,13 +106,9 @@ bin\Release-windows-x86_64\GambitApp\GambitApp.exe # Windows
 - Use the playback controls to navigate game history
 - Configure AI players in the Board Settings panel
 
-### UCI Mode (Headless)
+### UCI Protocol
 
-Run the `gambit_uci` executable for UCI protocol communication:
-
-```bash
-./gambit_uci
-```
+The engine supports the Universal Chess Interface (UCI) protocol, making it compatible with external chess GUIs like Arena or Cute Chess.
 
 **Example UCI commands:**
 ```
@@ -136,8 +118,6 @@ position startpos moves e2e4 e7e5
 go movetime 1000
 quit
 ```
-
-Compatible with any UCI-compliant chess GUI (Arena, Cute Chess, etc.).
 
 ## Architecture
 
@@ -161,8 +141,8 @@ GambitEngine/
 ## Performance
 
 - Bitboard-based move generation for efficient legal move enumeration
-- SIMD-optimized evaluation using SSE2 intrinsics
-- Lock-free transposition table for position caching
+- SIMD-optimized evaluation using SSE intrinsics
+- Transposition table with Zobrist hashing for position caching
 - Asynchronous search thread for responsive UI
 
 ## License
