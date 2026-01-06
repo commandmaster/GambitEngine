@@ -3,6 +3,8 @@
 bin/
 bin-int/
 out/
+build/
+build_headless/
 
 # Files
 *.vcxproj
