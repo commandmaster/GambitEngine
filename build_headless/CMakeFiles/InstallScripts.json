@@ -1,0 +1,8 @@
+{
+	"InstallScripts" : 
+	[
+		"/home/bennett/Documents/git/GambitEngine/build_headless/cmake_install.cmake",
+		"/home/bennett/Documents/git/GambitEngine/build_headless/_deps/pybind11-build/cmake_install.cmake"
+	],
+	"Parallel" : false
+}

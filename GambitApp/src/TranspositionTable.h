@@ -7,6 +7,7 @@
 #include <fstream>
 #include <immintrin.h>
 #include <ammintrin.h>
+#include <cstring>
 
 #include "Board.h"
 
@@ -16,7 +17,7 @@ struct TTEntry
     struct SmpData
     {
         int16_t score;
-        uint8_t depth : 6;
+        int8_t depth : 6;
         uint8_t flags : 2;
         Move move;
 

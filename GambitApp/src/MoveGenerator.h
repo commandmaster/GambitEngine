@@ -4,6 +4,7 @@
 #include <stdint.h>
 #include <array>
 #include <iostream>
+#include <climits>
 
 #include "Board.h"
 #include "Precomputation.h"

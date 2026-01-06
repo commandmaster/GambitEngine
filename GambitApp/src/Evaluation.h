@@ -10,6 +10,11 @@
 #include <iterator>
 #include <memory>
 #include <numeric>
+#include <popcntintrin.h>
+
+#ifndef _MSC_VER
+#define __popcnt64 _mm_popcnt_u64
+#endif
 
 #include "Board.h"
 #include "MoveGenerator.h"
@@ -17,7 +22,7 @@
 
 namespace Evaluation
 {
-	static constexpr std::array<uint16_t, 64> pawnBonus = {
+	static constexpr std::array<int16_t, 64> pawnBonus = {
 		 0,  0,  0,  0,  0,  0,  0,  0,
 		50, 50, 50, 50, 50, 50, 50, 50,
 		10, 10, 20, 30, 30, 20, 10, 10,
@@ -27,7 +32,7 @@ namespace Evaluation
 		 5, 10, 10,-20,-20, 10, 10,  5,
 		 0,  0,  0,  0,  0,  0,  0,  0
 	};
-	static constexpr std::array<uint16_t, 64> knightBonus = {
+	static constexpr std::array<int16_t, 64> knightBonus = {
 		-50,-40,-30,-30,-30,-30,-40,-50,
 		-40,-20,  0,  0,  0,  0,-20,-40,
 		-30,  0, 10, 15, 15, 10,  0,-30,
@@ -37,7 +42,7 @@ namespace Evaluation
 		-40,-20,  0,  5,  5,  0,-20,-40,
 		-50,-40,-30,-30,-30,-30,-40,-50	
 	};
-	static constexpr std::array<uint16_t, 64> bishopBonus = {
+	static constexpr std::array<int16_t, 64> bishopBonus = {
 		-20,-10,-10,-10,-10,-10,-10,-20,
 		-10,  0,  0,  0,  0,  0,  0,-10,
 		-10,  0,  5, 10, 10,  5,  0,-10,
@@ -47,7 +52,7 @@ namespace Evaluation
 		-10,  5,  0,  0,  0,  0,  5,-10,
 		-20,-10,-10,-10,-10,-10,-10,-20	
 	};
-	static constexpr std::array<uint16_t, 64> rookBonus = {
+	static constexpr std::array<int16_t, 64> rookBonus = {
 		0,  0,  0,  0,  0,  0,  0,  0,
 		5, 10, 10, 10, 10, 10, 10,  5,
 		-5,  0,  0,  0,  0,  0,  0, -5,
@@ -57,7 +62,7 @@ namespace Evaluation
 		-5,  0,  0,  0,  0,  0,  0, -5,
 		0,  0,  0,  5,  5,  0,  0,  0 
 	};
-	static constexpr std::array<uint16_t, 64> queenBonus = {
+	static constexpr std::array<int16_t, 64> queenBonus = {
 		-20,-10,-10, -5, -5,-10,-10,-20,
 		-10,  0,  0,  0,  0,  0,  0,-10,
 		-10,  0,  5,  5,  5,  5,  0,-10,
@@ -67,7 +72,7 @@ namespace Evaluation
 		-10,  0,  5,  0,  0,  0,  0,-10,
 		-20,-10,-10, -5, -5,-10,-10,-20		 
 	};
-	static constexpr std::array<uint16_t, 64> kingBonusMiddle = {
+	static constexpr std::array<int16_t, 64> kingBonusMiddle = {
 		-30,-40,-40,-50,-50,-40,-40,-30,
 		-30,-40,-40,-50,-50,-40,-40,-30,
 		-30,-40,-40,-50,-50,-40,-40,-30,
@@ -77,7 +82,7 @@ namespace Evaluation
 		 20, 20,  0,  0,  0,  0, 20, 20,
 		 20, 30, 10,  0,  0, 10, 30, 20
 	};
-	static constexpr std::array<uint16_t, 64> kingBonusEnd = {
+	static constexpr std::array<int16_t, 64> kingBonusEnd = {
 		-50,-40,-30,-20,-20,-30,-40,-50,
 		-30,-20,-10,  0,  0,-10,-20,-30,
 		-30,-10, 20, 30, 30, 20,-10,-30,
@@ -90,9 +95,9 @@ namespace Evaluation
 
 
 
-	__forceinline static int sumBonuses(Bitboard bb, const std::array<uint16_t, 64>& table)
+	__forceinline static int sumBonuses(Bitboard bb, const std::array<int16_t, 64>& table)
 	{
-		const uint16_t* ptr = table.data();
+		const int16_t* ptr = table.data();
 		__m128i sum = _mm_setzero_si128();
 		const __m128i bit_mask = _mm_set_epi16(0x80, 0x40, 0x20, 0x10, 0x08, 0x04, 0x02, 0x01);
 

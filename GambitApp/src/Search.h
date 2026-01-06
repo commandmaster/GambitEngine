@@ -355,111 +355,16 @@ private:
         for (int i = 0; i < moveCount; ++i)
         {
             auto& move = moves[i];
-            int score;
-
             board.makeMove(move);
-            
-            switch (!turn)
-			{
-			case true:
-				switch (depth - 1)
-				{
-				case 0:  score = -negamax<true, 0>(board, -beta, -alpha); break;
-				case 1:  score = -negamax<true, 1>(board, -beta, -alpha); break;
-				case 2:  score = -negamax<true, 2>(board, -beta, -alpha); break;
-				case 3:  score = -negamax<true, 3>(board, -beta, -alpha); break;
-				case 4:  score = -negamax<true, 4>(board, -beta, -alpha); break;
-				case 5:  score = -negamax<true, 5>(board, -beta, -alpha); break;
-				case 6:  score = -negamax<true, 6>(board, -beta, -alpha); break;
-				case 7:  score = -negamax<true, 7>(board, -beta, -alpha); break;
-				case 8:  score = -negamax<true, 8>(board, -beta, -alpha); break;
-				case 9:  score = -negamax<true, 9>(board, -beta, -alpha); break;
-				case 10: score = -negamax<true, 10>(board, -beta, -alpha); break;
-				case 11: score = -negamax<true, 11>(board, -beta, -alpha); break;
-				case 12: score = -negamax<true, 12>(board, -beta, -alpha); break;
-				case 13: score = -negamax<true, 13>(board, -beta, -alpha); break;
-				case 14: score = -negamax<true, 14>(board, -beta, -alpha); break;
-				case 15: score = -negamax<true, 15>(board, -beta, -alpha); break;
-				case 16: score = -negamax<true, 16>(board, -beta, -alpha); break;
-				case 17: score = -negamax<true, 17>(board, -beta, -alpha); break;
-				case 18: score = -negamax<true, 18>(board, -beta, -alpha); break;
-				case 19: score = -negamax<true, 19>(board, -beta, -alpha); break;
-				case 20: score = -negamax<true, 20>(board, -beta, -alpha); break;
-				case 21: score = -negamax<true, 21>(board, -beta, -alpha); break;
-				case 22: score = -negamax<true, 22>(board, -beta, -alpha); break;
-				case 23: score = -negamax<true, 23>(board, -beta, -alpha); break;
-				case 24: score = -negamax<true, 24>(board, -beta, -alpha); break;
-				case 25: score = -negamax<true, 25>(board, -beta, -alpha); break;
-				case 26: score = -negamax<true, 26>(board, -beta, -alpha); break;
-				case 27: score = -negamax<true, 27>(board, -beta, -alpha); break;
-				case 28: score = -negamax<true, 28>(board, -beta, -alpha); break;
-				case 29: score = -negamax<true, 29>(board, -beta, -alpha); break;
-				case 30: score = -negamax<true, 30>(board, -beta, -alpha); break;
-				case 31: score = -negamax<true, 31>(board, -beta, -alpha); break;
-				case 32: score = -negamax<true, 32>(board, -beta, -alpha); break;
-				case 33: score = -negamax<true, 33>(board, -beta, -alpha); break;
-				case 34: score = -negamax<true, 34>(board, -beta, -alpha); break;
-				case 35: score = -negamax<true, 35>(board, -beta, -alpha); break;
-				case 36: score = -negamax<true, 36>(board, -beta, -alpha); break;
-				case 37: score = -negamax<true, 37>(board, -beta, -alpha); break;
-				case 38: score = -negamax<true, 38>(board, -beta, -alpha); break;
-				case 39: score = -negamax<true, 39>(board, -beta, -alpha); break;
-				default:
-                    throw std::runtime_error("Requested depth is not yet implemented!");
-					break;
-				}
-				break;
-
-			case false:
-				switch (depth - 1)
-				{
-				case 0:  score = -negamax<false, 0>(board, -beta, -alpha); break;
-				case 1:  score = -negamax<false, 1>(board, -beta, -alpha); break;
-				case 2:  score = -negamax<false, 2>(board, -beta, -alpha); break;
-				case 3:  score = -negamax<false, 3>(board, -beta, -alpha); break;
-				case 4:  score = -negamax<false, 4>(board, -beta, -alpha); break;
-				case 5:  score = -negamax<false, 5>(board, -beta, -alpha); break;
-				case 6:  score = -negamax<false, 6>(board, -beta, -alpha); break;
-				case 7:  score = -negamax<false, 7>(board, -beta, -alpha); break;
-				case 8:  score = -negamax<false, 8>(board, -beta, -alpha); break;
-				case 9:  score = -negamax<false, 9>(board, -beta, -alpha); break;
-				case 10: score = -negamax<false, 10>(board, -beta, -alpha); break;
-				case 11: score = -negamax<false, 11>(board, -beta, -alpha); break;
-				case 12: score = -negamax<false, 12>(board, -beta, -alpha); break;
-				case 13: score = -negamax<false, 13>(board, -beta, -alpha); break;
-				case 14: score = -negamax<false, 14>(board, -beta, -alpha); break;
-				case 15: score = -negamax<false, 15>(board, -beta, -alpha); break;
-				case 16: score = -negamax<false, 16>(board, -beta, -alpha); break;
-				case 17: score = -negamax<false, 17>(board, -beta, -alpha); break;
-				case 18: score = -negamax<false, 18>(board, -beta, -alpha); break;
-				case 19: score = -negamax<false, 19>(board, -beta, -alpha); break;
-				case 20: score = -negamax<false, 20>(board, -beta, -alpha); break;
-				case 21: score = -negamax<false, 21>(board, -beta, -alpha); break;
-				case 22: score = -negamax<false, 22>(board, -beta, -alpha); break;
-				case 23: score = -negamax<false, 23>(board, -beta, -alpha); break;
-				case 24: score = -negamax<false, 24>(board, -beta, -alpha); break;
-				case 25: score = -negamax<false, 25>(board, -beta, -alpha); break;
-				case 26: score = -negamax<false, 26>(board, -beta, -alpha); break;
-				case 27: score = -negamax<false, 27>(board, -beta, -alpha); break;
-				case 28: score = -negamax<false, 28>(board, -beta, -alpha); break;
-				case 29: score = -negamax<false, 29>(board, -beta, -alpha); break;
-				case 30: score = -negamax<false, 30>(board, -beta, -alpha); break;
-				case 31: score = -negamax<false, 31>(board, -beta, -alpha); break;
-				case 32: score = -negamax<false, 32>(board, -beta, -alpha); break;
-				case 33: score = -negamax<false, 33>(board, -beta, -alpha); break;
-				case 34: score = -negamax<false, 34>(board, -beta, -alpha); break;
-				case 35: score = -negamax<false, 35>(board, -beta, -alpha); break;
-				case 36: score = -negamax<false, 36>(board, -beta, -alpha); break;
-				case 37: score = -negamax<false, 37>(board, -beta, -alpha); break;
-				case 38: score = -negamax<false, 38>(board, -beta, -alpha); break;
-				case 39: score = -negamax<false, 39>(board, -beta, -alpha); break;
-				default:
-                    throw std::runtime_error("Requested depth is not yet implemented!");
-                    break;
-				}
-				break;
-			}
-
+            int score;
+            if (turn)
+            {
+                score = -negamax<false>(board, depth - 1, -beta, -alpha);
+            }
+            else
+            {
+                score = -negamax<true>(board, depth - 1, -beta, -alpha);
+            }
             board.unmakeMove();
 
 			if (m_timeout) return;
@@ -475,9 +380,14 @@ private:
         }
     }
 
-	template<bool Turn, int Depth>
-    int negamax(BoardState& board, int alpha, int beta)
+	template<bool Turn>
+    int negamax(BoardState& board, int depth, int alpha, int beta)
     {
+		if (depth == 0)
+		{
+			return quiescence<Turn>(board, alpha, beta);
+		}
+
 		if (m_timeout) return 0;
 
 		int originalAlpha = alpha;
@@ -493,7 +403,7 @@ private:
 		#endif
 
 		TTEntry::SmpData& data = m_ttTable.retrieve(board.zobristKey);
-		if (data.depth >= Depth) // data.depth will be 0 if null result is found and thus it will never be used as 'Depth' is always >= 1 during the main search
+		if (data.depth >= depth) // data.depth will be 0 if null result is found and thus it will never be used as 'depth' is always >= 1 during the main search
 		{
 			int ttScore = data.score;
 
@@ -525,7 +435,7 @@ private:
         {
             if (mg.inCheck)
             {
-                constexpr int MATESCORE = -19000 - Depth;
+                const int MATESCORE = -19000 - depth;
                 return MATESCORE;
             }
             else
@@ -545,7 +455,7 @@ private:
         {
 			Move& move = moves[i];
 			board.makeMove(move);
-			int score = -negamax<!Turn, Depth - 1>(board, -beta, -alpha);
+			int score = -negamax<!Turn>(board, depth - 1, -beta, -alpha);
 			board.unmakeMove();
 
 			if (m_timeout) return 0;
@@ -559,7 +469,7 @@ private:
 				
 				if (score >= beta) 
 				{
-					m_ttTable.store(board.zobristKey, TTEntry::SmpData{ static_cast<int16_t>(score), static_cast<uint8_t>(Depth), TTEntry::LOWERBOUND, move });
+					m_ttTable.store(board.zobristKey, TTEntry::SmpData{ static_cast<int16_t>(score), static_cast<int8_t>(depth), TTEntry::LOWERBOUND, move });
 					return score; 
 				}
 			}
@@ -572,7 +482,7 @@ private:
 		else if (bestScore >= beta) newEntryData.flags = TTEntry::LOWERBOUND;
 		else newEntryData.flags = TTEntry::EXACT;
 
-		newEntryData.depth = Depth;
+		newEntryData.depth = depth;
 		newEntryData.move = bestMoveInCurrentSearch;
 
 		m_ttTable.store(board.zobristKey, newEntryData);
@@ -628,17 +538,7 @@ private:
         return alpha;
     }
 
-	template<>
-	int negamax<true, 0>(BoardState& board, int alpha, int beta) 
-	{
-		return quiescence<true>(board, alpha, beta);
-	}
 
-	template<>
-	int negamax<false, 0>(BoardState& board, int alpha, int beta) 
-	{
-		return quiescence<false>(board, alpha, beta);
-	}
 
 	std::random_device dev;
     std::mt19937 rng;

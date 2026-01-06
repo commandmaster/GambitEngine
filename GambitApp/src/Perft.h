@@ -32,13 +32,13 @@ static uint64_t _perft(MoveGenerator& moveGen, BoardState& board)
 }
 
 template<>
-static uint64_t _perft<true, 0>(MoveGenerator& moveGen, BoardState& board)
+uint64_t _perft<true, 0>(MoveGenerator& moveGen, BoardState& board)
 {
 	return 1ULL;
 }
 
 template<>
-static uint64_t _perft<false, 0>(MoveGenerator& moveGen, BoardState& board)
+uint64_t _perft<false, 0>(MoveGenerator& moveGen, BoardState& board)
 {
 	return 1ULL;
 }

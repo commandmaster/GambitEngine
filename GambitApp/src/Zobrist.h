@@ -2,6 +2,10 @@
 
 #include <stdint.h>
 
+#if !defined(_MSC_VER) && !defined(__forceinline)
+#define __forceinline inline __attribute__((always_inline))
+#endif
+
 #define U64(u) (u##ULL)
 
 constexpr uint64_t Random64[781] = {
