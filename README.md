@@ -66,9 +66,10 @@
    cd GambitEngine
    ```
 
-2. Generate Visual Studio solution:
+2. Generate Visual Studio solution and Install Vulkan SDK (Windows):
    ```bash
-   vendor\premake\premake5.exe vs2022
+   cd Scripts/
+   .\Setup-GambitEngine.bat
    ```
 
 3. Open `GambitEngine.sln` in Visual Studio and build.
