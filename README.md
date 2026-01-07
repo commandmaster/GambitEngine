@@ -18,6 +18,9 @@
 
 ---
 
+<img src="GameBoard.png" alt="Image of a chess board on which white has taken the first move." width="50%" height="50%"><img>
+![Board Settings Image](BoardSettings.png)
+
 ## Features
 
 ### Search
