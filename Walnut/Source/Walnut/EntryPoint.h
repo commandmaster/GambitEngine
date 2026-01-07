@@ -1,5 +1,7 @@
 #pragma once
 
+#if !defined(HEADLESS) // If it's headless the main function is defined inside GambitApp.cpp directly
+
 extern Walnut::Application* Walnut::CreateApplication(int argc, char** argv);
 bool g_ApplicationRunning = true;
 
@@ -36,3 +38,5 @@ int main(int argc, char** argv)
 }
 
 #endif // defined(WL_PLATFORM_WINDOWS) && defined(WL_DIST)
+
+#endif // !defined(HEADLESS) 

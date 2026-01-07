@@ -6,6 +6,7 @@
 
 #include "Renderer.h"
 #include "Game.h"
+#include "UCI.h"
 
 #include <filesystem>
 #include <iostream>
@@ -13,6 +14,17 @@
 #include <windows.h>
 #include <cmath>
 
+#if defined(HEADLESS)
+
+int main(int argc, char* argv[]) 
+{
+    // Optional: Check for arguments (e.g. bench, perft)
+    // For now, just start UCI loop
+    UCI::loop();
+    return 0;
+}
+
+#else
 
 Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 {
@@ -50,3 +62,6 @@ Walnut::Application* Walnut::CreateApplication(int argc, char** argv)
 	});
 	return app;
 }
+
+#endif
+

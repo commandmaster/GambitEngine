@@ -154,7 +154,7 @@ public:
 		ImGui::InputInt("AI Time Limit (ms)", (int*)&boardSettings.aiMoveLengthLimit);
 		
 		// Serial commincation:
-
+		/*
 		ImGui::Text("Serial Communication:");
 		
 		if (ImGui::InputText("Write", buf, IM_ARRAYSIZE(buf), ImGuiInputTextFlags_EnterReturnsTrue)) {
@@ -185,6 +185,8 @@ public:
 		}
 
 		ImGui::EndChild();
+
+		*/
 		
 		ImGui::End();
 

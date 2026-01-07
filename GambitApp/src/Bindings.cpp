@@ -1,3 +1,5 @@
+#ifdef PYBIND_BUILD
+
 #include <pybind11/pybind11.h>
 #include <pybind11/stl.h>
 
@@ -70,3 +72,6 @@ PYBIND11_MODULE(gambit_engine, m) {
         .def("get_best_move", &GambitBot::get_best_move, "Find the best move given depth and time limit (ms)")
         .def("get_fen", &GambitBot::get_fen, "Get current FEN string");
 }
+
+#endif
+

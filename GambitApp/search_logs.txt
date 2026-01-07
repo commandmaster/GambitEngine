@@ -155747,3 +155747,38 @@ Iteration depth: 8 Best move so far: f6d5 with evaluation of 281 for black. Time
 Search fully completed up to depth: 9 Time taken: 1013ms
 Best move is f6d5 - Eval: 281
  ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e2e4
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g1f3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is f1b5
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is g1f3
+ ----Search End----
+
+ ----Search Start---- 
+Max depth of: 100 - Max time allowed: 1000ms 
+
+Search skipped... Move found in opening table.
+Best move is e2e4
+ ----Search End----

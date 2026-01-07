@@ -10,11 +10,15 @@
 #include <iterator>
 #include <memory>
 #include <numeric>
-#include <popcntintrin.h>
+
 
 #ifndef _MSC_VER
+#include <popcntintrin.h>
 #define __popcnt64 _mm_popcnt_u64
+#else
+#include <intrin.h>
 #endif
+
 
 #include "Board.h"
 #include "MoveGenerator.h"
