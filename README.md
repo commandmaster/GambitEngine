@@ -74,6 +74,8 @@
 
 3. Open `GambitEngine.sln` in Visual Studio and build.
 
+**Note**: If you are getting linker errors saying multiply defined symbols, you may need to disable vcpkg for the project. This has happend to me a few times.
+
 ### Dependencies (included as submodules)
 
 - [Walnut](https://github.com/TheCherno/Walnut)
